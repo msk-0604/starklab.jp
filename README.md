@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stark Lab
 
-## Getting Started
+中小企業・個人事業主向け、サブスクリプション型ホームページ制作サービスのランディングページです。
 
-First, run the development server:
+## 技術スタック
+
+- Next.js 16（App Router）
+- TypeScript
+- Tailwind CSS v4
+- Vercel デプロイ想定
+
+## はじめに
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 で確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 編集ポイント
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 所在地・電話番号
 
-## Learn More
+`src/lib/site.ts` の以下を編集してください。
 
-To learn more about Next.js, take a look at the following resources:
+- `address`
+- `phone`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### サイトURL（本番）
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`.env.local` に設定します。
 
-## Deploy on Vercel
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### お問い合わせメール送信（任意）
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+未設定でもフォームはバリデーション後に受付完了します。本番でメール送信する場合は Resend を利用できます。
+
+```bash
+RESEND_API_KEY=re_xxxx
+CONTACT_FROM_EMAIL=noreply@your-domain.com
+```
+
+## ページ構成
+
+| パス | 内容 |
+|------|------|
+| `/` | LP（ヒーロー〜お問い合わせ） |
+| `/terms` | 利用規約 |
+| `/privacy` | プライバシーポリシー |
+| `/tokushoho` | 特定商取引法に基づく表記 |
+| `/sitemap.xml` | サイトマップ |
+| `/robots.txt` | robots |
+
+## デプロイ（Vercel）
+
+1. GitHub にリポジトリを push
+2. [Vercel](https://vercel.com) で Import
+3. 環境変数 `NEXT_PUBLIC_SITE_URL` を設定
+4. Deploy
+
+## スクリプト
+
+```bash
+npm run dev      # 開発サーバー
+npm run build    # 本番ビルド
+npm run start    # 本番起動
+npm run lint     # ESLint
+```
