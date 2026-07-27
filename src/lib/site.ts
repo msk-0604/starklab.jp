@@ -1,6 +1,6 @@
 /**
  * Stark Lab サイト設定
- * 所在地・電話番号など、後から編集する項目はここを更新してください。
+ * ※ 所在地・電話番号は特定商取引法に基づく表記ページのみで使用します。
  */
 export const siteConfig = {
   name: "Stark Lab",
@@ -10,10 +10,10 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://starklab.jp",
   owner: "山本 真樹",
   email: "yamamasaki0604@icloud.com",
-  /** 後から編集してください */
-  address: "※準備中（後から編集してください）",
-  /** 後から編集してください */
-  phone: "※準備中（後から編集してください）",
+  /** 特商法ページのみ表示 */
+  address: "滋賀県大津市坂本6丁目15-28",
+  /** 特商法ページのみ表示 */
+  phone: "080-9064-0604",
   pricing: {
     initial: 0,
     monthly: 22000,

@@ -38,21 +38,45 @@ export default function TermsPage() {
         <p>
           初期費用は0円（税込）、月額料金は22,000円（税込）とします。お支払いはクレジットカード（Stripe）によるものとします。料金改定がある場合は、事前にお知らせします。
         </p>
+        <p>
+          サービスの性質上、制作開始後のお客様都合による返金はお受けしておりません。
+        </p>
       </LegalSection>
 
-      <LegalSection title="第5条（お客様の協力）">
+      <LegalSection title="第5条（契約期間）">
+        <p>最低契約期間は12か月とします。</p>
+        <p>
+          12か月経過後は、1か月ごとの自動更新とします。
+        </p>
+      </LegalSection>
+
+      <LegalSection title="第6条（解約）">
+        <p>
+          解約を希望する場合は、次回更新日の30日前までにメール（
+          {siteConfig.email}
+          ）にてご連絡ください。
+        </p>
+        <p>
+          最低契約期間（12か月）内に解約される場合でも、残りの契約期間分の利用料金をお支払いいただきます。
+        </p>
+        <p>
+          12か月経過後は、1か月ごとの自動更新とし、次回更新日の30日前までに解約のご連絡をいただいた場合に、当該更新日をもって契約を終了します。
+        </p>
+      </LegalSection>
+
+      <LegalSection title="第7条（お客様の協力）">
         <p>
           お客様は、制作・更新に必要な原稿、画像、ロゴ、連絡先情報等を、合理的な期間内にご提供いただくものとします。ご提供の遅延により制作が遅れる場合があることをご了承ください。
         </p>
       </LegalSection>
 
-      <LegalSection title="第6条（知的財産権）">
+      <LegalSection title="第8条（知的財産権）">
         <p>
           本サービスにより制作された成果物の取扱いは、個別契約に定めるとおりとします。お客様から提供された素材の権利はお客様に帰属し、当サービスは本サービスの提供に必要な範囲でのみ使用します。
         </p>
       </LegalSection>
 
-      <LegalSection title="第7条（禁止事項）">
+      <LegalSection title="第9条（禁止事項）">
         <p>お客様は、以下の行為を行ってはなりません。</p>
         <ul className="list-disc space-y-1 pl-5">
           <li>法令または公序良俗に反する行為</li>
@@ -63,25 +87,19 @@ export default function TermsPage() {
         </ul>
       </LegalSection>
 
-      <LegalSection title="第8条（契約の解除）">
-        <p>
-          お客様または当サービスは、契約内容に定める方法により契約を解除できます。料金の精算、データの取扱い等は契約内容に従います。
-        </p>
-      </LegalSection>
-
-      <LegalSection title="第9条（免責）">
+      <LegalSection title="第10条（免責）">
         <p>
           当サービスは、本サービスの提供にあたって合理的な注意を払いますが、通信障害、第三者サービスの停止、不可抗力等により生じた損害について、当サービスに故意または重過失がある場合を除き責任を負いません。
         </p>
       </LegalSection>
 
-      <LegalSection title="第10条（規約の変更）">
+      <LegalSection title="第11条（規約の変更）">
         <p>
           当サービスは、必要に応じて本規約を変更できます。変更後の規約は、本サイト上に掲載した時点から効力を生じるものとします。
         </p>
       </LegalSection>
 
-      <LegalSection title="第11条（お問い合わせ）">
+      <LegalSection title="第12条（お問い合わせ）">
         <p>
           本規約に関するお問い合わせは、{siteConfig.email}{" "}
           までご連絡ください。

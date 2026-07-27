@@ -50,9 +50,10 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <div className="ml-2 flex-1 rounded-full bg-white px-3 py-1 text-center text-[11px] text-muted">
-                  starklab.example
-                </div>
+                <div
+                  className="ml-2 h-5 flex-1 rounded-full bg-white"
+                  aria-hidden="true"
+                />
               </div>
               <div className="space-y-5 bg-gradient-to-b from-white to-surface p-6 sm:p-8">
                 <div className="h-3 w-24 rounded-full bg-accent/20" />

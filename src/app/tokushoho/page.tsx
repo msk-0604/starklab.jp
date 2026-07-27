@@ -11,16 +11,8 @@ export const metadata: Metadata = {
 const rows = [
   { label: "販売事業者", value: siteConfig.name },
   { label: "運営責任者", value: siteConfig.owner },
-  {
-    label: "所在地",
-    value: siteConfig.address,
-    note: "src/lib/site.ts の address を編集してください",
-  },
-  {
-    label: "電話番号",
-    value: siteConfig.phone,
-    note: "src/lib/site.ts の phone を編集してください",
-  },
+  { label: "所在地", value: siteConfig.address },
+  { label: "電話番号", value: siteConfig.phone },
   { label: "メールアドレス", value: siteConfig.email },
   {
     label: "販売価格",
@@ -28,15 +20,17 @@ const rows = [
   },
   { label: "支払い方法", value: siteConfig.paymentMethod },
   { label: "サービス提供時期", value: "契約後、制作開始" },
-  { label: "返品・キャンセル", value: "契約内容に基づきます。" },
+  {
+    label: "返品・キャンセル",
+    value:
+      "本サービスはデジタルサービスのため、サービス提供開始後のお客様都合による返品・返金はお受けできません。\n最低契約期間は12か月です。\n解約をご希望の場合は、次回更新日の30日前までにメールにてご連絡ください。",
+  },
 ] as const;
 
 export default function TokushohoPage() {
   return (
     <LegalPage title="特定商取引法に基づく表記">
-      <p>
-        特定商取引法に基づき、以下のとおり表記します。所在地・電話番号は、公開準備が整い次第、サイト設定より更新します。
-      </p>
+      <p>特定商取引法に基づき、以下のとおり表記します。</p>
 
       <div className="overflow-hidden rounded-[1.25rem] border border-border">
         <dl>
@@ -52,11 +46,6 @@ export default function TokushohoPage() {
               </dt>
               <dd className="whitespace-pre-line text-[15px] text-muted">
                 {row.value}
-                {"note" in row && row.note ? (
-                  <span className="mt-2 block text-xs text-muted/80">
-                    ※ {row.note}
-                  </span>
-                ) : null}
               </dd>
             </div>
           ))}

@@ -22,10 +22,9 @@ http://localhost:3000 で確認できます。
 
 ### 所在地・電話番号
 
-`src/lib/site.ts` の以下を編集してください。
+特定商取引法に基づく表記ページ（`/tokushoho`）のみに表示されます。トップ・フッターには出しません。
 
-- `address`
-- `phone`
+`src/lib/site.ts` の `address` / `phone` で管理しています。
 
 ### サイトURL（本番）
 
