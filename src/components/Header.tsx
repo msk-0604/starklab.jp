@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navLinks, siteConfig } from "@/lib/site";
@@ -34,10 +35,17 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
         <Link
           href="/"
-          className="font-display text-[17px] font-bold tracking-tight text-foreground"
+          className="flex items-center"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name}
+          <Image
+            src="/brand/stark-lab-logo-mark.png"
+            alt={siteConfig.name}
+            width={629}
+            height={450}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="メインナビ">
@@ -54,7 +62,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <Button href="/#contact" className="!px-5 !py-2.5 text-sm">
-            無料相談
+            相談する
           </Button>
         </div>
 
@@ -110,7 +118,7 @@ export function Header() {
               className="inline-flex w-full items-center justify-center rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white shadow-[var(--shadow-cta)]"
               onClick={() => setOpen(false)}
             >
-              無料相談はこちら
+              相談する
             </Link>
           </div>
         </nav>

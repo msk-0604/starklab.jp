@@ -1,6 +1,6 @@
 "use server";
 
-import { siteConfig } from "@/lib/site";
+import { contactTopics, siteConfig } from "@/lib/site";
 
 export type ContactState = {
   ok: boolean;
@@ -12,10 +12,15 @@ function asString(value: FormDataEntryValue | null): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+const topicLabels = Object.fromEntries(
+  contactTopics.map((topic) => [topic.value, topic.label]),
+) as Record<string, string>;
+
 export async function submitContact(
   _prev: ContactState,
   formData: FormData,
 ): Promise<ContactState> {
+  const topic = asString(formData.get("topic"));
   const company = asString(formData.get("company"));
   const name = asString(formData.get("name"));
   const email = asString(formData.get("email"));
@@ -29,17 +34,18 @@ export async function submitContact(
 
   const errors: Record<string, string> = {};
 
-  if (!company) errors.company = "会社名を入力してください。";
+  if (!topic || !topicLabels[topic]) {
+    errors.topic = "相談内容を選択してください。";
+  }
   if (!name) errors.name = "お名前を入力してください。";
   if (!email) {
     errors.email = "メールアドレスを入力してください。";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     errors.email = "メールアドレスの形式が正しくありません。";
   }
-  if (!phone) errors.phone = "電話番号を入力してください。";
-  if (!message) errors.message = "お問い合わせ内容を入力してください。";
+  if (!message) errors.message = "ご相談内容を入力してください。";
   if (message.length > 2000) {
-    errors.message = "お問い合わせ内容は2000文字以内で入力してください。";
+    errors.message = "ご相談内容は2000文字以内で入力してください。";
   }
 
   if (Object.keys(errors).length > 0) {
@@ -49,6 +55,8 @@ export async function submitContact(
       errors,
     };
   }
+
+  const topicLabel = topicLabels[topic] ?? topic;
 
   // 本番では Resend 等のメール送信 API を接続できます。
   // RESEND_API_KEY が未設定の場合はバリデーション通過後に受付完了とします。
@@ -65,12 +73,13 @@ export async function submitContact(
           from: process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev",
           to: [siteConfig.email],
           reply_to: email,
-          subject: `【${siteConfig.name}】お問い合わせ：${name}様`,
+          subject: `【${siteConfig.name}】${topicLabel}：${name}様`,
           text: [
-            `会社名: ${company}`,
+            `相談内容: ${topicLabel}`,
+            `会社名: ${company || "（未記入）"}`,
             `お名前: ${name}`,
             `メール: ${email}`,
-            `電話: ${phone}`,
+            `電話: ${phone || "（未記入）"}`,
             "",
             "お問い合わせ内容:",
             message,
@@ -95,7 +104,14 @@ export async function submitContact(
       };
     }
   } else {
-    console.info("[contact]", { company, name, email, phone, message });
+    console.info("[contact]", {
+      topic: topicLabel,
+      company,
+      name,
+      email,
+      phone,
+      message,
+    });
   }
 
   return {

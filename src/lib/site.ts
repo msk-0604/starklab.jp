@@ -4,9 +4,15 @@
  */
 export const siteConfig = {
   name: "Stark Lab",
-  tagline: "初期費用0円。月額22,000円でホームページ制作。",
+  concept: "建設業に特化したホームページ制作・DXパートナー",
+  tagline: "建設業に特化したホームページ制作・DXパートナー",
   description:
-    "制作・公開・保守・更新まで全てお任せ。中小企業・個人事業主向けの定額ホームページ制作サービスです。",
+    "水道・設備・電気・建築など建設業に特化したホームページ制作、SEO・MEO、保守運用、現場管理・図面管理、AI活用までワンストップで支援。全国対応。",
+  coverage: "全国対応",
+  coverageNote:
+    "オンラインで全国の建設会社様をご支援しています。拠点は滋賀県ですが、対応エリアに制限はありません。",
+  location: "滋賀県",
+  responseNote: "2営業日以内を目安にご返信します",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://starklab.jp",
   owner: "山本 真樹",
   email: "yamamasaki0604@icloud.com",
@@ -14,6 +20,7 @@ export const siteConfig = {
   address: "滋賀県大津市坂本6丁目15-28",
   /** 特商法ページのみ表示 */
   phone: "080-9064-0604",
+  /** 特商法・利用規約のみで使用。公開ページでは表示しない */
   pricing: {
     initial: 0,
     monthly: 22000,
@@ -22,62 +29,84 @@ export const siteConfig = {
   paymentMethod: "クレジットカード（Stripe）",
 } as const;
 
-export const services = [
-  { title: "ホームページ制作", description: "業種に合わせたデザインで制作します" },
-  { title: "スマホ対応", description: "全ページをレスポンシブ対応" },
-  { title: "お問い合わせフォーム", description: "集客につながるフォームを設置" },
-  { title: "SSL対応", description: "安全なHTTPS通信を標準装備" },
-  { title: "SEO基本設定", description: "検索エンジン向けの基本設定" },
-  { title: "保守管理", description: "公開後の安定運用をサポート" },
-  { title: "更新サポート", description: "テキストや画像の更新に対応" },
-  { title: "高速表示", description: "表示速度を重視した構成" },
-  { title: "サーバー管理", description: "サーバーの運用管理を代行" },
-  { title: "ドメイン管理", description: "ドメインの取得・管理もお任せ" },
+/** ワンストップで提供するサービス */
+export const offerings = [
+  {
+    id: "homepage",
+    title: "ホームページ制作",
+    description:
+      "業種の強みと問い合わせ導線を設計した、建設業向けコーポレートサイト。",
+  },
+  {
+    id: "seo",
+    title: "SEO対策",
+    description:
+      "地域・業種キーワードで見つかるための基本設計と継続的な改善。",
+  },
+  {
+    id: "meo",
+    title: "MEO対策",
+    description:
+      "Googleビジネスプロフィールを整え、地域のお客様からの発見を後押し。",
+  },
+  {
+    id: "maintenance",
+    title: "保守・運用",
+    description:
+      "公開後の更新・セキュリティ・表示速度まで、運用を継続サポート。",
+  },
+  {
+    id: "kensapo",
+    title: "KenSapo",
+    description:
+      "現場・写真・工程・予定・日報・通知をまとめる建設業向け現場管理。",
+  },
+  {
+    id: "drawstock",
+    title: "DrawStock",
+    description:
+      "図面共有・PDF管理・検索・権限管理をクラウドで実現する図面管理。",
+  },
+  {
+    id: "ai",
+    title: "AI活用",
+    description:
+      "業務効率化やコンテンツ制作など、建設業の現場に合うAI活用を支援。",
+  },
 ] as const;
 
-export const pricingIncludes = [
-  "ホームページ制作",
-  "サーバー管理",
-  "ドメイン管理",
-  "SSL",
-  "保守",
-  "更新対応",
-  "バックアップ",
-  "スマホ対応",
+/** ターゲット業種 */
+export const industries = [
+  "水道工事会社",
+  "設備工事会社",
+  "電気工事会社",
+  "空調設備会社",
+  "消防設備会社",
+  "建築会社",
+  "土木会社",
+  "塗装会社",
+  "リフォーム会社",
+  "解体会社",
+  "造園会社",
+  "その他建設業",
 ] as const;
 
-export const processSteps = [
-  { step: 1, title: "お問い合わせ", description: "フォームまたはメールでご連絡ください" },
-  { step: 2, title: "ヒアリング", description: "ご要望・業種・目標を丁寧にお伺いします" },
-  { step: 3, title: "デザイン・制作", description: "構成からデザイン、コーディングまで制作" },
-  { step: 4, title: "公開", description: "内容をご確認のうえ、サイトを公開します" },
-  { step: 5, title: "運用・保守開始", description: "更新・保守を継続的にサポートします" },
-] as const;
-
-export const faqs = [
-  {
-    question: "初期費用は本当に0円ですか？",
-    answer: "はい。初期費用はいただいておりません。",
-  },
-  {
-    question: "更新もお願いできますか？",
-    answer: "はい。更新対応も月額料金に含まれています。",
-  },
-  {
-    question: "スマホ対応していますか？",
-    answer: "全ページ標準対応です。",
-  },
-  {
-    question: "SEO対策はありますか？",
-    answer: "基本的なSEO設定を行います。",
-  },
+/** 問い合わせの相談種別 */
+export const contactTopics = [
+  { value: "homepage", label: "ホームページ制作について" },
+  { value: "seo-meo", label: "SEO・MEOについて" },
+  { value: "maintenance", label: "保守・運用について" },
+  { value: "kensapo", label: "KenSapo（現場管理）について" },
+  { value: "drawstock", label: "DrawStock（図面管理）について" },
+  { value: "ai", label: "AI活用について" },
+  { value: "other", label: "その他・まとめて相談" },
 ] as const;
 
 export const navLinks = [
   { href: "/#services", label: "サービス" },
-  { href: "/#pricing", label: "料金" },
-  { href: "/#process", label: "制作の流れ" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/works", label: "Works" },
+  { href: "/areas", label: "対応エリア" },
   { href: "/#contact", label: "お問い合わせ" },
 ] as const;
 

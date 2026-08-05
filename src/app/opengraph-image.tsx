@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site";
 
-export const alt = `${siteConfig.name} - 初期費用0円の定額ホームページ制作`;
+export const alt = `${siteConfig.name} - ${siteConfig.concept}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -25,25 +25,9 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
+            justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              width: 48,
-              height: 48,
-              borderRadius: 12,
-              background: "#0071e3",
-              color: "white",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 26,
-              fontWeight: 700,
-            }}
-          >
-            S
-          </div>
           <div
             style={{
               fontSize: 36,
@@ -54,44 +38,54 @@ export default function OpenGraphImage() {
           >
             {siteConfig.name}
           </div>
+          <div
+            style={{
+              fontSize: 18,
+              fontWeight: 700,
+              color: "#2563eb",
+              padding: "8px 16px",
+              borderRadius: 999,
+              background: "rgba(37,99,235,0.08)",
+            }}
+          >
+            {siteConfig.coverage}
+          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div
             style={{
-              fontSize: 52,
+              fontSize: 48,
               fontWeight: 700,
               color: "#1d1d1f",
               lineHeight: 1.25,
               letterSpacing: "-0.03em",
-              maxWidth: 920,
+              maxWidth: 980,
             }}
           >
-            初期費用0円。月額22,000円でホームページ制作。
+            {siteConfig.concept}
           </div>
           <div
             style={{
-              fontSize: 26,
+              fontSize: 24,
               color: "#86868b",
               lineHeight: 1.5,
-              maxWidth: 860,
+              maxWidth: 900,
             }}
           >
-            制作・公開・保守・更新まで全てお任せ
+            ホームページ制作 / SEO / MEO / 保守運用 / KenSapo / DrawStock / AI
           </div>
         </div>
 
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            gap: 12,
-            color: "#0071e3",
+            color: "#2563eb",
             fontSize: 22,
             fontWeight: 600,
           }}
         >
-          中小企業・個人事業主向け 定額ホームページ制作
+          水道・設備・電気・建築など建設業に特化
         </div>
       </div>
     ),
