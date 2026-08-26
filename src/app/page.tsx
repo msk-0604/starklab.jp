@@ -6,7 +6,7 @@ import { Industries } from "@/components/Industries";
 import { InquiryBand } from "@/components/InquiryBand";
 import { OurProjects } from "@/components/OurProjects";
 import { ServiceOfferings } from "@/components/ServiceOfferings";
-import { organizationJsonLd } from "@/lib/seo";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
   return (
@@ -15,6 +15,12 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(organizationJsonLd()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteJsonLd()),
         }}
       />
       <main className="flex-1 pb-20 md:pb-0">

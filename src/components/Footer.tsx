@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site";
 
 const footerLinks = [
   { href: "/works", label: "Works" },
+  { href: "/media", label: "Media" },
   { href: "/areas", label: "対応エリア" },
   { href: "/terms", label: "利用規約" },
   { href: "/privacy", label: "プライバシーポリシー" },
@@ -19,6 +20,9 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <p className="font-display text-lg font-bold tracking-tight text-foreground">
           {siteConfig.name}
+          <span className="ml-2 text-sm font-medium text-muted">
+            （{siteConfig.nameJa}）
+          </span>
         </p>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
           {siteConfig.concept}

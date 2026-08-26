@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllAreas } from "@/lib/areas";
+import { listPublishedSlugs } from "@/lib/media";
 import { getAllProjects } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;
   const lastModified = new Date();
 
@@ -21,6 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const mediaSlugs = await listPublishedSlugs();
+  const mediaEntries = mediaSlugs.map((slug) => ({
+    url: `${base}/media/${slug}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
   return [
     { url: base, lastModified, changeFrequency: "weekly", priority: 1 },
     {
@@ -30,6 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...projectEntries,
+    {
+      url: `${base}/media`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    ...mediaEntries,
     {
       url: `${base}/areas`,
       lastModified,

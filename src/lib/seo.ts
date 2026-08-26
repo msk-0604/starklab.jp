@@ -90,9 +90,12 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: siteConfig.name,
+    alternateName: [siteConfig.nameJa, "すたーくらぼ", "StarkLab"],
     description: siteConfig.description,
     url: siteConfig.url,
     email: siteConfig.email,
+    logo: `${siteConfig.url}/brand/stark-lab-logo.png`,
+    image: `${siteConfig.url}/brand/stark-lab-logo.png`,
     areaServed: [
       { "@type": "Country", name: "Japan" },
       ...getAllAreas().map((area) => ({
@@ -100,13 +103,33 @@ export function organizationJsonLd() {
         name: area.name,
       })),
     ],
-    knowsAbout: [...offerings.map((item) => item.title), ...industries],
+    knowsAbout: [
+      ...offerings.map((item) => item.title),
+      ...industries,
+      siteConfig.nameJa,
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: siteConfig.email,
       availableLanguage: "Japanese",
       areaServed: "JP",
+    },
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    alternateName: [siteConfig.nameJa, "すたーくらぼ"],
+    url: siteConfig.url,
+    inLanguage: "ja-JP",
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      alternateName: siteConfig.nameJa,
     },
   };
 }

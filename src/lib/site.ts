@@ -4,10 +4,11 @@
  */
 export const siteConfig = {
   name: "Stark Lab",
+  nameJa: "スタークラボ",
   concept: "建設業に特化したホームページ制作・DXパートナー",
   tagline: "建設業に特化したホームページ制作・DXパートナー",
   description:
-    "水道・設備・電気・建築など建設業に特化したホームページ制作、SEO・MEO、保守運用、現場管理・図面管理、AI活用までワンストップで支援。全国対応。",
+    "スタークラボ（Stark Lab）は、水道・設備・電気・建築など建設業に特化したホームページ制作、SEO・MEO、保守運用、現場管理・図面管理、AI活用までワンストップで支援。全国対応。",
   coverage: "全国対応",
   coverageNote:
     "オンラインで全国の建設会社様をご支援しています。拠点は滋賀県ですが、対応エリアに制限はありません。",
@@ -106,6 +107,7 @@ export const navLinks = [
   { href: "/#services", label: "サービス" },
   { href: "/#projects", label: "Projects" },
   { href: "/works", label: "Works" },
+  { href: "/media", label: "Media" },
   { href: "/areas", label: "対応エリア" },
   { href: "/#contact", label: "お問い合わせ" },
 ] as const;

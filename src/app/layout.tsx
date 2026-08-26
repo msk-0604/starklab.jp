@@ -21,12 +21,16 @@ const notoSansJp = Noto_Sans_JP({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name}｜建設業に特化したホームページ制作・DXパートナー`,
+    default: `${siteConfig.name}（${siteConfig.nameJa}）｜建設業に特化したホームページ制作・DXパートナー`,
     template: `%s｜${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
+    "スタークラボ",
+    "すたーくらぼ",
+    "Stark Lab",
+    "スターク ラボ",
     "建設業",
     "ホームページ制作",
     "SEO",
@@ -38,7 +42,6 @@ export const metadata: Metadata = {
     "滋賀",
     "大阪",
     "東京",
-    "Stark Lab",
     "KenSapo",
     "DrawStock",
   ],
@@ -57,13 +60,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name}｜建設業に特化したホームページ制作・DXパートナー`,
+    siteName: `${siteConfig.name}（${siteConfig.nameJa}）`,
+    title: `${siteConfig.name}（${siteConfig.nameJa}）｜建設業に特化したホームページ制作・DXパートナー`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name}｜建設業に特化したホームページ制作・DXパートナー`,
+    title: `${siteConfig.name}（${siteConfig.nameJa}）｜建設業に特化したホームページ制作・DXパートナー`,
     description: siteConfig.description,
   },
   robots: {
