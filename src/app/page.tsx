@@ -1,4 +1,5 @@
 import { AreasPreview } from "@/components/AreasPreview";
+import { CapabilityMarquee } from "@/components/CapabilityMarquee";
 import { Contact } from "@/components/Contact";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Hero } from "@/components/Hero";
@@ -39,6 +40,7 @@ export default function HomePage() {
       />
       <main className="flex-1 pb-20 md:pb-0">
         <Hero />
+        <CapabilityMarquee />
         <ServiceOfferings />
         <Industries />
         <OurProjects />

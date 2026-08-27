@@ -5,7 +5,7 @@ export function Industries() {
   return (
     <section id="industries" className="scroll-mt-24 bg-surface py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <ScrollReveal className="mx-auto max-w-2xl text-center">
+        <ScrollReveal className="mx-auto max-w-2xl text-center" variant="clip">
           <p className="text-sm font-semibold tracking-wide text-accent">
             Industries
           </p>
@@ -22,7 +22,7 @@ export function Industries() {
             {industries.map((industry) => (
               <li
                 key={industry}
-                className="rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-foreground shadow-[var(--shadow-card)]"
+                className="rounded-full border border-border bg-white px-4 py-2 text-sm font-medium text-foreground shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_8px_24px_rgba(37,99,235,0.12)]"
               >
                 {industry}
               </li>

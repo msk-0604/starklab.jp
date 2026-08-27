@@ -15,6 +15,7 @@
   --radius-card: 1.5rem;
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-cta: 0 8px 28px rgba(37, 99, 235, 0.35);
+  --hero-progress: 0;
 }
 
 @theme inline {
@@ -49,6 +50,10 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .marquee-track {
+    animation: none !important;
+  }
 }
 
 body {
@@ -64,88 +69,159 @@ body {
   color: var(--accent);
 }
 
-/* Scroll reveal */
-.reveal {
+/* ---------- Scroll reveal ---------- */
+.reveal,
+.reveal-fade,
+.reveal-clip {
   opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  will-change: opacity, transform, filter, clip-path;
 }
 
-.reveal.is-visible {
+.reveal {
+  transform: translateY(36px);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-fade {
+  transform: translateY(16px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-clip {
+  transform: translateY(24px);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible,
+.reveal-fade.is-visible,
+.reveal-clip.is-visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
+  clip-path: inset(0 0 0 0);
 }
 
 .reveal-delay-1 {
-  transition-delay: 80ms;
+  transition-delay: 90ms;
 }
 .reveal-delay-2 {
-  transition-delay: 160ms;
+  transition-delay: 180ms;
 }
 .reveal-delay-3 {
-  transition-delay: 240ms;
+  transition-delay: 270ms;
 }
 .reveal-delay-4 {
-  transition-delay: 320ms;
+  transition-delay: 360ms;
 }
 
-/* Hero entrance */
-@keyframes hero-fade-up {
+/* ---------- Hero ---------- */
+.hero-stage {
+  opacity: calc(1 - (var(--hero-progress) * 0.35));
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, black 20%, transparent 75%);
+  animation: grid-drift 22s linear infinite;
+}
+
+.hero-scan {
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.55), transparent);
+  animation: scan-line 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 56px 56px, 56px 56px;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    top: 12%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.7;
+  }
+  50% {
+    top: 78%;
+    opacity: 0.35;
+  }
+  100% {
+    top: 92%;
+    opacity: 0;
+  }
+}
+
+@keyframes hero-line-in {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
+    filter: blur(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-@keyframes hero-float {
-  0%,
-  100% {
-    transform: translateY(0);
+.hero-line {
+  animation: hero-line-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-line-1 {
+  animation-delay: 0.05s;
+}
+.hero-line-2 {
+  animation-delay: 0.18s;
+}
+.hero-line-3 {
+  animation-delay: 0.32s;
+}
+.hero-line-4 {
+  animation-delay: 0.46s;
+}
+.hero-line-5 {
+  animation-delay: 0.58s;
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
   }
-  50% {
-    transform: translateY(-10px);
+  to {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes soft-pulse {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.04);
-  }
+.marquee-track {
+  animation: marquee-x 28s linear infinite;
 }
 
-.animate-hero-1 {
-  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-hero-2 {
-  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
-}
-.animate-hero-3 {
-  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
-}
-.animate-hero-4 {
-  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
-}
-.animate-float {
-  animation: hero-float 6s ease-in-out infinite;
-}
-.animate-soft-pulse {
-  animation: soft-pulse 8s ease-in-out infinite;
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
-/* Contact submit CTA */
+/* ---------- Contact submit CTA ---------- */
 @keyframes submit-shine {
   0% {
     transform: translateX(-120%) skewX(-18deg);
@@ -155,9 +231,22 @@ body {
   }
 }
 
+@keyframes submit-pulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 8px 28px rgba(37, 99, 235, 0.35),
+      0 0 0 8px rgba(37, 99, 235, 0.08);
+  }
+}
+
 .btn-submit {
   position: relative;
   isolation: isolate;
+  animation: submit-pulse 2.8s ease-in-out infinite;
 }
 
 .btn-submit::before {
@@ -168,7 +257,7 @@ body {
   background: linear-gradient(
     105deg,
     transparent 35%,
-    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.3) 50%,
     transparent 65%
   );
   transform: translateX(-120%) skewX(-18deg);
@@ -182,7 +271,45 @@ body {
 
 .btn-submit:disabled {
   transform: none;
+  animation: none;
   box-shadow: none;
+}
+
+/* ---------- Inquiry band ambient ---------- */
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate(-10%, -50%) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(8%, -45%) scale(1.12);
+    opacity: 0.9;
+  }
+}
+
+.inquiry-glow {
+  animation: glow-drift 10s ease-in-out infinite;
+}
+
+.inquiry-glow-delayed {
+  animation: glow-drift 14s ease-in-out infinite reverse;
+}
+
+/* ---------- Floating CTA ---------- */
+@keyframes float-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-cta {
+  animation: float-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Focus ring */

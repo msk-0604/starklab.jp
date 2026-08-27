@@ -5,9 +5,17 @@ import { ScrollReveal } from "./ScrollReveal";
 /** プロジェクトと問い合わせのあいだに置く相談導線 */
 export function InquiryBand() {
   return (
-    <section className="border-y border-border bg-foreground py-14 sm:py-16">
-      <div className="mx-auto max-w-6xl px-5 text-center sm:px-8">
-        <ScrollReveal>
+    <section className="inquiry-band relative isolate overflow-hidden border-y border-border bg-foreground py-14 sm:py-16">
+      <div
+        className="inquiry-glow pointer-events-none absolute -left-1/4 top-1/2 h-[140%] w-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="inquiry-glow-delayed pointer-events-none absolute -right-1/4 top-1/2 h-[120%] w-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-8">
+        <ScrollReveal variant="clip">
           <h2 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
             まずは課題整理から。1通で相談できます
           </h2>

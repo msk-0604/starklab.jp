@@ -9,7 +9,7 @@ export function AreasPreview() {
   return (
     <section id="areas" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <ScrollReveal className="max-w-2xl">
+        <ScrollReveal className="max-w-2xl" variant="clip">
           <p className="text-sm font-semibold tracking-wide text-accent">
             Areas
           </p>
@@ -21,19 +21,25 @@ export function AreasPreview() {
           </p>
         </ScrollReveal>
 
-        <ul className="mt-12 flex flex-wrap gap-x-5 gap-y-2">
-          {areas.map((area) => (
-            <li key={area.slug}>
-              <Link
-                href={`/areas/${area.slug}`}
-                className="text-sm text-muted transition-colors hover:text-foreground"
-              >
-                {area.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-sm text-muted">ほか、日本全国</p>
+        <ScrollReveal delay={1}>
+          <ul className="mt-12 flex flex-wrap gap-x-5 gap-y-3">
+            {areas.map((area) => (
+              <li key={area.slug}>
+                <Link
+                  href={`/areas/${area.slug}`}
+                  className="group relative text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  {area.name}
+                  <span
+                    className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-muted">ほか、日本全国</p>
+        </ScrollReveal>
       </div>
     </section>
   );

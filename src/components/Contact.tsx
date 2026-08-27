@@ -238,10 +238,10 @@ export function Contact() {
                   <Button
                     type="submit"
                     disabled={pending}
-                    className="btn-submit group relative w-full overflow-hidden !px-8 !py-4 text-base"
+                    className="btn-submit relative w-full overflow-hidden !rounded-2xl !px-8 !py-4 text-base"
                     data-track-cta="contact"
                   >
-                    <span className="relative z-10 inline-flex items-center gap-2">
+                    <span className="relative z-10 inline-flex items-center justify-center gap-2">
                       {pending ? (
                         <>
                           <span
@@ -251,23 +251,7 @@ export function Contact() {
                           送信中…
                         </>
                       ) : (
-                        <>
-                          送信する
-                          <svg
-                            viewBox="0 0 16 16"
-                            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M3 8h10M9 4l4 4-4 4"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </>
+                        "送信する"
                       )}
                     </span>
                   </Button>

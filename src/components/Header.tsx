@@ -53,9 +53,13 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="group relative text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               {link.label}
+              <span
+                className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full"
+                aria-hidden="true"
+              />
             </Link>
           ))}
         </nav>

@@ -69,8 +69,8 @@ export function OurProjects() {
                       ))}
                     </ul>
                   ) : null}
-                  <span className="mt-8 text-sm font-semibold text-accent">
-                    詳しく見る →
+                  <span className="mt-8 text-sm font-semibold text-accent transition-colors group-hover:text-accent-hover">
+                    詳しく見る
                   </span>
                 </div>
               </Link>
@@ -83,7 +83,7 @@ export function OurProjects() {
             href="/works"
             className="text-sm font-semibold text-muted transition-colors hover:text-accent"
           >
-            すべてのプロジェクトを見る →
+            すべてのプロジェクトを見る
           </Link>
         </ScrollReveal>
       </div>
