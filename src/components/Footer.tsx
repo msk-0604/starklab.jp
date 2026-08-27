@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { getAllAreas } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
 
 const footerLinks = [
@@ -15,7 +14,6 @@ const footerLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const areas = getAllAreas();
 
   return (
     <footer className="border-t border-border bg-white">
@@ -29,27 +27,22 @@ export function Footer() {
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
           {siteConfig.concept}
           <br />
-          日本全国どこでも ／ 拠点：{siteConfig.location}
+          日本全国どこでも対応 ／ 打合せ・納品はオンライン完結
         </p>
 
         <div className="mt-8">
           <p className="text-xs font-semibold tracking-wide text-muted">
             対応エリア
           </p>
-          <p className="mt-2 text-sm text-muted">日本全国どこでも（オンライン完結）</p>
-          <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-            {areas.map((area) => (
-              <li key={area.slug}>
-                <Link
-                  href={`/areas/${area.slug}`}
-                  className="text-sm text-muted transition-colors hover:text-foreground"
-                >
-                  {area.name}
-                </Link>
-              </li>
-            ))}
-            <li className="text-sm text-muted">ほか全国</li>
-          </ul>
+          <p className="mt-2 text-sm text-muted">
+            日本全国どこでも。拠点は{siteConfig.location}ですが、エリアによる制限はありません。
+          </p>
+          <Link
+            href="/areas"
+            className="mt-3 inline-block text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+          >
+            対応エリアの詳細
+          </Link>
         </div>
 
         <nav

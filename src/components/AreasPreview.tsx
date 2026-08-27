@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { getAllAreas } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
+import { Button } from "./Button";
 import { ScrollReveal } from "./ScrollReveal";
 
 export function AreasPreview() {
-  const areas = getAllAreas();
-
   return (
     <section id="areas" className="scroll-mt-24 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -19,26 +17,17 @@ export function AreasPreview() {
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
             {siteConfig.coverageNote}
           </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={1}>
-          <ul className="mt-12 flex flex-wrap gap-x-5 gap-y-3">
-            {areas.map((area) => (
-              <li key={area.slug}>
-                <Link
-                  href={`/areas/${area.slug}`}
-                  className="group relative text-sm text-muted transition-colors hover:text-foreground"
-                >
-                  {area.name}
-                  <span
-                    className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-sm text-muted">ほか、日本全国</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button href="/#contact" className="min-w-[200px]">
+              相談する
+            </Button>
+            <Link
+              href="/areas"
+              className="text-sm font-semibold text-muted transition-colors hover:text-accent"
+            >
+              対応エリアの詳細
+            </Link>
+          </div>
         </ScrollReveal>
       </div>
     </section>

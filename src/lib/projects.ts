@@ -41,44 +41,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "alpha-kanko",
-    title: "アルファ管工",
-    category: "ホームページ制作",
-    description:
-      "滋賀県の設備工事会社様のホームページをフルリニューアル。SEO・高速表示・スマホ最適化・お問い合わせ導線を改善。",
-    tags: ["SEO", "スマホ対応", "高速表示", "お問い合わせ改善"],
-    cta: {
-      label: "サイトを見る",
-      // 公開URLが確定したらここに設定
-      // href: "https://example.com",
-    },
-    coverImage: "/works/alpha-kanko/cover.jpg",
-    desktopImages: ["/works/alpha-kanko/desktop.svg"],
-    mobileImages: ["/works/alpha-kanko/mobile.svg"],
-    overview:
-      "滋賀県で設備工事を手がけるアルファ管工様のコーポレートサイトを、ゼロベースでフルリニューアルしました。業種特有の信頼感と、スマホからの問い合わせしやすさを両立した構成です。",
-    background:
-      "既存サイトは情報の整理が難しく、スマートフォンでの閲覧や検索流入への配慮が十分ではありませんでした。地域のお客様に「安心して依頼できる会社」と伝わる顔をつくることが、今回の制作の出発点です。",
-    challenges: [
-      "スマホでの読みにくさと、問い合わせまでの導線の不明瞭さ",
-      "施工内容・対応エリア・会社の強みが伝わりにくい構成",
-      "表示速度とSEOの基本設定が不足していた点",
-    ],
-    improvements: [
-      "業種に合わせた構成とコピーで、強みと実績が一目で伝わるトップページに再設計",
-      "お問い合わせ・電話導線を各所に配置し、コンバージョンまでの距離を短縮",
-      "高速表示と、SEO・メタ情報・構造化の整備",
-      "スマホ最適化により、現場からの閲覧にも対応",
-    ],
-    highlights: ["SEO対策", "スマホ対応", "高速表示", "お問い合わせ導線"],
-    relatedSlugs: ["stark-lab", "kensapo"],
-    seo: {
-      title: "アルファ管工｜ホームページ制作実績",
-      description:
-        "滋賀県の設備工事会社・アルファ管工様のホームページフルリニューアル実績。SEO・高速表示・スマホ最適化・お問い合わせ導線を改善した制作事例です。",
-    },
-  },
-  {
     slug: "kensapo",
     title: "KenSapo",
     category: "現場管理システム",
@@ -115,7 +77,7 @@ export const projects: Project[] = [
       "リアルタイム共有と、運用しやすいクラウド基盤を整備",
     ],
     highlights: ["クラウド運用", "権限管理", "スマホ対応", "リアルタイム共有"],
-    relatedSlugs: ["drawstock", "alpha-kanko"],
+    relatedSlugs: ["drawstock", "stark-lab"],
     seo: {
       title: "KenSapo｜建設業向け現場管理システム",
       description:
@@ -189,7 +151,7 @@ export const projects: Project[] = [
       "スマホ最適化と高速表示を前提とした実装",
     ],
     highlights: ["SEO", "ホームページ制作", "MEO", "スマホ対応"],
-    relatedSlugs: ["alpha-kanko", "kensapo"],
+    relatedSlugs: ["drawstock", "kensapo"],
     seo: {
       title: "Stark Lab｜自社ホームページ制作実績",
       description:
