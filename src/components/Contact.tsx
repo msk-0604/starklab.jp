@@ -234,9 +234,47 @@ export function Contact() {
                   </p>
                 ) : null}
 
-                <Button type="submit" disabled={pending} className="w-full sm:w-auto" data-track-cta="contact">
-                  {pending ? "送信中…" : "送信する"}
-                </Button>
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    disabled={pending}
+                    className="btn-submit group relative w-full overflow-hidden !px-8 !py-4 text-base"
+                    data-track-cta="contact"
+                  >
+                    <span className="relative z-10 inline-flex items-center gap-2">
+                      {pending ? (
+                        <>
+                          <span
+                            className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
+                            aria-hidden="true"
+                          />
+                          送信中…
+                        </>
+                      ) : (
+                        <>
+                          送信する
+                          <svg
+                            viewBox="0 0 16 16"
+                            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M3 8h10M9 4l4 4-4 4"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </>
+                      )}
+                    </span>
+                  </Button>
+                  <p className="mt-3 text-center text-xs text-muted">
+                    送信後、担当者よりご連絡します（{siteConfig.responseNote}）
+                  </p>
+                </div>
               </div>
             </form>
           </ScrollReveal>

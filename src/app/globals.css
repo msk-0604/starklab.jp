@@ -145,6 +145,46 @@ body {
   animation: soft-pulse 8s ease-in-out infinite;
 }
 
+/* Contact submit CTA */
+@keyframes submit-shine {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+.btn-submit {
+  position: relative;
+  isolation: isolate;
+}
+
+.btn-submit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%) skewX(-18deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-submit:hover:not(:disabled)::before {
+  animation: submit-shine 0.85s ease-out;
+}
+
+.btn-submit:disabled {
+  transform: none;
+  box-shadow: none;
+}
+
 /* Focus ring */
 :focus-visible {
   outline: 2px solid var(--accent);
