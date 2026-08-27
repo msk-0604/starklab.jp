@@ -5,14 +5,11 @@ import { useEffect, useState } from "react";
 
 /** スマホ下部の相談ボタン。フォーム付近では隠す */
 export function FloatingContact() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const contact = document.getElementById("contact");
-    if (!contact) {
-      setVisible(true);
-      return;
-    }
+    if (!contact) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

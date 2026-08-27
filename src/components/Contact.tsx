@@ -1,8 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitContact, type ContactState } from "@/app/actions/contact";
 import { contactTopics, siteConfig } from "@/lib/site";
+import { getAttributionSnapshot, resolveSourceArticleSlug } from "@/lib/attribution";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "./Button";
 import { ScrollReveal } from "./ScrollReveal";
 
@@ -19,6 +21,30 @@ export function Contact() {
     submitContact,
     initialState,
   );
+  const startedRef = useRef(false);
+
+  useEffect(() => {
+    syncAttrHiddenFields();
+  }, []);
+
+  useEffect(() => {
+    if (state.ok) {
+      void trackEvent({
+        event_name: "contact_submit",
+        article_slug: resolveSourceArticleSlug(getAttributionSnapshot()) || null,
+        skipIngest: true,
+      });
+    }
+  }, [state.ok]);
+
+  const onFocusCapture = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    void trackEvent({
+      event_name: "contact_start",
+      article_slug: resolveSourceArticleSlug(getAttributionSnapshot()) || null,
+    });
+  };
 
   return (
     <section id="contact" className="scroll-mt-24 border-t border-border bg-surface py-20 sm:py-28">
@@ -89,9 +115,25 @@ export function Contact() {
           <ScrollReveal delay={1}>
             <form
               action={formAction}
+              onFocusCapture={onFocusCapture}
+              onSubmit={() => syncAttrHiddenFields()}
               className="rounded-[var(--radius-card)] border border-border bg-white p-6 shadow-[var(--shadow-card)] sm:p-8"
             >
-              <div className="space-y-5">
+              {/* Attribution — synced via syncAttrHiddenFields on mount/focus/submit */}
+              <input type="hidden" name="source_article_slug" defaultValue="" id="attr_source_article_slug" />
+              <input type="hidden" name="first_touch_slug" defaultValue="" id="attr_first_touch_slug" />
+              <input type="hidden" name="last_touch_slug" defaultValue="" id="attr_last_touch_slug" />
+              <input type="hidden" name="landing_page" defaultValue="" id="attr_landing_page" />
+              <input type="hidden" name="referrer" defaultValue="" id="attr_referrer" />
+              <input type="hidden" name="utm_source" defaultValue="" id="attr_utm_source" />
+              <input type="hidden" name="utm_medium" defaultValue="" id="attr_utm_medium" />
+              <input type="hidden" name="utm_campaign" defaultValue="" id="attr_utm_campaign" />
+              <input type="hidden" name="utm_term" defaultValue="" id="attr_utm_term" />
+              <input type="hidden" name="utm_content" defaultValue="" id="attr_utm_content" />
+              <input type="hidden" name="session_id" defaultValue="" id="attr_session_id" />
+              <input type="hidden" name="visitor_id" defaultValue="" id="attr_visitor_id" />
+
+              <div className="space-y-5" onFocus={syncAttrHiddenFields}>
                 <div>
                   <label
                     htmlFor="topic"
@@ -121,136 +163,74 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-sm font-medium text-foreground"
-                  >
-                    お名前 <span className="text-accent">*</span>
+                  <label htmlFor="company" className="mb-2 block text-sm font-medium text-foreground">
+                    会社名
                   </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    required
-                    className={fieldClass}
-                  />
+                  <input id="company" name="company" type="text" className={fieldClass} autoComplete="organization" />
+                </div>
+
+                <div>
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
+                    お名前 <span className="text-red-600">*</span>
+                  </label>
+                  <input id="name" name="name" type="text" required className={fieldClass} autoComplete="name" />
                   {state.errors?.name ? (
                     <p className="mt-1.5 text-sm text-red-600">{state.errors.name}</p>
                   ) : null}
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="company"
-                    className="mb-2 block text-sm font-medium text-foreground"
-                  >
-                    会社名・屋号
-                    <span className="ml-2 text-xs font-normal text-muted">
-                      任意
-                    </span>
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
+                    メールアドレス <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    id="company"
-                    name="company"
-                    type="text"
-                    autoComplete="organization"
-                    className={fieldClass}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-sm font-medium text-foreground"
-                  >
-                    メールアドレス <span className="text-accent">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className={fieldClass}
-                  />
+                  <input id="email" name="email" type="email" required className={fieldClass} autoComplete="email" />
                   {state.errors?.email ? (
                     <p className="mt-1.5 text-sm text-red-600">{state.errors.email}</p>
                   ) : null}
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-2 block text-sm font-medium text-foreground"
-                  >
+                  <label htmlFor="phone" className="mb-2 block text-sm font-medium text-foreground">
                     電話番号
-                    <span className="ml-2 text-xs font-normal text-muted">
-                      任意
-                    </span>
                   </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    className={fieldClass}
-                  />
+                  <input id="phone" name="phone" type="tel" className={fieldClass} autoComplete="tel" />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-2 block text-sm font-medium text-foreground"
-                  >
-                    ご相談内容 <span className="text-accent">*</span>
+                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
+                    ご相談内容 <span className="text-red-600">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     required
                     rows={5}
-                    placeholder="例）現場写真の共有がチャットに散らばっている／図面の版管理をクラウド化したい など"
+                    maxLength={2000}
                     className={fieldClass}
                   />
                   {state.errors?.message ? (
-                    <p className="mt-1.5 text-sm text-red-600">
-                      {state.errors.message}
-                    </p>
+                    <p className="mt-1.5 text-sm text-red-600">{state.errors.message}</p>
                   ) : null}
                 </div>
 
-                {/* スパム対策 honeypot */}
+                {/* honeypot */}
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="website">Website</label>
-                  <input
-                    id="website"
-                    name="website"
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
+                  <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
                 </div>
 
                 {state.message ? (
                   <p
-                    className={`text-sm ${state.ok ? "text-success" : "text-red-600"}`}
+                    className={`text-sm ${state.ok ? "text-accent" : "text-red-600"}`}
                     role="status"
                   >
                     {state.message}
                   </p>
                 ) : null}
 
-                <Button
-                  type="submit"
-                  disabled={pending}
-                  className="w-full sm:w-auto sm:min-w-[200px]"
-                >
+                <Button type="submit" disabled={pending} className="w-full sm:w-auto" data-track-cta="contact">
                   {pending ? "送信中…" : "送信する"}
                 </Button>
-                <p className="text-xs text-muted">
-                  送信後、担当よりご連絡します。{siteConfig.responseNote}。
-                </p>
               </div>
             </form>
           </ScrollReveal>
@@ -258,4 +238,30 @@ export function Contact() {
       </div>
     </section>
   );
+}
+
+function syncAttrHiddenFields() {
+  try {
+    const a = getAttributionSnapshot();
+    const map: Record<string, string> = {
+      attr_source_article_slug: resolveSourceArticleSlug(a) ?? "",
+      attr_first_touch_slug: a.first_touch_slug ?? "",
+      attr_last_touch_slug: a.last_touch_slug ?? "",
+      attr_landing_page: a.landing_page ?? window.location.pathname,
+      attr_referrer: a.referrer ?? document.referrer ?? "",
+      attr_utm_source: a.utm_source ?? "",
+      attr_utm_medium: a.utm_medium ?? "",
+      attr_utm_campaign: a.utm_campaign ?? "",
+      attr_utm_term: a.utm_term ?? "",
+      attr_utm_content: a.utm_content ?? "",
+      attr_session_id: a.session_id,
+      attr_visitor_id: a.visitor_id,
+    };
+    for (const [id, val] of Object.entries(map)) {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      if (el) el.value = val;
+    }
+  } catch {
+    // ignore
+  }
 }

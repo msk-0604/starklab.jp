@@ -38,7 +38,11 @@ export function Button(props: ButtonProps) {
   const classes = `${baseClass} ${variants[variant]} ${className}`.trim();
 
   if ("href" in props && props.href) {
-    const { href } = props;
+    const { href, children: _children, variant: _variant, className: _className, ...rest } =
+      props as ButtonAsLink & Record<string, unknown>;
+    void _children;
+    void _variant;
+    void _className;
     const isExternal = href.startsWith("http") || href.startsWith("mailto:");
     if (isExternal) {
       return (
@@ -47,13 +51,14 @@ export function Button(props: ButtonProps) {
           className={classes}
           target="_blank"
           rel="noopener noreferrer"
+          {...(rest as Record<string, string>)}
         >
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} {...(rest as Record<string, string>)}>
         {children}
       </Link>
     );

@@ -16,6 +16,35 @@ const topicLabels = Object.fromEntries(
   contactTopics.map((topic) => [topic.value, topic.label]),
 ) as Record<string, string>;
 
+function ingestBase(): string {
+  return (
+    process.env.ANALYTICS_INGEST_URL?.replace(/\/$/, "") ||
+    process.env.NEXT_PUBLIC_SEO_ENGINE_URL?.replace(/\/$/, "") ||
+    "https://stark-seo-engine.vercel.app"
+  );
+}
+
+async function postLead(payload: Record<string, unknown>) {
+  const secret = process.env.ANALYTICS_INGEST_SECRET?.trim();
+  if (!secret) {
+    console.error("[contact] ANALYTICS_INGEST_SECRET not configured — lead ingest skipped");
+    return;
+  }
+  try {
+    await fetch(`${ingestBase()}/api/leads`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-analytics-secret": secret,
+      },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(8000),
+    });
+  } catch {
+    console.error("[contact] lead ingest failed");
+  }
+}
+
 export async function submitContact(
   _prev: ContactState,
   formData: FormData,
@@ -27,6 +56,21 @@ export async function submitContact(
   const phone = asString(formData.get("phone"));
   const message = asString(formData.get("message"));
   const honeypot = asString(formData.get("website"));
+
+  const attribution = {
+    article_slug: asString(formData.get("source_article_slug")) || asString(formData.get("last_touch_slug")),
+    first_touch_slug: asString(formData.get("first_touch_slug")) || null,
+    last_touch_slug: asString(formData.get("last_touch_slug")) || null,
+    landing_path: asString(formData.get("landing_page")) || null,
+    referrer: asString(formData.get("referrer")) || null,
+    utm_source: asString(formData.get("utm_source")) || null,
+    utm_medium: asString(formData.get("utm_medium")) || null,
+    utm_campaign: asString(formData.get("utm_campaign")) || null,
+    utm_term: asString(formData.get("utm_term")) || null,
+    utm_content: asString(formData.get("utm_content")) || null,
+    session_id: asString(formData.get("session_id")) || null,
+    visitor_id: asString(formData.get("visitor_id")) || null,
+  };
 
   if (honeypot) {
     return { ok: true, message: "お問い合わせを受け付けました。" };
@@ -58,8 +102,6 @@ export async function submitContact(
 
   const topicLabel = topicLabels[topic] ?? topic;
 
-  // 本番では Resend 等のメール送信 API を接続できます。
-  // RESEND_API_KEY が未設定の場合はバリデーション通過後に受付完了とします。
   const apiKey = process.env.RESEND_API_KEY;
   if (apiKey) {
     try {
@@ -80,6 +122,10 @@ export async function submitContact(
             `お名前: ${name}`,
             `メール: ${email}`,
             `電話: ${phone || "（未記入）"}`,
+            `source_article: ${attribution.article_slug || "（なし）"}`,
+            `first_touch: ${attribution.first_touch_slug || "—"}`,
+            `last_touch: ${attribution.last_touch_slug || "—"}`,
+            `utm: ${[attribution.utm_source, attribution.utm_medium, attribution.utm_campaign].filter(Boolean).join("/") || "—"}`,
             "",
             "お問い合わせ内容:",
             message,
@@ -104,15 +150,19 @@ export async function submitContact(
       };
     }
   } else {
-    console.info("[contact]", {
-      topic: topicLabel,
-      company,
-      name,
-      email,
-      phone,
-      message,
-    });
+    console.info("[contact] accepted (email provider not configured)");
   }
+
+  // Persist lead + conversion after successful accept (email or console path)
+  await postLead({
+    topic: topicLabel,
+    company,
+    name,
+    email,
+    phone,
+    message,
+    ...attribution,
+  });
 
   return {
     ok: true,

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/works/Breadcrumb";
 import { Button } from "@/components/Button";
+import { MediaTracker } from "@/components/analytics/MediaTracker";
 import {
   getPublishedPost,
   listPublishedSlugs,
@@ -86,6 +87,7 @@ export default async function MediaArticlePage({ params }: Props) {
 
   return (
     <main className="flex-1">
+      <MediaTracker slug={post.slug} articleId={post.id} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
@@ -169,9 +171,31 @@ export default async function MediaArticlePage({ params }: Props) {
             <div className="mt-12 max-w-3xl rounded-[var(--radius-card)] border border-border bg-surface px-5 py-6">
               <p className="font-medium text-foreground">{post.ctaText}</p>
               <div className="mt-4">
-                <Button href="/#contact">相談する</Button>
+                <Button href={post.ctaUrl || "/#contact"} data-track-cta="media">
+                  相談する
+                </Button>
               </div>
             </div>
+
+            {post.internalLinks.length > 0 && (
+              <section className="mt-10 max-w-3xl">
+                <h2 className="font-display text-xl font-bold tracking-tight">関連リンク</h2>
+                <ul className="mt-4 space-y-2 text-sm">
+                  {post.internalLinks.map((l) => (
+                    <li key={`${l.url}-${l.anchor}`}>
+                      <a
+                        href={l.url}
+                        className="text-accent underline-offset-2 hover:underline"
+                        data-track-service={l.url.includes("/services") ? "1" : undefined}
+                        rel="noopener noreferrer"
+                      >
+                        {l.anchor}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
             {post.faq.length > 0 && (
               <section className="mt-14 max-w-3xl border-t border-border pt-10">

@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { AnalyticsBootstrap } from "@/components/analytics/AnalyticsBootstrap";
+import { Ga4Script } from "@/components/analytics/Ga4Script";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -92,6 +94,8 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${notoSansJp.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        <Ga4Script />
+        <AnalyticsBootstrap />
         <Header />
         {children}
         <Footer />
