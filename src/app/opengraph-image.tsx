@@ -73,8 +73,8 @@ export default function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            ホームページ制作 / SEO / MEO / 保守運用 / KenSapo / DrawStock / AI
-          </div>
+          ホームページ制作 / SEO / MEO / 保守運用 / 業務改善
+        </div>
         </div>
 
         <div
@@ -85,7 +85,7 @@ export default function OpenGraphImage() {
             fontWeight: 600,
           }}
         >
-          水道・設備・電気・建築など建設業に特化
+          建設業に強い × 全国対応
         </div>
       </div>
     ),

@@ -58,11 +58,17 @@ export function Contact() {
               お問い合わせ
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              ホームページ制作、SEO・MEO、保守運用、KenSapo・DrawStock、AI活用まで。
+              ホームページ制作、SEO・MEO、保守運用、業務改善まで。
               {siteConfig.coverage}でご相談を受け付けています。
             </p>
 
             <ul className="mt-8 space-y-3 text-sm text-muted">
+              <li className="flex gap-2">
+                <span className="text-accent" aria-hidden="true">
+                  ✓
+                </span>
+                建設業以外のご相談も歓迎です
+              </li>
               <li className="flex gap-2">
                 <span className="text-accent" aria-hidden="true">
                   ✓
@@ -79,7 +85,7 @@ export function Contact() {
                 <span className="text-accent" aria-hidden="true">
                   ✓
                 </span>
-                メールだけでも受付可能です
+                お急ぎの場合は下記メールでも受付可能です
               </li>
             </ul>
 

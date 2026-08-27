@@ -12,15 +12,15 @@ export function ServiceOfferings() {
               Services
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              ワンストップで提供
+              サービス
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-              ホームページ制作だけでなく、集客・運用・現場DX・AI活用までまとめて伴走します。
+              制作・集客・運用・業務改善まで、必要な範囲から一緒に進めます。
             </p>
             <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-border shadow-[var(--shadow-card)]">
               <Image
                 src="/images/hero-workdesk.jpg"
-                alt="建設業向けサイト制作の作業風景"
+                alt="ホームページ制作・SEO支援"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"

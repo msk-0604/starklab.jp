@@ -1,6 +1,7 @@
 "use server";
 
-import { contactTopics, siteConfig } from "@/lib/site";
+import { contactTopics } from "@/lib/site";
+import { sendContactNotification } from "@/lib/contact-mail";
 
 export type ContactState = {
   ok: boolean;
@@ -24,14 +25,14 @@ function ingestBase(): string {
   );
 }
 
-async function postLead(payload: Record<string, unknown>) {
+async function postLead(payload: Record<string, unknown>): Promise<boolean> {
   const secret = process.env.ANALYTICS_INGEST_SECRET?.trim();
   if (!secret) {
     console.error("[contact] ANALYTICS_INGEST_SECRET not configured — lead ingest skipped");
-    return;
+    return false;
   }
   try {
-    await fetch(`${ingestBase()}/api/leads`, {
+    const res = await fetch(`${ingestBase()}/api/leads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,8 +41,10 @@ async function postLead(payload: Record<string, unknown>) {
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(8000),
     });
+    return res.ok;
   } catch {
     console.error("[contact] lead ingest failed");
+    return false;
   }
 }
 
@@ -102,59 +105,16 @@ export async function submitContact(
 
   const topicLabel = topicLabels[topic] ?? topic;
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (apiKey) {
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev",
-          to: [siteConfig.email],
-          reply_to: email,
-          subject: `【${siteConfig.name}】${topicLabel}：${name}様`,
-          text: [
-            `相談内容: ${topicLabel}`,
-            `会社名: ${company || "（未記入）"}`,
-            `お名前: ${name}`,
-            `メール: ${email}`,
-            `電話: ${phone || "（未記入）"}`,
-            `source_article: ${attribution.article_slug || "（なし）"}`,
-            `first_touch: ${attribution.first_touch_slug || "—"}`,
-            `last_touch: ${attribution.last_touch_slug || "—"}`,
-            `utm: ${[attribution.utm_source, attribution.utm_medium, attribution.utm_campaign].filter(Boolean).join("/") || "—"}`,
-            "",
-            "お問い合わせ内容:",
-            message,
-          ].join("\n"),
-        }),
-      });
+  const attributionLines = [
+    `source_article: ${attribution.article_slug || "（なし）"}`,
+    `first_touch: ${attribution.first_touch_slug || "—"}`,
+    `last_touch: ${attribution.last_touch_slug || "—"}`,
+    `utm: ${[attribution.utm_source, attribution.utm_medium, attribution.utm_campaign].filter(Boolean).join("/") || "—"}`,
+  ];
 
-      if (!res.ok) {
-        console.error("Resend error:", await res.text());
-        return {
-          ok: false,
-          message:
-            "送信に失敗しました。お手数ですがメールにて直接ご連絡ください。",
-        };
-      }
-    } catch (error) {
-      console.error("Contact submit error:", error);
-      return {
-        ok: false,
-        message:
-          "送信に失敗しました。お手数ですがメールにて直接ご連絡ください。",
-      };
-    }
-  } else {
-    console.info("[contact] accepted (email provider not configured)");
-  }
-
-  // Persist lead + conversion after successful accept (email or console path)
-  await postLead({
+  // 1) CRM / SEO Engine へ保存（メール失敗と分離）
+  let leadSaved = false;
+  leadSaved = await postLead({
     topic: topicLabel,
     company,
     name,
@@ -164,8 +124,38 @@ export async function submitContact(
     ...attribution,
   });
 
+  // 2) 担当者メール通知（Resend）
+  const mail = await sendContactNotification({
+    topicLabel,
+    company,
+    name,
+    email,
+    phone,
+    message,
+    attributionLines,
+  });
+
+  if (!mail.ok && !leadSaved) {
+    return {
+      ok: false,
+      message:
+        "送信に失敗しました。お手数ですがメールにて直接ご連絡ください。",
+    };
+  }
+
+  if (!mail.ok && mail.reason === "send_failed") {
+    // 問い合わせは保存済み — ユーザーには成功扱い
+    console.error("[contact] email notification failed but lead saved");
+  }
+
+  if (!mail.ok && mail.reason === "not_configured") {
+    console.warn("[contact] RESEND_API_KEY not configured — email notification skipped");
+  }
+
   return {
     ok: true,
-    message: "お問い合わせを受け付けました。担当者よりご連絡いたします。",
+    message: leadSaved
+      ? "お問い合わせを受け付けました。担当者よりご連絡いたします。"
+      : "お問い合わせを受け付けました。",
   };
 }

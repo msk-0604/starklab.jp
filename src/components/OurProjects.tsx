@@ -23,7 +23,7 @@ export function OurProjects() {
             Projects
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            建設業の課題から生まれたプロダクトと、関連プロジェクトです。
+            自社プロダクトと、制作・支援の事例です。
           </p>
         </ScrollReveal>
 

@@ -85,13 +85,28 @@ export function areaJsonLd(area: Area) {
   };
 }
 
+export function faqJsonLd(items: readonly { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: siteConfig.name,
     alternateName: [siteConfig.nameJa, "すたーくらぼ", "StarkLab"],
-    description: siteConfig.description,
+    description: siteConfig.seoDescription,
     url: siteConfig.url,
     email: siteConfig.email,
     logo: `${siteConfig.url}/brand/stark-lab-logo.png`,

@@ -17,7 +17,7 @@ export function AreasPreview() {
             {siteConfig.coverage}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            オンラインで全国の建設会社様をご支援しています。地域別の情報はこちらからご覧ください。
+            オンラインで全国の企業・店舗様をご支援しています。地域別の情報はこちらからご覧ください。
           </p>
         </ScrollReveal>
 

@@ -10,11 +10,11 @@ export function Industries() {
             Industries
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            建設業に特化
+            対応業種
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            {siteConfig.coverage}
-            。水道・設備・電気・建築など、建設業の業種に合わせてご提案します。
+            建設・設備系の現場課題に強い一方、店舗・士業・製造・サービス業など
+            {siteConfig.coverage}でご相談いただけます。
           </p>
         </ScrollReveal>
 
