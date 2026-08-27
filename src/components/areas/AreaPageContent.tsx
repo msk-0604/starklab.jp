@@ -29,16 +29,14 @@ export function AreaPageContent({ area, related }: AreaPageContentProps) {
               {siteConfig.coverage} ／ {area.region}
             </p>
             <h1 className="mt-5 font-display text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
-              {area.name}の建設業向け
-              <br className="hidden sm:block" />
-              ホームページ制作・DX
+              {area.name}のWeb・システム・AI
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
               {area.lead}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/#contact">相談する</Button>
-              <Button href="/#services" variant="secondary">
+              <Button href="/services" variant="secondary">
                 サービス一覧
               </Button>
             </div>
@@ -53,7 +51,7 @@ export function AreaPageContent({ area, related }: AreaPageContentProps) {
               Local
             </p>
             <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              {area.name}の建設会社様へ
+              {area.name}の企業・店舗様へ
             </h2>
             <ul className="mt-8 space-y-4">
               {area.highlights.map((item) => (
@@ -124,7 +122,7 @@ export function AreaPageContent({ area, related }: AreaPageContentProps) {
 
         <ScrollReveal className="rounded-[var(--radius-card)] bg-foreground px-6 py-10 text-center sm:px-10 sm:py-14">
           <h2 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            {area.name}の建設会社様、まずはご相談ください
+            {area.name}から、まずはご相談ください
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
             {siteConfig.coverage}。オンラインでスムーズに進められます。

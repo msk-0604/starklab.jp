@@ -52,8 +52,18 @@ function readingTime(md: string): number {
 }
 
 function normalizeUrl(url: string): string {
-  if (url.startsWith("/articles/")) return `${siteConfig.url}/media/${url.replace("/articles/", "")}`;
-  if (url.includes("/articles/")) return url.replace(/\/articles\//g, "/media/");
+  if (url.startsWith("/articles/")) {
+    return `${siteConfig.url}/media/${url.replace("/articles/", "")}`;
+  }
+  if (url.includes("/articles/")) {
+    return url.replace(/\/articles\//g, "/media/");
+  }
+  if (url.startsWith("/services/") || url === "/services") {
+    return "/services";
+  }
+  if (url.includes("/services/")) {
+    return `${siteConfig.url}/services`;
+  }
   return url;
 }
 

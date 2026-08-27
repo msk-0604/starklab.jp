@@ -102,7 +102,7 @@ export function ProjectCard({
                   className="!px-5 !py-2.5 text-sm"
                 >
                   {project.cta.label}
-                  <ExternalIcon />
+                  {project.cta.href.startsWith("http") ? <ExternalIcon /> : null}
                 </Button>
                 <Link
                   href={`/works/${project.slug}`}

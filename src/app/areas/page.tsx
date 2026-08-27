@@ -7,8 +7,8 @@ import { Breadcrumb } from "@/components/works/Breadcrumb";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/Button";
 
-const title = "対応エリア｜全国対応";
-const description = `${siteConfig.name}は${siteConfig.coverage}。滋賀・京都・大阪・兵庫・奈良・愛知・東京など、地域別の建設業向けホームページ制作・DX情報をご覧ください。`;
+const title = "対応エリア｜日本全国どこでも";
+const description = `${siteConfig.name}は日本全国どこでも対応。滋賀拠点・オンライン完結。Web制作・システム開発・AI活用をご相談ください。`;
 
 export const metadata: Metadata = {
   title,
@@ -69,7 +69,7 @@ export default function AreasIndexPage() {
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
                 {siteConfig.coverageNote}
-                地域別ページから、お近くの建設会社様向けの情報をご確認ください。
+                地域ページは一例です。掲載のない都道府県も同じ流れでご支援できます。
               </p>
             </ScrollReveal>
           </div>

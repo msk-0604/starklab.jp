@@ -24,7 +24,7 @@ export function worksListJsonLd(projects: Project[]) {
     "@type": "CollectionPage",
     name: "Works",
     description:
-      "Stark Labのプロジェクト一覧。建設業向けホームページ制作・現場管理・図面管理などの事例です。",
+      "Stark Labのプロジェクト一覧。Web制作、業務システム、AI活用の事例です。",
     url: `${siteConfig.url}/works`,
     isPartOf: {
       "@type": "WebSite",
@@ -65,7 +65,7 @@ export function areaJsonLd(area: Area) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${area.name}の建設業向けホームページ制作・DX`,
+    name: `${area.name}のWeb制作・システム開発・AI`,
     description: area.seo.description,
     url: `${siteConfig.url}/areas/${area.slug}`,
     provider: {

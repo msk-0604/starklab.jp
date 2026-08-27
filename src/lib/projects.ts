@@ -86,7 +86,7 @@ export const projects: Project[] = [
       "建設業向けクラウド現場管理システム。現場・写真・工程・予定・日報・通知をひとつの画面で。",
     tags: ["クラウド", "現場管理", "スマホ対応"],
     cta: {
-      label: "デモを見る",
+      label: "詳しく見る",
     },
     coverImage: "/works/kensapo/cover.jpg",
     desktopImages: ["/works/kensapo/desktop.svg"],
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       "建設業向けクラウド図面管理システム。図面共有・PDF管理・検索・権限管理をクラウドで実現。",
     tags: ["クラウド", "図面管理", "権限管理"],
     cta: {
-      label: "デモを見る",
+      label: "詳しく見る",
     },
     coverImage: "/works/drawstock/cover.jpg",
     desktopImages: ["/works/drawstock/desktop.svg"],
@@ -164,19 +164,19 @@ export const projects: Project[] = [
     title: "Stark Lab",
     category: "自社ホームページ",
     description:
-      "建設業専門のホームページ制作・DXサービスを提供する自社サイト。",
+      "自社の公式サイト。Web・システム・AIの開発パートナーとしての情報設計と問い合わせ導線を実装。",
     tags: ["SEO", "ホームページ制作", "MEO"],
     cta: {
-      label: "サイトを見る",
-      href: "https://starklab.jp",
+      label: "お問い合わせ",
+      href: "/#contact",
     },
     coverImage: "/works/stark-lab/cover.jpg",
     desktopImages: ["/works/stark-lab/desktop.svg"],
     mobileImages: ["/works/stark-lab/mobile.svg"],
     overview:
-      "建設業に特化したホームページ制作・DX支援を行う Stark Lab の公式サイトです。サービス内容・制作の流れを、ミニマルで信頼感のあるデザインで伝えています。",
+      "Stark Lab の公式サイトです。Web制作・システム開発・AI活用の範囲と、問い合わせまでの流れを伝えています。",
     background:
-      "建設業のお客様に向けて、「何をしてくれるのか」「どう進むのか」を最初の数秒で理解してもらう必要がありました。過剰な装飾を排し、品質と誠実さが伝わるブランドサイトを目指しました。",
+      "何をしてくれるのかを最初の数秒で理解してもらう必要がありました。過剰な装飾を排し、品質と誠実さが伝わるブランドサイトを目指しました。",
     challenges: [
       "サービス範囲を、短時間で誤解なく伝える必要がある",
       "実績がこれから増える段階でも、品質への信頼をデザインで示す必要がある",
@@ -193,7 +193,7 @@ export const projects: Project[] = [
     seo: {
       title: "Stark Lab｜自社ホームページ制作実績",
       description:
-        "建設業専門のホームページ制作・DXサービスを提供する Stark Lab 自社サイトの制作実績。SEO・MEOを意識したブランドサイト事例です。",
+        "Stark Lab 自社サイトの制作実績。Web・システム・AIの開発パートナーとしてのブランドサイト事例です。",
     },
   },
 ];

@@ -3,9 +3,11 @@ import { getAllAreas } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
 
 const footerLinks = [
-  { href: "/works", label: "Works" },
+  { href: "/services", label: "サービス" },
+  { href: "/works", label: "実績" },
   { href: "/media", label: "Media" },
   { href: "/areas", label: "対応エリア" },
+  { href: "/#contact", label: "お問い合わせ" },
   { href: "/terms", label: "利用規約" },
   { href: "/privacy", label: "プライバシーポリシー" },
   { href: "/tokushoho", label: "特定商取引法に基づく表記" },
@@ -27,13 +29,14 @@ export function Footer() {
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
           {siteConfig.concept}
           <br />
-          {siteConfig.coverage} ／ 拠点：{siteConfig.location}
+          日本全国どこでも ／ 拠点：{siteConfig.location}
         </p>
 
         <div className="mt-8">
           <p className="text-xs font-semibold tracking-wide text-muted">
             対応エリア
           </p>
+          <p className="mt-2 text-sm text-muted">日本全国どこでも（オンライン完結）</p>
           <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
             {areas.map((area) => (
               <li key={area.slug}>
@@ -45,6 +48,7 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li className="text-sm text-muted">ほか全国</li>
           </ul>
         </div>
 

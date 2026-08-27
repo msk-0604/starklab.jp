@@ -233,7 +233,7 @@ export default async function MediaArticlePage({ params }: Props) {
             <section className="mt-14 max-w-3xl rounded-[var(--radius-card)] bg-foreground px-6 py-10 text-white">
               <h2 className="font-display text-2xl font-bold">次の一歩</h2>
               <p className="mt-3 text-sm leading-relaxed text-white/70">
-                建設業特化のホームページ・SEO・DXについて、まずは課題整理からご相談ください。
+                ホームページ制作・システム開発・AI活用について、まずは課題整理からご相談ください。
               </p>
               <div className="mt-6">
                 <Link

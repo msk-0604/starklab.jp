@@ -12,7 +12,7 @@ export function InquiryBand() {
             まずは課題整理から。1通で相談できます
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
-            ホームページ・SEO・MEO・運用・業務改善まで。{siteConfig.coverage}。
+            システム開発・AI・Web制作まで。日本全国どこでも。
             無理な営業はしません。
           </p>
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">

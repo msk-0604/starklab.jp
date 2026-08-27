@@ -20,10 +20,10 @@ export function OurProjects() {
             Our project
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Projects
+            実績
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            自社プロダクトと、制作・支援の事例です。
+            Web制作と、業務システム・AIのプロジェクトです。
           </p>
         </ScrollReveal>
 

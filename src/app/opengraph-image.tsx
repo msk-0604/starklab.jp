@@ -73,7 +73,7 @@ export default function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-          ホームページ制作 / SEO / MEO / 保守運用 / 業務改善
+          ホームページ制作 / システム開発 / AI / SEO
         </div>
         </div>
 
@@ -85,7 +85,7 @@ export default function OpenGraphImage() {
             fontWeight: 600,
           }}
         >
-          建設業に強い × 全国対応
+          日本全国どこでも ／ オンライン完結
         </div>
       </div>
     ),

@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
 
 const title = "Works";
 const description =
-  "Stark Labのプロジェクト一覧。建設業向け現場管理・図面管理などのプロダクトと関連事例です。";
+  "Stark Labのプロジェクト一覧。Web制作、業務システム、AI活用の実績です。";
 
 export const metadata: Metadata = {
   title,
@@ -82,7 +82,7 @@ export default function WorksPage() {
               </p>
               <div className="mt-8">
                 <Button href="/#contact" className="min-w-[160px]">
-                  Contact
+                お問い合わせ
                 </Button>
               </div>
             </ScrollReveal>

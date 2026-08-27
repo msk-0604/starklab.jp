@@ -58,8 +58,8 @@ export function Contact() {
               お問い合わせ
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              ホームページ制作、SEO・MEO、保守運用、業務改善まで。
-              {siteConfig.coverage}でご相談を受け付けています。
+              ホームページ制作、システム開発、AI活用まで。
+              日本全国どこでもご相談を受け付けています。
             </p>
 
             <ul className="mt-8 space-y-3 text-sm text-muted">
@@ -67,7 +67,7 @@ export function Contact() {
                 <span className="text-accent" aria-hidden="true">
                   ✓
                 </span>
-                建設業以外のご相談も歓迎です
+                日本全国どこでも、オンラインで対応します
               </li>
               <li className="flex gap-2">
                 <span className="text-accent" aria-hidden="true">

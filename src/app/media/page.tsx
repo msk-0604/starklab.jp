@@ -11,7 +11,7 @@ export const revalidate = 300;
 
 const title = "Media";
 const description =
-  "建設業のWeb集客・DX・現場管理・AI活用について、Stark Labが発信する企業ブログです。";
+  "Web制作・システム開発・AI活用・SEOについて、Stark Labが発信するメディアです。";
 
 export const metadata: Metadata = {
   title,
@@ -56,11 +56,10 @@ export default async function MediaPage() {
           />
           <p className="mt-6 text-sm font-semibold tracking-wide text-accent">Media</p>
           <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
-            建設業の課題解決に役立つ知見
+            Web・システム・AIの知見
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            SEO・ホームページ集客・現場DX・業務効率化など、現場と経営に効く情報を発信しています。
-            記事は Stark SEO Engine が日次で生成し、品質チェック後に公開します。
+            ホームページ制作、業務システム、AI活用、SEOなど、現場で使える情報を発信しています。
           </p>
         </div>
       </section>
@@ -117,7 +116,7 @@ export default async function MediaPage() {
               記事の内容を、実装に移す
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
-              ホームページ制作・SEO・現場管理・AI活用まで、建設業に特化してご相談いただけます。
+              ホームページ制作・システム開発・AI活用まで、全国どこでもご相談いただけます。
             </p>
             <div className="mt-6">
               <Button href="/#contact">相談する</Button>
