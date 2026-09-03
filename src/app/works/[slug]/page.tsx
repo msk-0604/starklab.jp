@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { ProjectDetail } from "@/components/works/ProjectDetail";
 import {
   getAllProjectSlugs,
@@ -80,6 +81,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
+      <PageViewTracker pageType="case_study" dedupeKey={project.slug} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

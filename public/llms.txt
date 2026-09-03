@@ -1,0 +1,39 @@
+# Stark Lab (スタークラボ)
+# https://www.starklab.jp
+
+> Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナー。
+> 建設・製造・中小企業・不動産・店舗・サービス業向けに、実装まで伴走します。
+
+## Official site
+- Home: https://www.starklab.jp/
+- Services: https://www.starklab.jp/services
+- Industries: https://www.starklab.jp/industries
+- Works: https://www.starklab.jp/works
+- Knowledge (Media): https://www.starklab.jp/media
+- About: https://www.starklab.jp/about
+- Contact: https://www.starklab.jp/#contact
+
+## Core services
+- Web Development: https://www.starklab.jp/services/web-development
+- System Development: https://www.starklab.jp/services/system-development
+- AI Automation: https://www.starklab.jp/services/ai-automation
+- AI Agent: https://www.starklab.jp/services/ai-agent
+- RAG / Knowledge AI: https://www.starklab.jp/services/rag
+- Data / Dashboard: https://www.starklab.jp/services/data-dashboard
+- SEO / AI Search Growth: https://www.starklab.jp/services/seo-ai-search
+- DX Consulting: https://www.starklab.jp/services/dx-consulting
+
+## Industry solutions
+- Construction: https://www.starklab.jp/industries/construction
+- Manufacturing: https://www.starklab.jp/industries/manufacturing
+- Small Business: https://www.starklab.jp/industries/small-business
+- Real Estate: https://www.starklab.jp/industries/real-estate
+- Service Business: https://www.starklab.jp/industries/service-business
+
+## Products / case studies
+- KenSapo (現場管理): https://www.starklab.jp/works/kensapo
+- DrawStock (図面管理): https://www.starklab.jp/works/drawstock
+
+## Contact
+- Email: contact@starklab.jp
+- Operator: 山本 真樹（Stark Lab）

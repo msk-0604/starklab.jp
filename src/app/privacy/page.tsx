@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="プライバシーポリシー">
+    <LegalPage title="プライバシーポリシー" updatedAt="2026年8月27日">
       <p>
         {siteConfig.name}
         （以下「当サービス」）は、お客様の個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
@@ -56,11 +56,20 @@ export default function PrivacyPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Cookie等">
+      <LegalSection title="6. Cookie等・アクセス解析">
         <p>
           当サイトでは、サイト改善やアクセス解析のため Cookie
           等を使用する場合があります。ブラウザ設定により Cookie
           を無効にすることも可能ですが、一部機能がご利用いただけない場合があります。
+        </p>
+        <p className="mt-4">
+          また、問い合わせ経路の把握のため、ブラウザの
+          localStorage／sessionStorage
+          に訪問識別子・流入元（UTM等）・参照記事スラッグなどの非個人情報を保存することがあります。氏名・メールアドレスなどの個人情報はここに保存しません。
+        </p>
+        <p className="mt-4">
+          Google
+          Analytics（GA4）を利用する場合があります。その場合、利用者の端末情報等がGoogleに送信されることがあります。詳細はGoogleのプライバシーポリシーをご確認ください。
         </p>
       </LegalSection>
 

@@ -26,6 +26,7 @@ type ButtonAsLink = BaseProps & {
   href: string;
   type?: never;
   disabled?: never;
+  "data-track-cta"?: string;
 };
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;

@@ -1,11 +1,8 @@
-import type { Area } from "./areas";
-import { getAllAreas } from "./areas";
-import type { Project } from "./projects";
-import { industries, offerings, siteConfig } from "./site";
+import type { ServiceDefinition } from "./services";
+import type { IndustryDefinition } from "./industries-content";
+import { siteConfig } from "./site";
 
-export function breadcrumbJsonLd(
-  items: { name: string; path: string }[],
-) {
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -18,13 +15,141 @@ export function breadcrumbJsonLd(
   };
 }
 
+export function faqJsonLd(items: readonly { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function personJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.owner,
+    jobTitle: "代表",
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
+}
+
+export function serviceJsonLd(service: ServiceDefinition) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.summary,
+    url: `${siteConfig.url}/services/${service.slug}`,
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    areaServed: { "@type": "Country", name: "Japan" },
+    serviceType: service.shortTitle,
+  };
+}
+
+export function industryServiceJsonLd(industry: IndustryDefinition) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${industry.name}向けDX`,
+    description: industry.summary,
+    url: `${siteConfig.url}/industries/${industry.slug}`,
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    areaServed: { "@type": "Country", name: "Japan" },
+  };
+}
+
+export function organizationJsonLd() {
+  const serviceNames = [
+    "Web Development",
+    "System Development",
+    "AI Automation",
+    "AI Agent Development",
+    "RAG / Knowledge AI",
+    "Data / Dashboard",
+    "SEO / AI Search Growth",
+    "DX Consulting",
+  ];
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: siteConfig.name,
+    alternateName: [siteConfig.nameJa, "すたーくらぼ", "StarkLab"],
+    description: siteConfig.seoDescription,
+    url: siteConfig.url,
+    email: siteConfig.email,
+    logo: `${siteConfig.url}/brand/stark-lab-logo.png`,
+    image: `${siteConfig.url}/brand/stark-lab-logo.png`,
+    founder: {
+      "@type": "Person",
+      name: siteConfig.owner,
+    },
+    areaServed: { "@type": "Country", name: "Japan" },
+    knowsAbout: [
+      ...serviceNames,
+      "Construction DX",
+      "Manufacturing DX",
+      "DX Consulting",
+      siteConfig.nameJa,
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: siteConfig.email,
+      availableLanguage: "Japanese",
+      areaServed: "JP",
+    },
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    alternateName: [siteConfig.nameJa, "すたーくらぼ"],
+    url: siteConfig.url,
+    inLanguage: "ja-JP",
+    description: siteConfig.entityStatement,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      alternateName: siteConfig.nameJa,
+    },
+  };
+}
+
+// Re-export project/area helpers — import from their modules in pages
+export type { Project } from "./projects";
+export type { Area } from "./areas";
+
+import type { Project } from "./projects";
+import type { Area } from "./areas";
+
 export function worksListJsonLd(projects: Project[]) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Works",
-    description:
-      "Stark Labのプロジェクト一覧。Web制作、業務システム、AI活用の事例です。",
+    description: "Stark Labの制作実績。Web、業務システム、AI活用の事例です。",
     url: `${siteConfig.url}/works`,
     isPartOf: {
       "@type": "WebSite",
@@ -65,7 +190,7 @@ export function areaJsonLd(area: Area) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `${area.name}のWeb制作・システム開発・AI`,
+    name: `${area.name}のWeb・システム・AI開発`,
     description: area.seo.description,
     url: `${siteConfig.url}/areas/${area.slug}`,
     provider: {
@@ -76,75 +201,6 @@ export function areaJsonLd(area: Area) {
     areaServed: {
       "@type": "AdministrativeArea",
       name: area.name,
-    },
-    serviceType: offerings.map((item) => item.title),
-    audience: {
-      "@type": "Audience",
-      audienceType: industries.join("、"),
-    },
-  };
-}
-
-export function faqJsonLd(items: readonly { question: string; answer: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-}
-
-export function organizationJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: siteConfig.name,
-    alternateName: [siteConfig.nameJa, "すたーくらぼ", "StarkLab"],
-    description: siteConfig.seoDescription,
-    url: siteConfig.url,
-    email: siteConfig.email,
-    logo: `${siteConfig.url}/brand/stark-lab-logo.png`,
-    image: `${siteConfig.url}/brand/stark-lab-logo.png`,
-    areaServed: [
-      { "@type": "Country", name: "Japan" },
-      ...getAllAreas().map((area) => ({
-        "@type": "AdministrativeArea",
-        name: area.name,
-      })),
-    ],
-    knowsAbout: [
-      ...offerings.map((item) => item.title),
-      ...industries,
-      siteConfig.nameJa,
-    ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: siteConfig.email,
-      availableLanguage: "Japanese",
-      areaServed: "JP",
-    },
-  };
-}
-
-export function websiteJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    alternateName: [siteConfig.nameJa, "すたーくらぼ"],
-    url: siteConfig.url,
-    inLanguage: "ja-JP",
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      alternateName: siteConfig.nameJa,
     },
   };
 }

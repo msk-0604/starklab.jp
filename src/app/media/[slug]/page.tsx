@@ -9,6 +9,7 @@ import {
   listPublishedSlugs,
   listRelatedPosts,
 } from "@/lib/media";
+import { resolveMediaCta } from "@/lib/media-cta";
 import { markdownToSafeHtml, sanitizeStoredHtml, slugifyHeading } from "@/lib/markdown";
 import { siteConfig } from "@/lib/site";
 
@@ -58,6 +59,14 @@ export default async function MediaArticlePage({ params }: Props) {
   const bodyHtml = post.contentHtml
     ? sanitizeStoredHtml(post.contentHtml)
     : markdownToSafeHtml(post.contentMarkdown);
+  const cta = resolveMediaCta({
+    title: post.title,
+    category: post.category,
+    primaryKeyword: post.primaryKeyword,
+    serviceSlug: post.serviceSlug,
+    storedCtaText: post.ctaText,
+    storedCtaUrl: post.ctaUrl,
+  });
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -66,7 +75,20 @@ export default async function MediaArticlePage({ params }: Props) {
     description: post.description,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
-    author: { "@type": "Organization", name: post.author },
+    author: {
+      "@type": "Person",
+      name: siteConfig.owner,
+      worksFor: {
+        "@type": "Organization",
+        name: siteConfig.name,
+        url: siteConfig.url,
+      },
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
     mainEntityOfPage: `${siteConfig.url}/media/${post.slug}`,
   };
 
@@ -75,7 +97,7 @@ export default async function MediaArticlePage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "ホーム", item: siteConfig.url },
-      { "@type": "ListItem", position: 2, name: "Media", item: `${siteConfig.url}/media` },
+      { "@type": "ListItem", position: 2, name: "Knowledge", item: `${siteConfig.url}/media` },
       {
         "@type": "ListItem",
         position: 3,
@@ -117,7 +139,7 @@ export default async function MediaArticlePage({ params }: Props) {
         <Breadcrumb
           items={[
             { label: "ホーム", href: "/" },
-            { label: "Media", href: "/media" },
+            { label: "Knowledge", href: "/media" },
             { label: post.title },
           ]}
         />
@@ -128,11 +150,18 @@ export default async function MediaArticlePage({ params }: Props) {
             {post.title}
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted">{post.description}</p>
-          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
-            <span>{post.author}</span>
+          <p className="mt-1 text-xs text-muted">
+            運営：{siteConfig.name}（{siteConfig.owner}）
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
             {post.publishedAt && (
               <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString("ja-JP")}
+                公開 {new Date(post.publishedAt).toLocaleDateString("ja-JP")}
+              </time>
+            )}
+            {post.updatedAt && (
+              <time dateTime={post.updatedAt}>
+                更新 {new Date(post.updatedAt).toLocaleDateString("ja-JP")}
               </time>
             )}
             <span>約{post.readingTimeMinutes}分</span>
@@ -169,11 +198,20 @@ export default async function MediaArticlePage({ params }: Props) {
             />
 
             <div className="mt-12 max-w-3xl rounded-[var(--radius-card)] border border-border bg-surface px-5 py-6">
-              <p className="font-medium text-foreground">{post.ctaText}</p>
-              <div className="mt-4">
-                <Button href={post.ctaUrl || "/#contact"} data-track-cta="media">
-                  相談する
+              <p className="text-sm text-muted">この記事の次のステップ</p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Button href={cta.href} data-track-cta={cta.track}>
+                  {cta.label}
                 </Button>
+                {!cta.href.includes("#contact") ? (
+                  <Button
+                    href="/#contact"
+                    variant="secondary"
+                    data-track-cta="media-contact-secondary"
+                  >
+                    無料で相談する
+                  </Button>
+                ) : null}
               </div>
             </div>
 

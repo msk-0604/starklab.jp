@@ -1,19 +1,30 @@
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { AreasPreview } from "@/components/AreasPreview";
-import { CapabilityMarquee } from "@/components/CapabilityMarquee";
 import { Contact } from "@/components/Contact";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Hero } from "@/components/Hero";
+import { HomeIntroVideo } from "@/components/HomeIntroVideo";
 import { HomeFaq } from "@/components/HomeFaq";
-import { Industries } from "@/components/Industries";
+import {
+  HomeAbout,
+  HomeChallenges,
+  HomeIntegrated,
+  HomeServicesGrid,
+  HomeIndustriesGrid,
+  HomeProcess,
+  HomeWhyUs,
+  HomeKnowledge,
+} from "@/components/HomeSections";
 import { InquiryBand } from "@/components/InquiryBand";
 import { OurProjects } from "@/components/OurProjects";
-import { ServiceOfferings } from "@/components/ServiceOfferings";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: siteConfig.seoTitle,
+  title: {
+    absolute: siteConfig.seoTitle,
+  },
   description: siteConfig.seoDescription,
   alternates: { canonical: "/" },
   openGraph: {
@@ -38,12 +49,19 @@ export default function HomePage() {
           __html: JSON.stringify(websiteJsonLd()),
         }}
       />
+      <PageViewTracker pageType="other" dedupeKey="home" />
+      <HomeIntroVideo />
       <main className="flex-1 pb-20 md:pb-0">
         <Hero />
-        <CapabilityMarquee />
-        <ServiceOfferings />
-        <Industries />
+        <HomeAbout />
+        <HomeChallenges />
+        <HomeServicesGrid />
+        <HomeIndustriesGrid />
+        <HomeIntegrated />
         <OurProjects />
+        <HomeProcess />
+        <HomeWhyUs />
+        <HomeKnowledge />
         <AreasPreview />
         <InquiryBand />
         <HomeFaq />

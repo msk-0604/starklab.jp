@@ -3,8 +3,10 @@ import { siteConfig } from "@/lib/site";
 
 const footerLinks = [
   { href: "/services", label: "サービス" },
+  { href: "/industries", label: "業種別" },
   { href: "/works", label: "実績" },
-  { href: "/media", label: "Media" },
+  { href: "/media", label: "Knowledge" },
+  { href: "/about", label: "会社概要" },
   { href: "/areas", label: "対応エリア" },
   { href: "/#contact", label: "お問い合わせ" },
   { href: "/terms", label: "利用規約" },
@@ -28,19 +30,14 @@ export function Footer() {
           {siteConfig.concept}
           <br />
           日本全国どこでも対応 ／ 打合せ・納品はオンライン完結
+          <br />
+          運営：{siteConfig.owner}
         </p>
 
         <div className="mt-8">
-          <p className="text-xs font-semibold tracking-wide text-muted">
-            対応エリア
-          </p>
-          <p className="mt-2 text-sm text-muted">
-            日本全国どこでも。拠点は{siteConfig.location}ですが、エリアによる制限はありません。
-          </p>
-          <Link
-            href="/areas"
-            className="mt-3 inline-block text-sm font-medium text-accent transition-colors hover:text-accent-hover"
-          >
+          <p className="text-xs font-semibold tracking-wide text-muted">対応エリア</p>
+          <p className="mt-2 text-sm text-muted">{siteConfig.coverageNote}</p>
+          <Link href="/areas" className="mt-3 inline-block text-sm font-medium text-accent hover:text-accent-hover">
             対応エリアの詳細
           </Link>
         </div>

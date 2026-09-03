@@ -29,7 +29,7 @@ export const areas: Area[] = [
     ],
     cities: ["大津市", "草津市", "彦根市", "長浜市", "東近江市"],
     seo: {
-      title: "滋賀県のWeb制作・システム開発・AI｜Stark Lab",
+      title: "滋賀県のWeb制作・システム開発・AI",
       description:
         "滋賀県拠点のStark Lab。ホームページ制作、業務システム、AI活用、SEOを全国対応で支援。大津・草津など近隣はもちろん、日本全国どこでもオンライン対応。",
     },
@@ -46,7 +46,7 @@ export const areas: Area[] = [
     ],
     cities: ["京都市", "宇治市", "舞鶴市", "福知山市"],
     seo: {
-      title: "京都府のWeb制作・システム開発・AI｜Stark Lab",
+      title: "京都府のWeb制作・システム開発・AI",
       description:
         "京都府のホームページ制作、業務システム、AI活用、SEO支援。全国対応のStark Lab。オンライン完結で日本全国どこでもご相談いただけます。",
     },
@@ -63,7 +63,7 @@ export const areas: Area[] = [
     ],
     cities: ["大阪市", "堺市", "東大阪市", "豊中市", "吹田市"],
     seo: {
-      title: "大阪府のWeb制作・システム開発・AI｜Stark Lab",
+      title: "大阪府のWeb制作・システム開発・AI",
       description:
         "大阪府のホームページ制作、業務システム、AI活用、SEO支援。全国対応のStark Lab。オンラインで日本全国どこでも対応します。",
     },
@@ -80,7 +80,7 @@ export const areas: Area[] = [
     ],
     cities: ["神戸市", "姫路市", "西宮市", "尼崎市", "明石市"],
     seo: {
-      title: "兵庫県のWeb制作・システム開発・AI｜Stark Lab",
+      title: "兵庫県のWeb制作・システム開発・AI",
       description:
         "兵庫県のホームページ制作、業務システム、AI活用、SEO支援。全国対応のStark Lab。",
     },
@@ -97,7 +97,7 @@ export const areas: Area[] = [
     ],
     cities: ["奈良市", "橿原市", "生駒市", "大和郡山市"],
     seo: {
-      title: "奈良県のWeb制作・システム開発・AI｜Stark Lab",
+      title: "奈良県のWeb制作・システム開発・AI",
       description:
         "奈良県のホームページ制作、業務システム、AI活用、SEO支援。全国対応のStark Lab。",
     },
@@ -114,7 +114,7 @@ export const areas: Area[] = [
     ],
     cities: ["名古屋市", "豊田市", "岡崎市", "一宮市", "豊橋市"],
     seo: {
-      title: "愛知県のWeb制作・システム開発・AI｜Stark Lab",
+      title: "愛知県のWeb制作・システム開発・AI",
       description:
         "愛知県のホームページ制作、業務システム、AI活用、SEO支援。全国対応のStark Lab。",
     },
@@ -131,7 +131,7 @@ export const areas: Area[] = [
     ],
     cities: ["23区", "八王子市", "町田市", "府中市"],
     seo: {
-      title: "東京都のWeb制作・システム開発・AI｜Stark Lab",
+      title: "東京都のWeb制作・システム開発・AI",
       description:
         "東京都のホームページ制作、業務システム、AI活用、SEO支援。全国対応のStark Lab。オンライン完結。",
     },

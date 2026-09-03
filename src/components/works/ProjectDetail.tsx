@@ -95,60 +95,41 @@ export function ProjectDetail({
           </p>
         </Section>
 
-        {/* Challenges & Improvements */}
-        <div className="grid gap-6 py-12 sm:py-16 lg:grid-cols-2 lg:gap-8">
-          <ScrollReveal className="h-full">
-            <div className="h-full rounded-[var(--radius-card)] border border-border bg-white p-6 shadow-[var(--shadow-card)] sm:p-8">
-              <p className="text-sm font-semibold tracking-wide text-accent">
-                Challenge
-              </p>
-              <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground">
-                課題
-              </h2>
-              <ul className="mt-6 space-y-4">
-                {project.challenges.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-[15px] leading-relaxed text-muted"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30"
-                      aria-hidden="true"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={1} className="h-full">
-            <div className="h-full rounded-[var(--radius-card)] border border-border bg-white p-6 shadow-[var(--shadow-card)] sm:p-8">
-              <p className="text-sm font-semibold tracking-wide text-accent">
-                Solution
-              </p>
-              <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground">
-                改善内容
-              </h2>
-              <ul className="mt-6 space-y-4">
-                {project.improvements.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-[15px] leading-relaxed text-muted"
-                  >
-                    <span
-                      className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent"
-                      aria-hidden="true"
-                    >
-                      <CheckIcon className="h-3 w-3" />
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ScrollReveal>
-        </div>
+        {/* Case study flow: 課題 → 提案 → 設計 → 実装 → 成果 */}
+        <CaseBlock
+          label="Challenge"
+          title="課題"
+          items={project.challenges}
+          variant="dot"
+        />
+        <CaseBlock
+          label="Proposal"
+          title="提案"
+          items={project.proposal}
+          variant="check"
+          surface
+        />
+        <CaseBlock
+          label="Design"
+          title="設計"
+          items={project.design}
+          variant="check"
+        />
+        <CaseBlock
+          label="Implementation"
+          title="実装"
+          items={project.implementation}
+          variant="check"
+          surface
+        />
+        {project.outcomes && project.outcomes.length > 0 ? (
+          <CaseBlock
+            label="Outcomes"
+            title="成果"
+            items={project.outcomes}
+            variant="check"
+          />
+        ) : null}
 
         {/* Highlights */}
         <Section title="対応ポイント" label="Highlights">
@@ -235,7 +216,10 @@ export function ProjectDetail({
               </Button>
             ) : null}
             <Button href="/#contact" className="min-w-[160px]">
-              Contact
+              相談する
+            </Button>
+            <Button href="/services" variant="secondary" className="min-w-[160px]">
+              サービス一覧
             </Button>
           </div>
         </ScrollReveal>
@@ -266,6 +250,62 @@ export function ProjectDetail({
         ) : null}
       </div>
     </div>
+  );
+}
+
+function CaseBlock({
+  label,
+  title,
+  items,
+  variant,
+  surface = false,
+}: {
+  label: string;
+  title: string;
+  items: string[];
+  variant: "dot" | "check";
+  surface?: boolean;
+}) {
+  return (
+    <section className="py-10 sm:py-12">
+      <ScrollReveal>
+        <div
+          className={
+            surface
+              ? "rounded-[var(--radius-card)] border border-border bg-surface p-6 sm:p-8"
+              : ""
+          }
+        >
+          <p className="text-sm font-semibold tracking-wide text-accent">{label}</p>
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            {title}
+          </h2>
+          <ul className="mt-6 space-y-4">
+            {items.map((item) => (
+              <li
+                key={item}
+                className="flex gap-3 text-[15px] leading-relaxed text-muted"
+              >
+                {variant === "check" ? (
+                  <span
+                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent"
+                    aria-hidden="true"
+                  >
+                    <CheckIcon className="h-3 w-3" />
+                  </span>
+                ) : (
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30"
+                    aria-hidden="true"
+                  />
+                )}
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </ScrollReveal>
+    </section>
   );
 }
 

@@ -33,6 +33,10 @@ export function Contact() {
         event_name: "contact_submit",
         article_slug: resolveSourceArticleSlug(getAttributionSnapshot()) || null,
         skipIngest: true,
+        meta: {
+          intent_event: "contact_success",
+          inquiry_page: `${window.location.pathname}${window.location.hash || ""}`,
+        },
       });
     }
   }, [state.ok]);
@@ -58,7 +62,7 @@ export function Contact() {
               お問い合わせ
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              ホームページ制作、システム開発、AI活用まで。
+              Web制作、システム開発、AI、データ活用、SEO/AI検索まで。
               日本全国どこでもご相談を受け付けています。
             </p>
 
@@ -138,6 +142,7 @@ export function Contact() {
               <input type="hidden" name="utm_content" defaultValue="" id="attr_utm_content" />
               <input type="hidden" name="session_id" defaultValue="" id="attr_session_id" />
               <input type="hidden" name="visitor_id" defaultValue="" id="attr_visitor_id" />
+              <input type="hidden" name="inquiry_page" defaultValue="" id="attr_inquiry_page" />
 
               <div className="space-y-5" onFocus={syncAttrHiddenFields}>
                 <div>
@@ -284,6 +289,7 @@ function syncAttrHiddenFields() {
       attr_utm_content: a.utm_content ?? "",
       attr_session_id: a.session_id,
       attr_visitor_id: a.visitor_id,
+      attr_inquiry_page: `${window.location.pathname}${window.location.hash || ""}`,
     };
     for (const [id, val] of Object.entries(map)) {
       const el = document.getElementById(id) as HTMLInputElement | null;

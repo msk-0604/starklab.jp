@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-/** Optional GA4 — missing measurement ID = no-op (site still works). */
+/** Optional GA4 — missing measurement ID = no-op (site still works). No PII sent. */
 export function Ga4Script() {
   const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
   if (!id) return null;
@@ -16,7 +16,12 @@ export function Ga4Script() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${id}', { anonymize_ip: true });
+          gtag('config', '${id}', {
+            anonymize_ip: true,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+            send_page_view: true
+          });
         `}
       </Script>
     </>

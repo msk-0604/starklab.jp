@@ -40,7 +40,8 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 ```bash
 RESEND_API_KEY=re_xxxx
-CONTACT_FROM_EMAIL=noreply@your-domain.com
+CONTACT_FROM_EMAIL=Stark Lab <contact@starklab.jp>
+CONTACT_NOTIFICATION_EMAIL=starklab.system@gmail.com
 ```
 
 ## ページ構成

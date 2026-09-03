@@ -17,6 +17,23 @@ const topicLabels = Object.fromEntries(
   contactTopics.map((topic) => [topic.value, topic.label]),
 ) as Record<string, string>;
 
+/** Simple in-memory rate limit (per server instance). */
+const rateBucket = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(key: string): boolean {
+  const now = Date.now();
+  const windowMs = 10 * 60 * 1000;
+  const max = 8;
+  const cur = rateBucket.get(key);
+  if (!cur || now > cur.resetAt) {
+    rateBucket.set(key, { count: 1, resetAt: now + windowMs });
+    return false;
+  }
+  if (cur.count >= max) return true;
+  cur.count += 1;
+  return false;
+}
+
 function ingestBase(): string {
   return (
     process.env.ANALYTICS_INGEST_URL?.replace(/\/$/, "") ||
@@ -65,6 +82,7 @@ export async function submitContact(
     first_touch_slug: asString(formData.get("first_touch_slug")) || null,
     last_touch_slug: asString(formData.get("last_touch_slug")) || null,
     landing_path: asString(formData.get("landing_page")) || null,
+    inquiry_page: asString(formData.get("inquiry_page")) || null,
     referrer: asString(formData.get("referrer")) || null,
     utm_source: asString(formData.get("utm_source")) || null,
     utm_medium: asString(formData.get("utm_medium")) || null,
@@ -103,19 +121,34 @@ export async function submitContact(
     };
   }
 
+  const rateKey =
+    attribution.visitor_id ||
+    attribution.session_id ||
+    email.toLowerCase() ||
+    "anon";
+  if (isRateLimited(rateKey)) {
+    return {
+      ok: false,
+      message: "送信が集中しています。しばらくしてから再度お試しください。",
+    };
+  }
+
   const topicLabel = topicLabels[topic] ?? topic;
 
   const attributionLines = [
     `source_article: ${attribution.article_slug || "（なし）"}`,
     `first_touch: ${attribution.first_touch_slug || "—"}`,
     `last_touch: ${attribution.last_touch_slug || "—"}`,
+    `landing: ${attribution.landing_path || "—"}`,
+    `inquiry_page: ${attribution.inquiry_page || "—"}`,
     `utm: ${[attribution.utm_source, attribution.utm_medium, attribution.utm_campaign].filter(Boolean).join("/") || "—"}`,
   ];
 
   // 1) CRM / SEO Engine へ保存（メール失敗と分離）
   let leadSaved = false;
   leadSaved = await postLead({
-    topic: topicLabel,
+    topic,
+    topic_label: topicLabel,
     company,
     name,
     email,

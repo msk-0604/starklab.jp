@@ -5,22 +5,27 @@
 export const siteConfig = {
   name: "Stark Lab",
   nameJa: "スタークラボ",
-  concept: "Web・システム・AIの開発パートナー",
-  tagline: "Web・システム・AIを、現場で使える形にする",
+  concept:
+    "Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナー",
+  tagline: "Web × AI × System × Data — 企業の業務と集客を、実装まで伴走",
   description:
-    "スタークラボ（Stark Lab）は、ホームページ制作、業務システム、AI活用、SEO・運用まで設計するITパートナーです。日本全国どこでもオンラインで対応します。",
+    "Stark Lab（スタークラボ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務改善と集客を実装まで支援するDX/AI開発パートナーです。日本全国オンライン対応。",
   seoTitle:
-    "スタークラボ（Stark Lab）｜Web制作・システム開発・AI活用（全国対応）",
+    "スタークラボ（Stark Lab）｜DX/AI開発パートナー｜Web・システム・AI・データ（全国対応）",
   seoDescription:
-    "ホームページ制作、業務システム、AI活用、SEO・運用まで。日本全国どこでもオンライン対応。拠点は滋賀県。",
+    "Web制作、業務システム、AI自動化、AIエージェント、RAG、Dashboard、SEO/AI検索、DXコンサル。建設・製造・中小企業など、業務と集客を一気通貫で実装。全国オンライン対応。",
+  entityStatement:
+    "Stark Labは、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。",
   coverage: "全国対応",
   coverageNote:
     "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県ですが、エリアによる制限はありません。",
   location: "滋賀県",
   responseNote: "2営業日以内を目安にご返信します",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://starklab.jp",
+  /** 本番正規URL（www）。sitemap / canonical / JSON-LD で使用 */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.starklab.jp",
   owner: "山本 真樹",
-  email: "yamamasaki0604@icloud.com",
+  /** 公開連絡先（サイト・特商法・JSON-LD 表示用） */
+  email: "contact@starklab.jp",
   /** 特商法ページのみ表示 */
   address: "滋賀県大津市坂本6丁目15-28",
   /** 特商法ページのみ表示 */
@@ -34,70 +39,68 @@ export const siteConfig = {
   paymentMethod: "クレジットカード（Stripe）",
 } as const;
 
-/** ワンストップで提供するサービス */
+/** 旧コンポーネント互換 — 8本柱へのマッピング表示用 */
 export const offerings = [
   {
+    id: "web",
+    title: "Web Development",
+    description: "コーポレート・LP・SEO・CV・AI検索を意識したサイト制作",
+  },
+  {
     id: "system",
-    title: "システム開発",
-    description:
-      "業務フローに合わせたWebシステム、管理画面、社内ツールを設計・開発します。",
+    title: "System Development",
+    description: "顧客・案件・工程・図面など、業務に合わせたシステム開発",
   },
   {
-    id: "ai",
-    title: "AI活用",
-    description:
-      "問い合わせ対応、資料作成、データ整理など、現場で使えるAIの導入を設計します。",
+    id: "ai-auto",
+    title: "AI Automation",
+    description: "問い合わせ・文書・定型業務のAI自動化",
   },
   {
-    id: "homepage",
-    title: "ホームページ制作",
-    description:
-      "問い合わせにつながる構成と文章で、コーポレートサイトやサービスサイトを制作します。",
+    id: "ai-agent",
+    title: "AI Agent",
+    description: "LLM + API + DB + Workflow の業務AIエージェント",
+  },
+  {
+    id: "rag",
+    title: "RAG / Knowledge AI",
+    description: "社内資料・図面・マニュアルのナレッジ検索",
+  },
+  {
+    id: "data",
+    title: "Data / Dashboard",
+    description: "KPI・案件・生産データの可視化と意思決定支援",
   },
   {
     id: "seo",
-    title: "SEO対策",
-    description:
-      "検索されやすい情報設計、記事運用、内部リンクまで。継続的に改善します。",
+    title: "SEO / AI Search",
+    description: "検索・AI検索・コンテンツ・CVを統合した成長基盤",
   },
   {
-    id: "meo",
-    title: "MEO対策",
-    description:
-      "Googleビジネスプロフィールの整備と運用で、地域からの発見を後押しします。",
-  },
-  {
-    id: "maintenance",
-    title: "保守・運用",
-    description:
-      "公開後の更新、表示速度、セキュリティまで継続サポートします。",
-  },
-  {
-    id: "kensapo",
-    title: "KenSapo",
-    description:
-      "現場・写真・工程・日報をまとめるクラウド現場管理システムです。",
-  },
-  {
-    id: "drawstock",
-    title: "DrawStock",
-    description:
-      "図面・PDFの共有・検索・権限管理をクラウドで実現する資料管理システムです。",
+    id: "dx",
+    title: "DX Consulting",
+    description: "業務整理からPoC・開発・改善までの伴走",
   },
 ] as const;
 
-/** 対応業種（建設業に強みつつ、他業種も歓迎） */
+/** 対応業種（ナビ・Entity用） */
 export const industries = [
-  "IT・SaaS",
+  "建設・設備",
   "製造・メーカー",
-  "店舗・飲食・小売",
+  "不動産",
+  "中小企業",
+  "店舗・サービス業",
   "士業・コンサル",
   "医療・福祉",
-  "建設・設備",
-  "その他サービス業",
+  "IT・SaaS",
 ] as const;
 
 export const homeFaq = [
+  {
+    question: "Stark Labとはどのような会社ですか？",
+    answer:
+      "Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。",
+  },
   {
     question: "対応エリアはどこですか？",
     answer:
@@ -106,17 +109,17 @@ export const homeFaq = [
   {
     question: "どんな相談ができますか？",
     answer:
-      "ホームページ制作、業務システム、AI活用、SEO・運用までご相談いただけます。業種は問いません。",
+      "Web制作、システム開発、AI活用、データ可視化、SEO/AI検索、DXコンサルまでご相談いただけます。建設・製造・中小企業など幅広い業種に対応します。",
   },
   {
     question: "システム開発だけの依頼も可能ですか？",
     answer:
-      "可能です。管理画面、社内ツール、既存業務のデジタル化など、必要な範囲から始められます。",
+      "可能です。管理画面、社内ツール、API連携など、必要な範囲から始められます。",
   },
   {
-    question: "SEO・MEOはどこまで対応しますか？",
+    question: "Web制作だけ依頼できますか？",
     answer:
-      "サイトの情報設計、タイトル・説明文、内部リンク、記事運用まで対応します。Googleビジネスプロフィールの整備もご相談ください。",
+      "可能です。SEO・計測・CV導線を含めたサイト制作のみのご依頼も承ります。",
   },
   {
     question: "料金の目安を教えてください。",
@@ -127,11 +130,19 @@ export const homeFaq = [
 
 /** 問い合わせの相談種別 */
 export const contactTopics = [
-  { value: "system", label: "システム開発について" },
-  { value: "ai", label: "AI活用について" },
-  { value: "homepage", label: "ホームページ制作について" },
-  { value: "seo-meo", label: "SEO・MEOについて" },
-  { value: "maintenance", label: "保守・運用について" },
+  { value: "web-development", label: "Web制作について" },
+  { value: "system-development", label: "業務システム・開発について" },
+  { value: "ai-automation", label: "AI自動化について" },
+  { value: "ai-agent", label: "AIエージェント導入について" },
+  { value: "rag", label: "RAG・ナレッジAIについて" },
+  { value: "data-dashboard", label: "データ・Dashboardについて" },
+  { value: "seo-ai-search", label: "検索・AI流入・SEOについて" },
+  { value: "dx-consulting", label: "DXコンサルについて" },
+  { value: "industry-construction", label: "建設業DXについて" },
+  { value: "industry-manufacturing", label: "製造業DXについて" },
+  { value: "industry-small-business", label: "中小企業DXについて" },
+  { value: "industry-real-estate", label: "不動産業DXについて" },
+  { value: "industry-service-business", label: "店舗・サービス業DXについて" },
   { value: "kensapo", label: "KenSapo（現場管理）について" },
   { value: "drawstock", label: "DrawStock（図面管理）について" },
   { value: "other", label: "その他・まとめて相談" },
@@ -139,9 +150,10 @@ export const contactTopics = [
 
 export const navLinks = [
   { href: "/services", label: "サービス" },
+  { href: "/industries", label: "業種別" },
   { href: "/works", label: "実績" },
-  { href: "/media", label: "Media" },
-  { href: "/areas", label: "対応エリア" },
+  { href: "/media", label: "Knowledge" },
+  { href: "/about", label: "会社概要" },
   { href: "/#contact", label: "お問い合わせ" },
 ] as const;
 

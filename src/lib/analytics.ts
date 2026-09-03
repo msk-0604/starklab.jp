@@ -33,11 +33,20 @@ declare global {
   }
 }
 
-function sendToGa4(event: AnalyticsEventName, params: Record<string, unknown>) {
+function sendToGa4(
+  event: AnalyticsEventName,
+  params: Record<string, unknown>,
+) {
   try {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", event, params);
+    if (typeof window.gtag !== "function") return;
+    // PII禁止: email / name / phone / company は送らない
+    const safe: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(params)) {
+      if (v == null || v === "") continue;
+      if (/email|name|phone|company|message/i.test(k)) continue;
+      safe[k] = v;
     }
+    window.gtag("event", event, safe);
   } catch {
     // GA optional
   }
@@ -78,9 +87,16 @@ export async function trackEvent(payload: TrackPayload): Promise<void> {
   };
 
   sendToGa4(payload.event_name, {
-    article_slug: body.article_slug,
     page_path: body.path,
-    session_id: body.session_id,
+    page_location: typeof window !== "undefined" ? window.location.href : undefined,
+    article_slug: body.article_slug,
+    utm_source: body.utm_source,
+    utm_medium: body.utm_medium,
+    utm_campaign: body.utm_campaign,
+    utm_term: body.utm_term,
+    utm_content: body.utm_content,
+    ...(payload.meta?.page_type ? { page_type: payload.meta.page_type } : {}),
+    ...(payload.event_name === "contact_submit" ? { conversion: true } : {}),
   });
 
   if (payload.skipIngest) return;

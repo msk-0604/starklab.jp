@@ -42,6 +42,7 @@ export type MediaPost = {
   ctaText: string;
   ctaUrl: string;
   primaryKeyword: string | null;
+  serviceSlug: string | null;
 };
 
 const SELECT =
@@ -52,19 +53,50 @@ function readingTime(md: string): number {
 }
 
 function normalizeUrl(url: string): string {
-  if (url.startsWith("/articles/")) {
-    return `${siteConfig.url}/media/${url.replace("/articles/", "")}`;
+  if (!url) return "/#contact";
+  let u = url.trim();
+  u = u.replace(/^https?:\/\/(www\.)?starklab\.jp/, "");
+  if (u.startsWith("/articles/")) {
+    return `/media/${u.replace("/articles/", "")}`;
   }
-  if (url.includes("/articles/")) {
-    return url.replace(/\/articles\//g, "/media/");
+  if (u.includes("/articles/")) {
+    return u.replace(/\/articles\//g, "/media/");
   }
-  if (url.startsWith("/services/") || url === "/services") {
-    return "/services";
+  // Phantom routes from older engine CTAs
+  if (u === "/contact" || u.startsWith("/contact?") || u.startsWith("/contact#")) {
+    const q = u.includes("?") ? u.slice(u.indexOf("?")) : "";
+    return `/${q}#contact`.replace("/?#", "/#").replace(/^\/\?/, "/?");
   }
-  if (url.includes("/services/")) {
-    return `${siteConfig.url}/services`;
+  if (u.startsWith("/services/") || u === "/services") {
+    const hash = u.includes("#") ? u.slice(u.indexOf("#")) : "";
+    const pathSlug = u.replace(/^\/services\/?/, "").split("#")[0].split("?")[0];
+    if (pathSlug && pathSlug !== "services") {
+      const known = [
+        "web-development",
+        "system-development",
+        "ai-automation",
+        "ai-agent",
+        "rag",
+        "data-dashboard",
+        "seo-ai-search",
+        "dx-consulting",
+      ];
+      if (known.includes(pathSlug)) return `/services/${pathSlug}${hash}`;
+    }
+    if (/kensapo/i.test(u)) return "/works/kensapo";
+    if (/drawstock/i.test(u)) return "/works/drawstock";
+    if (/web|homepage|hp/i.test(u)) return "/services/web-development";
+    if (/system/i.test(u)) return "/services/system-development";
+    if (/ai-agent|agent/i.test(u)) return "/services/ai-agent";
+    if (/rag|knowledge/i.test(u)) return "/services/rag";
+    if (/dashboard|data/i.test(u)) return "/services/data-dashboard";
+    if (/dx|consult/i.test(u)) return "/services/dx-consulting";
+    if (/ai/i.test(u)) return "/services/ai-automation";
+    if (/seo/i.test(u)) return "/services/seo-ai-search";
+    return `/services${hash}`;
   }
-  return url;
+  if (u.startsWith("http")) return u;
+  return u.startsWith("/") ? u : `/${u}`;
 }
 
 function adapt(row: ArticleRow): MediaPost {
@@ -75,7 +107,7 @@ function adapt(row: ArticleRow): MediaPost {
     title: row.title,
     description: row.meta_description,
     category: row.services?.name || row.keywords?.search_intent?.slice(0, 24) || "ブログ",
-    author: siteConfig.name,
+    author: `${siteConfig.owner}（${siteConfig.name}）`,
     publishedAt: row.published_at,
     updatedAt: row.updated_at,
     readingTimeMinutes: readingTime(md),
@@ -90,6 +122,7 @@ function adapt(row: ArticleRow): MediaPost {
     ctaText: row.cta_text,
     ctaUrl: normalizeUrl(row.cta_url),
     primaryKeyword: row.keywords?.keyword ?? null,
+    serviceSlug: row.services?.slug ?? null,
   };
 }
 
