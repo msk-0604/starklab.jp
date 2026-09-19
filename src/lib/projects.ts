@@ -7,8 +7,14 @@
 
 export type ProjectCta = {
   label: string;
-  /** 外部URL。未設定の場合は詳細ページ内のCTAのみ表示 */
+  /** 外部URLまたはサイト内パス。未設定の場合は詳細ページ内のCTAのみ表示 */
   href?: string;
+};
+
+export type ProjectPricingPlan = {
+  name: string;
+  price: string;
+  detail?: string;
 };
 
 export type Project = {
@@ -19,6 +25,8 @@ export type Project = {
   description: string;
   tags: string[];
   cta: ProjectCta;
+  /** 追加CTA（任意） */
+  secondaryCta?: ProjectCta;
   /** カバー画像（public 配下） */
   coverImage: string;
   /** デスクトップ画面キャプチャ */
@@ -27,6 +35,12 @@ export type Project = {
   mobileImages: string[];
   /** 機能一覧（システム系案件向け） */
   features?: string[];
+  /** 料金プラン（会社単位の月額など） */
+  pricing?: {
+    heading?: string;
+    note?: string;
+    plans: ProjectPricingPlan[];
+  };
   overview: string;
   background: string;
   /** 課題 */
@@ -55,63 +69,84 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "kensapo",
-    title: "KenSapo",
+    slug: "kenbei",
+    title: "KENBEI",
     category: "現場管理システム",
     description:
-      "建設業向けクラウド現場管理システム。現場・写真・工程・予定・日報・通知をひとつの画面で。",
-    tags: ["クラウド", "現場管理", "スマホ対応"],
+      "現場の記録から、会社の事務まで。写真・残作業・進捗・日報を、ひとつの流れで管理。",
+    tags: ["クラウド", "現場管理", "Webブラウザ", "施工管理"],
     cta: {
-      label: "詳しく見る",
+      label: "KENBEIを見る",
+      href: "https://app.kenbei.jp",
     },
-    coverImage: "/works/kensapo/cover.jpg",
-    desktopImages: ["/works/kensapo/desktop.svg"],
-    mobileImages: ["/works/kensapo/mobile.svg"],
+    secondaryCta: {
+      label: "14日間無料で始める",
+      href: "https://app.kenbei.jp/signup",
+    },
+    coverImage: "/works/kenbei/cover.jpg",
+    desktopImages: ["/works/kenbei/desktop.svg"],
+    mobileImages: ["/works/kenbei/mobile.svg"],
     features: [
       "現場管理",
       "写真管理",
-      "工程管理",
-      "予定管理",
-      "日報",
-      "通知",
+      "写真からタスク/残作業管理",
+      "進捗管理",
+      "日報作成",
+      "日報PDF",
+      "AI軍師による業務補助",
+      "メンバー管理",
+      "Webブラウザ対応",
     ],
+    pricing: {
+      heading: "料金",
+      note: "まず14日間無料でKENBEIを試せます。有料プランは会社単位の月額料金です。",
+      plans: [
+        {
+          name: "14日間無料体験",
+          price: "無料",
+          detail: "まず14日間無料でKENBEIを試せる",
+        },
+        { name: "STANDARD", price: "月額 39,800円" },
+        { name: "BUSINESS", price: "月額 65,000円" },
+      ],
+    },
     overview:
-      "建設現場の情報をクラウドに集約する現場管理システムです。紙やチャットに散らばりがちな現場情報を、権限付きでチーム全体が同じ画面から扱えるように設計しました。",
+      "KENBEIは、施工管理の現場で発生する写真・タスク・進捗・日報をつなげて管理する現場管理Webサービスです。現場写真からタスク・残作業、進捗管理、日報、PDFまでを同じ流れで扱い、現場の記録を会社の事務につなげます。",
     background:
-      "建設業では現場写真・工程表・日報が複数のツールに分散しやすく、確認漏れや引き継ぎコストが発生しがちです。現場と事務所をつなぐ「ひとつの正」をつくることが開発の目的でした。",
+      "建設・施工の現場では、写真・残作業・進捗・日報がツールや紙に分断されがちです。KENBEIは「現場の記録から、会社の事務まで。」を価値の中心に、同じ流れで管理できるWeb SaaSとして設計しました。",
     challenges: [
-      "現場・写真・工程・予定・日報がツールごとに分断されている",
-      "スマホでの入力・確認がしづらく、現場での利用率が上がらない",
-      "権限や通知の設計が弱く、関係者への情報共有が遅れる",
+      "現場写真・残作業・進捗・日報がツールごとに分断されている",
+      "現場の記録が会社の事務・日報作成までつながっていない",
+      "確認漏れや引き継ぎコストが発生しやすい",
     ],
     proposal: [
-      "現場情報をクラウドに集約する現場管理システムとして企画",
-      "現場と事務所が同じ画面を共有できる権限設計を前提にする",
-      "スマホからの日報・写真投稿を標準導線にする",
+      "写真 → タスク・残作業 → 進捗 → 日報 → PDF の一連の流れで管理する現場管理Webとして企画",
+      "AIだけを主役にせず、現場記録から事務までをつなぐ体験を優先する",
+      "Webブラウザで利用できるクラウド運用を前提にする",
     ],
     design: [
-      "現場単位で写真・工程・予定・日報を横断できる情報設計",
-      "役割に応じた権限と、重要イベントの通知フロー",
-      "現場利用を想定した入力ステップの簡略化",
+      "現場単位で写真・残作業・進捗・日報を横断できる情報設計",
+      "日報作成とPDF出力までを一連の導線として設計",
+      "メンバー管理と役割に応じた運用を想定した画面構成",
     ],
     implementation: [
-      "現場単位で情報を集約し、写真・工程・予定・日報を横断して確認できる画面構成",
-      "現場からの日報・写真投稿を簡単にした入力フロー",
-      "役割に応じた権限管理と、重要イベントの通知機能を実装",
-      "リアルタイム共有と、運用しやすいクラウド基盤を整備",
+      "現場写真からタスク・残作業・進捗・日報までをつなぐ画面構成",
+      "日報作成と日報PDFの出力フロー",
+      "AI軍師による業務補助（記録・事務の補助として配置）",
+      "メンバー管理とWebブラウザ対応のクラウド基盤",
     ],
     improvements: [
-      "現場単位で情報を集約し、写真・工程・予定・日報を横断して確認できる画面構成",
-      "現場からの日報・写真投稿を簡単にした入力フロー",
-      "役割に応じた権限管理と、重要イベントの通知機能を実装",
-      "リアルタイム共有と、運用しやすいクラウド基盤を整備",
+      "現場写真からタスク・残作業・進捗・日報までをつなぐ画面構成",
+      "日報作成と日報PDFの出力フロー",
+      "AI軍師による業務補助（記録・事務の補助として配置）",
+      "メンバー管理とWebブラウザ対応のクラウド基盤",
     ],
-    highlights: ["クラウド運用", "権限管理", "スマホ対応", "リアルタイム共有"],
+    highlights: ["写真から日報まで", "進捗・残作業", "日報PDF", "Webブラウザ"],
     relatedSlugs: ["drawstock", "stark-lab"],
     seo: {
-      title: "KenSapo｜建設業向け現場管理システム",
+      title: "KENBEI｜施工管理・現場管理",
       description:
-        "建設業向けクラウド現場管理システム KenSapo の制作実績。現場管理・写真・工程・予定・日報・通知をまとめたDX事例です。",
+        "現場写真・タスク・進捗・日報をひとつの流れで管理する施工管理Webサービス「KENBEI」。現場の記録から、会社の事務まで。",
     },
   },
   {
@@ -160,7 +195,7 @@ export const projects: Project[] = [
       "安全に共有できるクラウド基盤を構築",
     ],
     highlights: ["図面共有", "PDF管理", "検索", "権限管理"],
-    relatedSlugs: ["kensapo", "stark-lab"],
+    relatedSlugs: ["kenbei", "stark-lab"],
     seo: {
       title: "DrawStock｜建設業向け図面管理システム",
       description:
@@ -213,7 +248,7 @@ export const projects: Project[] = [
       "スマホ最適化と高速表示を前提とした実装",
     ],
     highlights: ["SEO", "ホームページ制作", "MEO", "スマホ対応"],
-    relatedSlugs: ["drawstock", "kensapo"],
+    relatedSlugs: ["drawstock", "kenbei"],
     seo: {
       title: "自社ホームページ制作実績",
       description:

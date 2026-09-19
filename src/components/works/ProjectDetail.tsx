@@ -41,6 +41,12 @@ export function ProjectDetail({
                   <ExternalIcon />
                 </Button>
               ) : null}
+              {project.secondaryCta?.href ? (
+                <Button href={project.secondaryCta.href} variant="secondary">
+                  {project.secondaryCta.label}
+                  <ExternalIcon />
+                </Button>
+              ) : null}
               <Button href="/#contact" variant="secondary">
                 お問い合わせ
               </Button>
@@ -87,6 +93,50 @@ export function ProjectDetail({
             </ul>
           ) : null}
         </Section>
+
+        {project.pricing ? (
+          <Section title={project.pricing.heading ?? "料金"} label="Pricing" surface>
+            <p className="text-sm leading-relaxed text-muted">
+              {project.pricing.note}
+            </p>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              {project.pricing.plans.map((plan) => (
+                <li
+                  key={plan.name}
+                  className="rounded-2xl border border-border bg-white px-5 py-5 shadow-[var(--shadow-card)]"
+                >
+                  <p className="text-sm font-semibold tracking-wide text-accent">
+                    {plan.name}
+                  </p>
+                  <p className="mt-2 font-display text-xl font-bold text-foreground sm:text-2xl">
+                    {plan.price}
+                  </p>
+                  {plan.detail ? (
+                    <p className="mt-2 text-sm text-muted">{plan.detail}</p>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {project.cta.href ? (
+                <Button href={project.cta.href} className="w-full sm:w-auto">
+                  {project.cta.label}
+                  <ExternalIcon />
+                </Button>
+              ) : null}
+              {project.secondaryCta?.href ? (
+                <Button
+                  href={project.secondaryCta.href}
+                  variant="secondary"
+                  className="w-full sm:w-auto"
+                >
+                  {project.secondaryCta.label}
+                  <ExternalIcon />
+                </Button>
+              ) : null}
+            </div>
+          </Section>
+        ) : null}
 
         {/* Background */}
         <Section title="制作背景" label="Background" surface>
@@ -213,6 +263,15 @@ export function ProjectDetail({
                 className="min-w-[160px]"
               >
                 {project.cta.label}
+              </Button>
+            ) : null}
+            {project.secondaryCta?.href ? (
+              <Button
+                href={project.secondaryCta.href}
+                variant="secondary"
+                className="min-w-[160px]"
+              >
+                {project.secondaryCta.label}
               </Button>
             ) : null}
             <Button href="/#contact" className="min-w-[160px]">
