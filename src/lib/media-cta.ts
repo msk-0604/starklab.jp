@@ -31,11 +31,11 @@ export function resolveMediaCta(input: Input): MediaCta {
       track: "media-drawstock",
     };
   }
-  if (/KenSapo|現場管理|施工管理|建設DX|工事現場/i.test(t) || input.serviceSlug?.includes("site-management") || input.serviceSlug?.includes("construction")) {
+  if (/KENBEI|KenBei|KenSapo|現場管理|施工管理|建設DX|工事現場/i.test(t) || input.serviceSlug?.includes("site-management") || input.serviceSlug?.includes("construction")) {
     return {
-      href: "/works/kensapo",
-      label: "KenSapo（現場管理）の実績を見る",
-      track: "media-kensapo",
+      href: "/works/kenbei",
+      label: "KENBEI（現場管理）の実績を見る",
+      track: "media-kenbei",
     };
   }
   if (/AI|ChatGPT|生成AI|自動化/i.test(t)) {

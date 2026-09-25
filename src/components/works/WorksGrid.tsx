@@ -38,11 +38,11 @@ export function WorksPageHero() {
               Works
             </p>
             <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-foreground sm:text-5xl sm:leading-[1.15]">
-            実績
-          </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Web制作、業務システム、自社プロダクトの事例です。
-          </p>
+              実績・自社サービス
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              Stark Labが自社開発・運営するプロダクト（KENBEIなど）と、Web制作・システム開発のプロジェクトです。
+            </p>
           </ScrollReveal>
         </div>
       </div>

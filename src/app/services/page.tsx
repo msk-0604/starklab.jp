@@ -28,12 +28,12 @@ const legacyAnchors = [
   { id: "seo", label: "SEO対策" },
   { id: "meo", label: "MEO対策" },
   { id: "maintenance", label: "保守・運用" },
-  { id: "kensapo", label: "KenSapo" },
+  { id: "kenbei", label: "KENBEI" },
   { id: "drawstock", label: "DrawStock" },
 ] as const;
 
 function legacyHref(id: string): string {
-  if (id === "kensapo") return "/works/kensapo";
+  if (id === "kenbei" || id === "kensapo") return "/works/kenbei";
   if (id === "drawstock") return "/works/drawstock";
   if (id === "meo") return "/services/web-development";
   if (id === "maintenance") return "/services/web-development";

@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
 
 const title = "Works";
 const description =
-  "Stark Labのプロジェクト一覧。Web制作、業務システム、AI活用の実績です。";
+  "Stark Labの自社開発サービス（KENBEIなど）と、Web制作・システム開発のプロジェクト一覧です。";
 
 export const metadata: Metadata = {
   title,

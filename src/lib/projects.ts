@@ -27,12 +27,12 @@ export type Project = {
   cta: ProjectCta;
   /** 追加CTA（任意） */
   secondaryCta?: ProjectCta;
-  /** カバー画像（public 配下） */
-  coverImage: string;
-  /** デスクトップ画面キャプチャ */
-  desktopImages: string[];
-  /** スマホ画面キャプチャ */
-  mobileImages: string[];
+  /** カバー画像（public 配下）。未設定時はブランドパネルを表示 */
+  coverImage?: string | null;
+  /** デスクトップ画面キャプチャ（正式素材がある場合のみ） */
+  desktopImages?: string[];
+  /** スマホ画面キャプチャ（正式素材がある場合のみ） */
+  mobileImages?: string[];
   /** 機能一覧（システム系案件向け） */
   features?: string[];
   /** 料金プラン（会社単位の月額など） */
@@ -70,22 +70,22 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "kenbei",
-    title: "KENBEI",
-    category: "現場管理システム",
+    title: "KENBEI（ケンベイ）",
+    category: "自社開発サービス",
     description:
-      "現場の記録から、会社の事務まで。写真・残作業・進捗・日報を、ひとつの流れで管理。",
-    tags: ["クラウド", "現場管理", "Webブラウザ", "施工管理"],
+      "建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理するWebサービス。Stark Labが自社開発・運営しています（顧客への導入事例ではありません）。",
+    tags: ["自社サービス", "現場管理", "Webブラウザ", "施工管理"],
     cta: {
-      label: "KENBEIを見る",
+      label: "KENBEIの詳細を見る",
       href: "https://app.kenbei.jp",
     },
     secondaryCta: {
-      label: "14日間無料で始める",
+      label: "14日間無料で試す",
       href: "https://app.kenbei.jp/signup",
     },
-    coverImage: "/works/kenbei/cover.jpg",
-    desktopImages: ["/works/kenbei/desktop.svg"],
-    mobileImages: ["/works/kenbei/mobile.svg"],
+    coverImage: null,
+    desktopImages: [],
+    mobileImages: [],
     features: [
       "現場管理",
       "写真管理",
@@ -111,9 +111,9 @@ export const projects: Project[] = [
       ],
     },
     overview:
-      "KENBEIは、施工管理の現場で発生する写真・タスク・進捗・日報をつなげて管理する現場管理Webサービスです。現場写真からタスク・残作業、進捗管理、日報、PDFまでを同じ流れで扱い、現場の記録を会社の事務につなげます。",
+      "KENBEI（ケンベイ）は、Stark Lab（スタークラボ）が自社開発・運営する現場管理Webサービスです。建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理します。顧客企業への導入事例ではなく、自社プロダクトです。公式アプリは app.kenbei.jp です。",
     background:
-      "建設・施工の現場では、写真・残作業・進捗・日報がツールや紙に分断されがちです。KENBEIは「現場の記録から、会社の事務まで。」を価値の中心に、同じ流れで管理できるWeb SaaSとして設計しました。",
+      "建設・施工の現場では、写真・残作業・進捗・日報がツールや紙に分断されがちです。KENBEIは「現場の記録から、会社の事務まで。」を価値の中心に、同じ流れで管理できるWeb SaaSとしてStark Labが企画・開発・運営しています。",
     challenges: [
       "現場写真・残作業・進捗・日報がツールごとに分断されている",
       "現場の記録が会社の事務・日報作成までつながっていない",
@@ -144,9 +144,9 @@ export const projects: Project[] = [
     highlights: ["写真から日報まで", "進捗・残作業", "日報PDF", "Webブラウザ"],
     relatedSlugs: ["drawstock", "stark-lab"],
     seo: {
-      title: "KENBEI｜施工管理・現場管理",
+      title: "KENBEI（ケンベイ）｜施工管理・現場管理｜Stark Lab自社サービス",
       description:
-        "現場写真・タスク・進捗・日報をひとつの流れで管理する施工管理Webサービス「KENBEI」。現場の記録から、会社の事務まで。",
+        "建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理するWebサービス「KENBEI（ケンベイ）」。Stark Labが自社開発・運営。",
     },
   },
   {

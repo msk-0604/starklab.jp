@@ -3,6 +3,7 @@ import type { Project } from "@/lib/projects";
 import { Button } from "../Button";
 import { ScrollReveal } from "../ScrollReveal";
 import { Breadcrumb, type BreadcrumbItem } from "./Breadcrumb";
+import { ProjectBrandPanel } from "./ProjectBrandPanel";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectImage } from "./ProjectImage";
 
@@ -17,6 +18,9 @@ export function ProjectDetail({
   related,
   breadcrumbs,
 }: ProjectDetailProps) {
+  const desktopImages = project.desktopImages ?? [];
+  const mobileImages = project.mobileImages ?? [];
+
   return (
     <div className="pb-20 sm:pb-28">
       {/* Hero */}
@@ -34,35 +38,49 @@ export function ProjectDetail({
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
               {project.description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {project.cta.href ? (
-                <Button href={project.cta.href}>
+                <Button href={project.cta.href} className="w-full sm:w-auto">
                   {project.cta.label}
                   <ExternalIcon />
                 </Button>
               ) : null}
               {project.secondaryCta?.href ? (
-                <Button href={project.secondaryCta.href} variant="secondary">
+                <Button
+                  href={project.secondaryCta.href}
+                  variant="secondary"
+                  className="w-full sm:w-auto"
+                >
                   {project.secondaryCta.label}
                   <ExternalIcon />
                 </Button>
               ) : null}
-              <Button href="/#contact" variant="secondary">
+              <Button href="/#contact" variant="secondary" className="w-full sm:w-auto">
                 お問い合わせ
               </Button>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={1} className="mt-10 sm:mt-12">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius-card)] border border-border bg-white shadow-[var(--shadow-card)] sm:aspect-[16/9]">
-              <ProjectImage
-                src={project.coverImage}
-                alt={`${project.title}のカバー画像`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 1152px"
-                priority
-                className="object-cover"
-              />
+            <div className="overflow-hidden rounded-[var(--radius-card)] border border-border bg-white shadow-[var(--shadow-card)]">
+              {project.coverImage ? (
+                <div className="relative aspect-[16/10] sm:aspect-[16/9]">
+                  <ProjectImage
+                    src={project.coverImage}
+                    alt={`${project.title}のカバー画像`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 1152px"
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <ProjectBrandPanel
+                  title={project.title}
+                  category={project.category}
+                  className="min-h-[14rem] sm:min-h-[18rem]"
+                />
+              )}
             </div>
           </ScrollReveal>
         </div>
@@ -195,57 +213,59 @@ export function ProjectDetail({
           </ul>
         </Section>
 
-        {/* Desktop captures */}
-        <Section title="画面キャプチャ" label="Desktop" surface>
-          <div className="grid gap-6">
-            {project.desktopImages.map((src, index) => (
-              <ScrollReveal key={src} delay={(Math.min(index, 4) || 0) as 0 | 1 | 2 | 3 | 4}>
-                <figure className="overflow-hidden rounded-[var(--radius-card)] border border-border bg-white shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1">
-                  <div className="relative aspect-[16/10]">
-                    <ProjectImage
-                      src={src}
-                      alt={`${project.title}のデスクトップ画面 ${index + 1}`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 1152px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-5 py-3 text-sm text-muted">
-                    デスクトップ表示イメージ {index + 1}
-                  </figcaption>
-                </figure>
-              </ScrollReveal>
-            ))}
-          </div>
-        </Section>
+        {desktopImages.length > 0 ? (
+          <Section title="画面キャプチャ" label="Desktop" surface>
+            <div className="grid gap-6">
+              {desktopImages.map((src, index) => (
+                <ScrollReveal key={src} delay={(Math.min(index, 4) || 0) as 0 | 1 | 2 | 3 | 4}>
+                  <figure className="overflow-hidden rounded-[var(--radius-card)] border border-border bg-white shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1">
+                    <div className="relative aspect-[16/10]">
+                      <ProjectImage
+                        src={src}
+                        alt={`${project.title}のデスクトップ画面 ${index + 1}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 1152px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="border-t border-border px-5 py-3 text-sm text-muted">
+                      デスクトップ表示イメージ {index + 1}
+                    </figcaption>
+                  </figure>
+                </ScrollReveal>
+              ))}
+            </div>
+          </Section>
+        ) : null}
 
-        {/* Mobile */}
-        <Section title="スマホ表示" label="Mobile">
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-            {project.mobileImages.map((src, index) => (
-              <ScrollReveal
-                key={src}
-                delay={(Math.min(index + 1, 4) || 0) as 0 | 1 | 2 | 3 | 4}
-                className="w-full max-w-[280px]"
-              >
-                <figure className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1.5">
-                  <div className="relative aspect-[9/16]">
-                    <ProjectImage
-                      src={src}
-                      alt={`${project.title}のスマホ画面 ${index + 1}`}
-                      fill
-                      sizes="280px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="border-t border-border px-4 py-3 text-center text-sm text-muted">
-                    スマートフォン表示
-                  </figcaption>
-                </figure>
-              </ScrollReveal>
-            ))}
-          </div>
-        </Section>
+        {mobileImages.length > 0 ? (
+          <Section title="スマホ表示" label="Mobile">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+              {mobileImages.map((src, index) => (
+                <ScrollReveal
+                  key={src}
+                  delay={(Math.min(index + 1, 4) || 0) as 0 | 1 | 2 | 3 | 4}
+                  className="w-full max-w-[280px]"
+                >
+                  <figure className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1.5">
+                    <div className="relative aspect-[9/16]">
+                      <ProjectImage
+                        src={src}
+                        alt={`${project.title}のスマホ画面 ${index + 1}`}
+                        fill
+                        sizes="280px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="border-t border-border px-4 py-3 text-center text-sm text-muted">
+                      スマートフォン表示
+                    </figcaption>
+                  </figure>
+                </ScrollReveal>
+              ))}
+            </div>
+          </Section>
+        ) : null}
 
         {/* CTA */}
         <ScrollReveal className="mt-4 rounded-[var(--radius-card)] bg-foreground px-6 py-10 text-center sm:px-10 sm:py-14">
@@ -255,12 +275,12 @@ export function ProjectDetail({
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
             プロダクトやDXについて、お気軽にお問い合わせください。
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             {project.cta.href ? (
               <Button
                 href={project.cta.href}
                 variant="secondary"
-                className="min-w-[160px]"
+                className="w-full min-w-[160px] sm:w-auto"
               >
                 {project.cta.label}
               </Button>
@@ -269,15 +289,19 @@ export function ProjectDetail({
               <Button
                 href={project.secondaryCta.href}
                 variant="secondary"
-                className="min-w-[160px]"
+                className="w-full min-w-[160px] sm:w-auto"
               >
                 {project.secondaryCta.label}
               </Button>
             ) : null}
-            <Button href="/#contact" className="min-w-[160px]">
+            <Button href="/#contact" className="w-full min-w-[160px] sm:w-auto">
               相談する
             </Button>
-            <Button href="/services" variant="secondary" className="min-w-[160px]">
+            <Button
+              href="/services"
+              variant="secondary"
+              className="w-full min-w-[160px] sm:w-auto"
+            >
               サービス一覧
             </Button>
           </div>

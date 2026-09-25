@@ -43,7 +43,7 @@ const processSteps = [
 const whyUs = [
   "Web制作会社ではなく、実装まで担うDX/AI開発パートナー",
   "建設・製造・中小企業など、業種ごとの課題に合わせた設計",
-  "KenSapo・DrawStockなど、自社プロダクトの開発実績",
+  "KENBEI・DrawStockなど、自社プロダクトの開発実績",
   "検索・AI・コンテンツ・CVをつなぐ成長基盤の設計",
   "全国オンライン対応、無理な営業はしません",
 ] as const;
@@ -55,7 +55,7 @@ export function HomeAbout() {
         <ScrollReveal>
           <p className="text-sm font-semibold tracking-wide text-accent">About</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Stark Labとは
+            Stark Lab（スタークラボ）とは
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
             {siteConfig.entityStatement}
@@ -64,8 +64,13 @@ export function HomeAbout() {
             します。
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">
-            対象は建設・製造・不動産・中小企業・店舗・サービス業など、DX需要のある企業全般です。
+            読みは「すたーくらぼ」。対象は建設・製造・不動産・中小企業・店舗・サービス業など、DX需要のある企業全般です。
             何でも屋ではなく、Web × AI × System × Data の実装力で伴走します。
+          </p>
+          <p className="mt-4">
+            <Link href="/about" className="text-sm font-medium text-accent hover:underline">
+              会社概要を見る →
+            </Link>
           </p>
         </ScrollReveal>
       </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import { Button } from "../Button";
 import { ScrollReveal } from "../ScrollReveal";
+import { ProjectBrandPanel } from "./ProjectBrandPanel";
 import { ProjectImage } from "./ProjectImage";
 
 type ProjectCardProps = {
@@ -27,18 +28,28 @@ export function ProjectCard({
           <div
             className={`relative ${compact ? "aspect-[16/10]" : "aspect-[16/10] sm:aspect-[16/9]"}`}
           >
-            <ProjectImage
-              src={project.coverImage}
-              alt={`${project.title}の制作イメージ`}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-            />
+            {project.coverImage ? (
+              <ProjectImage
+                src={project.coverImage}
+                alt={`${project.title}の制作イメージ`}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              />
+            ) : (
+              <ProjectBrandPanel
+                title={project.title}
+                category={project.category}
+                className="absolute inset-0 min-h-0"
+              />
+            )}
           </div>
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            aria-hidden="true"
-          />
+          {project.coverImage ? (
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              aria-hidden="true"
+            />
+          ) : null}
         </Link>
 
         <div
@@ -93,20 +104,32 @@ export function ProjectCard({
             ))}
           </ul>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             {project.cta.href ? (
               <>
                 <Button
                   href={project.cta.href}
                   variant="primary"
-                  className="!px-5 !py-2.5 text-sm"
+                  className="w-full !px-5 !py-3 text-sm sm:w-auto sm:!py-2.5"
                 >
                   {project.cta.label}
                   {project.cta.href.startsWith("http") ? <ExternalIcon /> : null}
                 </Button>
+                {project.secondaryCta?.href ? (
+                  <Button
+                    href={project.secondaryCta.href}
+                    variant="secondary"
+                    className="w-full !px-5 !py-3 text-sm sm:w-auto sm:!py-2.5"
+                  >
+                    {project.secondaryCta.label}
+                    {project.secondaryCta.href.startsWith("http") ? (
+                      <ExternalIcon />
+                    ) : null}
+                  </Button>
+                ) : null}
                 <Link
                   href={`/works/${project.slug}`}
-                  className="text-sm font-semibold text-muted transition-colors hover:text-accent"
+                  className="text-center text-sm font-semibold text-muted transition-colors hover:text-accent sm:text-left"
                 >
                   詳細を見る
                 </Link>
@@ -115,7 +138,7 @@ export function ProjectCard({
               <Button
                 href={`/works/${project.slug}`}
                 variant="primary"
-                className="!px-5 !py-2.5 text-sm"
+                className="w-full !px-5 !py-3 text-sm sm:w-auto sm:!py-2.5"
               >
                 {project.cta.label}
               </Button>

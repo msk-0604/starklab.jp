@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { getAllProjects, type Project } from "@/lib/projects";
 import { ScrollReveal } from "./ScrollReveal";
+import { ProjectBrandPanel } from "./works/ProjectBrandPanel";
 import { ProjectImage } from "./works/ProjectImage";
 
 /** トップで主に見せる自社プロダクト */
-const FEATURED_SLUGS = ["kensapo", "drawstock"] as const;
+const FEATURED_SLUGS = ["kenbei", "drawstock"] as const;
 
 export function OurProjects() {
   const all = getAllProjects();
@@ -20,10 +21,10 @@ export function OurProjects() {
             Our project
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            実績
+            実績・自社サービス
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Web制作と、業務システム・AIのプロジェクトです。
+            Stark Labが自社開発・運営するプロダクトと、Web制作などのプロジェクトです。顧客への導入事例と混同しないよう、自社サービスはカテゴリで明示しています。
           </p>
         </ScrollReveal>
 
@@ -39,13 +40,21 @@ export function OurProjects() {
                 className="group grid overflow-hidden rounded-[var(--radius-card)] border border-border bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] lg:grid-cols-[1.1fr_0.9fr]"
               >
                 <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px]">
-                  <ProjectImage
-                    src={project.coverImage}
-                    alt={`${project.title}のイメージ`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 55vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
+                  {project.coverImage ? (
+                    <ProjectImage
+                      src={project.coverImage}
+                      alt={`${project.title}のイメージ`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <ProjectBrandPanel
+                      title={project.title}
+                      category={project.category}
+                      className="absolute inset-0 min-h-0"
+                    />
+                  )}
                 </div>
                 <div className="flex flex-col justify-center p-7 sm:p-10">
                   <p className="text-sm font-semibold tracking-wide text-accent">

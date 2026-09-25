@@ -91,16 +91,28 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
-    alternateName: [siteConfig.nameJa, "すたーくらぼ", "StarkLab"],
+    legalName: siteConfig.name,
+    alternateName: [...siteConfig.brandAliases],
+    slogan: siteConfig.tagline,
     description: siteConfig.seoDescription,
     url: siteConfig.url,
     email: siteConfig.email,
+    telephone: siteConfig.phone,
     logo: `${siteConfig.url}/brand/stark-lab-logo.png`,
     image: `${siteConfig.url}/brand/stark-lab-logo.png`,
     founder: {
       "@type": "Person",
       name: siteConfig.owner,
+      jobTitle: "代表",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "坂本6丁目15-28",
+      addressLocality: "大津市",
+      addressRegion: "滋賀県",
+      addressCountry: "JP",
     },
     areaServed: { "@type": "Country", name: "Japan" },
     knowsAbout: [
@@ -108,13 +120,18 @@ export function organizationJsonLd() {
       "Construction DX",
       "Manufacturing DX",
       "DX Consulting",
-      siteConfig.nameJa,
+      "スタークラボ",
+      "すたーくらぼ",
+      "Stark Lab",
+      "KENBEI",
+      "DrawStock",
     ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: siteConfig.email,
-      availableLanguage: "Japanese",
+      telephone: siteConfig.phone,
+      availableLanguage: ["Japanese", "ja"],
       areaServed: "JP",
     },
   };
@@ -124,13 +141,15 @@ export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
     name: siteConfig.name,
-    alternateName: [siteConfig.nameJa, "すたーくらぼ"],
+    alternateName: [...siteConfig.brandAliases],
     url: siteConfig.url,
     inLanguage: "ja-JP",
     description: siteConfig.entityStatement,
     publisher: {
       "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
       name: siteConfig.name,
       alternateName: siteConfig.nameJa,
     },
@@ -149,7 +168,7 @@ export function worksListJsonLd(projects: Project[]) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Works",
-    description: "Stark Labの制作実績。Web、業務システム、AI活用の事例です。",
+    description: "Stark Labの自社開発サービスと制作実績。Web、業務システム、AI活用の事例です。",
     url: `${siteConfig.url}/works`,
     isPartOf: {
       "@type": "WebSite",
@@ -175,7 +194,9 @@ export function projectJsonLd(project: Project) {
     name: project.title,
     description: project.seo.description,
     url: `${siteConfig.url}/works/${project.slug}`,
-    image: `${siteConfig.url}${project.coverImage}`,
+    ...(project.coverImage
+      ? { image: `${siteConfig.url}${project.coverImage}` }
+      : {}),
     creator: {
       "@type": "Organization",
       name: siteConfig.name,

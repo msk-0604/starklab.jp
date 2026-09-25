@@ -31,7 +31,14 @@ export async function generateMetadata({
   }
 
   const url = `${siteConfig.url}/works/${project.slug}`;
-  const ogImage = `${siteConfig.url}${project.coverImage}`;
+  const ogImage = project.coverImage
+    ? {
+        url: `${siteConfig.url}${project.coverImage}`,
+        width: 1600,
+        height: 1000,
+        alt: `${project.title}の制作イメージ`,
+      }
+    : undefined;
 
   return {
     title: project.seo.title,
@@ -46,20 +53,13 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title: project.seo.title,
       description: project.seo.description,
-      images: [
-        {
-          url: ogImage,
-          width: 1600,
-          height: 1000,
-          alt: `${project.title}の制作イメージ`,
-        },
-      ],
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      card: ogImage ? "summary_large_image" : "summary",
       title: project.seo.title,
       description: project.seo.description,
-      images: [ogImage],
+      ...(ogImage ? { images: [ogImage.url] } : {}),
     },
   };
 }

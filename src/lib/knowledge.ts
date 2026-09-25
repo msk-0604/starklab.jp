@@ -64,7 +64,7 @@ export const knowledgeCategories: KnowledgeCategory[] = [
     slug: "construction",
     name: "Construction",
     description: "建設業・現場管理・施工",
-    matchPatterns: [/建設|現場|施工|工事|工務|KenSapo|現場管理/i],
+    matchPatterns: [/建設|現場|施工|工事|工務|KENBEI|KenBei|現場管理/i],
     relatedServiceSlugs: ["system-development", "rag"],
     relatedIndustrySlugs: ["construction"],
   },
@@ -138,7 +138,7 @@ export const topicClusters: TopicCluster[] = [
     hubPath: "/media/topics/construction",
     links: [
       { label: "建設業DX", href: "/industries/construction" },
-      { label: "KenSapo", href: "/works/kensapo" },
+      { label: "KENBEI", href: "/works/kenbei" },
       { label: "DrawStock", href: "/works/drawstock" },
       { label: "System Development", href: "/services/system-development" },
       { label: "AI Automation", href: "/services/ai-automation" },

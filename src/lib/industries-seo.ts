@@ -17,7 +17,7 @@ export const industryPageCandidates: IndustryPageDraft[] = [
     slug: "construction",
     name: "建設業",
     hasDistinctIntent: true,
-    intentNote: "KenSapo / DrawStock / 現場DXとの接続が明確",
+    intentNote: "KENBEI / DrawStock / 現場DXとの接続が明確",
   },
   {
     slug: "manufacturing",

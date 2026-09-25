@@ -10,8 +10,8 @@ const projects = [
     tone: "#0f172a",
   },
   {
-    id: "kensapo",
-    title: "KenSapo",
+    id: "kenbei",
+    title: "KENBEI",
     subtitle: "Field Management",
     accent: "#1d4ed8",
     tone: "#111827",

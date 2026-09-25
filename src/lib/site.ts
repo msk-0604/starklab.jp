@@ -13,9 +13,18 @@ export const siteConfig = {
   seoTitle:
     "スタークラボ（Stark Lab）｜DX/AI開発パートナー｜Web・システム・AI・データ（全国対応）",
   seoDescription:
-    "Web制作、業務システム、AI自動化、AIエージェント、RAG、Dashboard、SEO/AI検索、DXコンサル。建設・製造・中小企業など、業務と集客を一気通貫で実装。全国オンライン対応。",
+    "スタークラボ（Stark Lab／すたーくらぼ）は滋賀拠点のDX/AI開発パートナー。Web制作・業務システム・AI自動化・AIエージェント・RAG・データ可視化・SEOを、全国オンラインで実装まで伴走します。",
   entityStatement:
-    "Stark Labは、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。",
+    "Stark Lab（スタークラボ／すたーくらぼ）は、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。",
+  /** ブランド検索・構造化データ用の別名 */
+  brandAliases: [
+    "スタークラボ",
+    "すたーくらぼ",
+    "Stark Lab",
+    "StarkLab",
+    "STARK LAB",
+    "スターク ラボ",
+  ] as const,
   coverage: "全国対応",
   coverageNote:
     "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県ですが、エリアによる制限はありません。",
@@ -97,14 +106,24 @@ export const industries = [
 
 export const homeFaq = [
   {
-    question: "Stark Labとはどのような会社ですか？",
+    question: "スタークラボ（Stark Lab）とはどのような会社ですか？",
     answer:
-      "Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。",
+      "スタークラボ（Stark Lab／すたーくらぼ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。公式サイトは https://www.starklab.jp です。",
+  },
+  {
+    question: "Stark Labとスタークラボは同じですか？読み方は？",
+    answer:
+      "同じ運営です。正式名称は Stark Lab、日本語表記はスタークラボ、読みは「すたーくらぼ」です。運営責任者は山本 真樹、お問い合わせは contact@starklab.jp です。",
+  },
+  {
+    question: "KENBEI（ケンベイ）とは何ですか？",
+    answer:
+      "KENBEIはStark Labが自社開発・運営する現場管理Webサービスです。建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理します。顧客への導入事例ではなく自社プロダクトで、公式アプリは https://app.kenbei.jp です。",
   },
   {
     question: "対応エリアはどこですか？",
     answer:
-      "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県にあります。",
+      "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県大津市にあります。",
   },
   {
     question: "どんな相談ができますか？",
@@ -143,7 +162,7 @@ export const contactTopics = [
   { value: "industry-small-business", label: "中小企業DXについて" },
   { value: "industry-real-estate", label: "不動産業DXについて" },
   { value: "industry-service-business", label: "店舗・サービス業DXについて" },
-  { value: "kensapo", label: "KenSapo（現場管理）について" },
+  { value: "kenbei", label: "KENBEI（現場管理）について" },
   { value: "drawstock", label: "DrawStock（図面管理）について" },
   { value: "other", label: "その他・まとめて相談" },
 ] as const;

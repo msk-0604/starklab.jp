@@ -134,7 +134,7 @@ export const serviceDefinitions: ServiceDefinition[] = [
       "権限設計・通知設計",
     ],
     examples: [
-      "建設現場の情報を集約する現場管理システム（KenSapo）",
+      "建設現場の情報を集約する現場管理システム（KENBEI）",
       "図面・PDFの版管理と検索（DrawStock）",
       "営業・案件の進捗を可視化する社内ツール",
     ],
@@ -161,7 +161,7 @@ export const serviceDefinitions: ServiceDefinition[] = [
     contactTopic: "system-development",
     relatedServiceSlugs: ["data-dashboard", "ai-automation", "dx-consulting"],
     relatedIndustrySlugs: ["construction", "manufacturing", "small-business"],
-    relatedWorkSlugs: ["kensapo", "drawstock"],
+    relatedWorkSlugs: ["kenbei", "drawstock"],
   },
   {
     slug: "ai-automation",

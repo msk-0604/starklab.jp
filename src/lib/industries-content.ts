@@ -28,7 +28,7 @@ export const industryDefinitions: IndustryDefinition[] = [
     seo: {
       title: "建設業DX・現場管理",
       description:
-        "建設業向けDX。現場管理、日報、写真、図面、工程、見積、安全書類、RAG、AI報告書、Dashboard。KenSapo・DrawStockの実績を活用。",
+        "建設業向けDX。現場管理、日報、写真、図面、工程、見積、安全書類、RAG、AI報告書、Dashboard。KENBEI・DrawStockの実績を活用。",
     },
     summary:
       "建設現場の情報をクラウドでつなぎ、現場管理・図面・日報・報告を一気通貫で改善する建設業DXを支援します。",
@@ -56,18 +56,18 @@ export const industryDefinitions: IndustryDefinition[] = [
       "seo-ai-search",
     ],
     implementationNotes: [
-      "【実装済み】KenSapo（現場管理システム）— 現場・写真・工程・日報をクラウド集約",
+      "【実装済み】KENBEI（現場管理Web）— 写真・残作業・進捗・日報をひとつの流れで管理",
       "【実装済み】DrawStock（図面管理）— 図面・PDFの版管理と検索",
       "【対応可能】日報・報告書のAI支援、RAGによる安全資料検索",
       "【対応可能】工程・案件のDashboard、Web集客とメディア連携",
     ],
-    workSlugs: ["kensapo", "drawstock"],
-    mediaKeywords: ["建設", "現場", "施工", "工事", "KenSapo", "図面"],
+    workSlugs: ["kenbei", "drawstock"],
+    mediaKeywords: ["建設", "現場", "施工", "工事", "KENBEI", "図面"],
     faqs: [
       {
         question: "建設業向けの実績はありますか？",
         answer:
-          "KenSapo（現場管理）とDrawStock（図面管理）を自社開発・運用しています。詳細は制作実績ページをご覧ください。",
+          "KENBEI（ケンベイ／現場管理）とDrawStock（図面管理）を自社開発・運営しています。いずれも顧客への導入事例ではなく、Stark Labの自社プロダクトです。詳細は制作実績ページをご覧ください。",
       },
       {
         question: "小規模の工務店でも導入できますか？",
