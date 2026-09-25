@@ -14,13 +14,13 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-white">
-      <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 sm:py-20">
-        <p className="font-display text-lg font-bold tracking-tight text-foreground">
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
+        <p className="font-display text-2xl tracking-tight text-foreground">
           {siteConfig.name}
         </p>
-        <p className="mt-1 text-sm text-muted">{siteConfig.nameJa}</p>
-        <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-muted">
+        <p className="mt-2 text-sm text-muted">{siteConfig.nameJa}</p>
+        <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
           {siteConfig.concept}
           <br />
           拠点：{siteConfig.location}（打合せはオンライン完結）
@@ -29,7 +29,7 @@ export function Footer() {
         </p>
 
         <nav
-          className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2"
+          className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-7 sm:gap-y-2"
           aria-label="フッターナビ"
         >
           {footerLinks.map((link) => (
@@ -45,9 +45,9 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-5 py-5 text-center sm:px-8">
+        <div className="mx-auto max-w-5xl px-5 py-5 sm:px-8">
           <p className="text-xs text-muted">
-            © {year} {siteConfig.name}. All rights reserved.
+            © {year} {siteConfig.name}
           </p>
         </div>
       </div>

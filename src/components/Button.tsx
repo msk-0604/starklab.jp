@@ -5,10 +5,10 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-white shadow-[var(--shadow-cta)] hover:bg-accent-hover hover:shadow-[0_12px_32px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+    "bg-foreground text-background hover:bg-foreground/90 active:opacity-90",
   secondary:
-    "bg-white text-foreground border border-border hover:bg-surface shadow-[var(--shadow-card)] hover:-translate-y-0.5 active:translate-y-0",
-  ghost: "bg-transparent text-accent hover:bg-accent-soft",
+    "bg-transparent text-foreground border border-foreground/30 hover:border-foreground hover:bg-foreground/[0.03] active:opacity-90",
+  ghost: "bg-transparent text-foreground hover:bg-foreground/[0.04]",
 };
 
 type BaseProps = {
@@ -32,7 +32,7 @@ type ButtonAsLink = BaseProps & {
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const baseClass =
-  "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-semibold tracking-tight transition-all duration-300 ease-out disabled:pointer-events-none disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-none px-7 py-3.5 text-[14px] font-medium tracking-[0.04em] transition-colors duration-200 ease-out disabled:pointer-events-none disabled:opacity-60";
 
 export function Button(props: ButtonProps) {
   const { children, variant = "primary", className = "" } = props;
@@ -76,7 +76,11 @@ export function Button(props: ButtonProps) {
     variant: _v,
     className: _cl,
     ...rest
-  } = props as ButtonAsButton & { children?: ReactNode; variant?: ButtonVariant; className?: string };
+  } = props as ButtonAsButton & {
+    children?: ReactNode;
+    variant?: ButtonVariant;
+    className?: string;
+  };
   void _c;
   void _v;
   void _cl;

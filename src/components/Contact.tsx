@@ -14,7 +14,7 @@ const initialState: ContactState = {
 };
 
 const fieldClass =
-  "w-full rounded-2xl border border-border bg-white px-4 py-3 text-[15px] outline-none transition focus:border-accent";
+  "w-full border border-border bg-background px-4 py-3 text-[15px] outline-none transition focus:border-foreground";
 
 export function Contact() {
   const [state, formAction, pending] = useActionState(
@@ -52,74 +52,40 @@ export function Contact() {
 
   return (
     <section id="contact" className="scroll-mt-24 border-t border-border bg-surface py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal>
-            <p className="text-sm font-semibold tracking-wide text-accent">
-              Contact
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <p className="text-[13px] tracking-[0.14em] text-muted">Contact</p>
+            <h2 className="mt-4 font-display text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
               お問い合わせ
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted">
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
               KENBEIやStark Labについてのご相談を受け付けています。
               日本全国どこでもオンラインで対応します。
             </p>
 
-            <ul className="mt-8 space-y-3 text-sm text-muted">
-              <li className="flex gap-2">
-                <span className="text-accent" aria-hidden="true">
-                  ✓
-                </span>
-                日本全国どこでも、オンラインで対応します
-              </li>
-              <li className="flex gap-2">
-                <span className="text-accent" aria-hidden="true">
-                  ✓
-                </span>
-                無理な営業・しつこい連絡はありません
-              </li>
-              <li className="flex gap-2">
-                <span className="text-accent" aria-hidden="true">
-                  ✓
-                </span>
-                {siteConfig.responseNote}
-              </li>
-              <li className="flex gap-2">
-                <span className="text-accent" aria-hidden="true">
-                  ✓
-                </span>
-                お急ぎの場合は下記メールでも受付可能です
-              </li>
-            </ul>
-
-            <dl className="mt-10 space-y-5">
+            <dl className="mt-10 space-y-5 text-sm">
               <div>
-                <dt className="text-sm text-muted">{siteConfig.name}</dt>
-                <dd className="mt-1 text-[15px] text-foreground">
-                  {siteConfig.concept}
-                  <br />
-                  {siteConfig.coverage} ／ 拠点：{siteConfig.location}
-                </dd>
+                <dt className="text-muted">{siteConfig.name}</dt>
+                <dd className="mt-1 text-foreground">{siteConfig.concept}</dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">担当</dt>
-                <dd className="mt-1 text-[15px] font-medium text-foreground">
-                  {siteConfig.owner}
-                </dd>
+                <dt className="text-muted">担当</dt>
+                <dd className="mt-1 text-foreground">{siteConfig.owner}</dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">メール</dt>
+                <dt className="text-muted">メール</dt>
                 <dd className="mt-1">
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="text-[15px] font-medium text-accent hover:underline"
+                    className="underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
                   >
                     {siteConfig.email}
                   </a>
                 </dd>
               </div>
             </dl>
+            <p className="mt-8 text-sm text-muted">{siteConfig.responseNote}</p>
           </ScrollReveal>
 
           <ScrollReveal delay={1}>
@@ -127,7 +93,7 @@ export function Contact() {
               action={formAction}
               onFocusCapture={onFocusCapture}
               onSubmit={() => syncAttrHiddenFields()}
-              className="rounded-[var(--radius-card)] border border-border bg-white p-6 shadow-[var(--shadow-card)] sm:p-8"
+              className="border border-border bg-[#fffcf7] p-6 sm:p-8"
             >
               {/* Attribution — synced via syncAttrHiddenFields on mount/focus/submit */}
               <input type="hidden" name="source_article_slug" defaultValue="" id="attr_source_article_slug" />

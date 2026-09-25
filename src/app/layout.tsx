@@ -1,23 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP, Plus_Jakarta_Sans } from "next/font/google";
+import { Instrument_Serif, Shippori_Mincho, Zen_Kaku_Gothic_New } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { AnalyticsBootstrap } from "@/components/analytics/AnalyticsBootstrap";
 import { Ga4Script } from "@/components/analytics/Ga4Script";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
+/** Latin display — 編集部っぽいセリフ（SaaS感を避ける） */
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
-const notoSansJp = Noto_Sans_JP({
-  variable: "--font-noto-sans-jp",
+/** JP display — 明朝でスタジオらしさ */
+const shippori = Shippori_Mincho({
+  variable: "--font-shippori",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+/** Body */
+const zenKaku = Zen_Kaku_Gothic_New({
+  variable: "--font-zen-kaku",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -75,7 +85,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#f7f5f0",
   width: "device-width",
   initialScale: 1,
 };
@@ -88,12 +98,11 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${plusJakarta.variable} ${notoSansJp.variable} h-full scroll-smooth antialiased`}
+      className={`${instrumentSerif.variable} ${shippori.variable} ${zenKaku.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Ga4Script />
         <AnalyticsBootstrap />
-        <ScrollProgress />
         <Header />
         {children}
         <Footer />

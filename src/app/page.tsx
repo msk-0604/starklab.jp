@@ -1,8 +1,7 @@
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { Contact } from "@/components/Contact";
 import { FloatingContact } from "@/components/FloatingContact";
-import { Hero } from "@/components/Hero";
-import { HomeCompany, HomeProject } from "@/components/SiigHome";
+import { StudioHome } from "@/components/StudioHome";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import type { Metadata } from "next";
@@ -44,9 +43,7 @@ export default function HomePage() {
       />
       <PageViewTracker pageType="other" dedupeKey="home" />
       <main className="flex-1 pb-20 md:pb-0">
-        <Hero />
-        <HomeProject />
-        <HomeCompany />
+        <StudioHome />
         <Contact />
       </main>
       <FloatingContact />
