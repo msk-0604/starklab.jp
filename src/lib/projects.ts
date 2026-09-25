@@ -102,15 +102,23 @@ export const projects: Project[] = [
     ],
     pricing: {
       heading: "料金",
-      note: "まず14日間無料でKENBEIを試せます。有料プランは会社単位の月額料金です。",
+      note: "まず14日間無料でKENBEIを試せます（カード登録不要の無料体験）。恒久無料プランはありません。有料プランは会社単位の月額料金です。",
       plans: [
         {
           name: "14日間無料体験",
           price: "無料",
           detail: "まず14日間無料でKENBEIを試せる",
         },
-        { name: "STANDARD", price: "月額 39,800円" },
-        { name: "BUSINESS", price: "月額 65,000円" },
+        {
+          name: "STANDARD",
+          price: "月額 39,800円",
+          detail: "50名まで",
+        },
+        {
+          name: "BUSINESS",
+          price: "月額 65,000円",
+          detail: "人数上限なし",
+        },
       ],
     },
     overview:
@@ -149,7 +157,7 @@ export const projects: Project[] = [
     seo: {
       title: "KENBEI（ケンベイ）｜施工管理・現場管理｜Stark Lab自社サービス",
       description:
-        "建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理するWebサービス「KENBEI（ケンベイ）」。Stark Labが自社開発・運営。",
+        "建設会社向け現場管理Web「KENBEI（ケンベイ）」。14日間無料体験、STANDARD月額39,800円（50名まで）、BUSINESS月額65,000円（人数上限なし）。Stark Labが自社開発・運営。",
     },
   },
   {

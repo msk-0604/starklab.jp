@@ -62,8 +62,8 @@ export function Contact() {
               お問い合わせ
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              Web制作、システム開発、AI、データ活用、SEO/AI検索まで。
-              日本全国どこでもご相談を受け付けています。
+              KENBEIやStark Labについてのご相談を受け付けています。
+              日本全国どこでもオンラインで対応します。
             </p>
 
             <ul className="mt-8 space-y-3 text-sm text-muted">

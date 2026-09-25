@@ -12,7 +12,7 @@ export const siteConfig = {
   seoTitle:
     "スタークラボ（Stark Lab）｜KENBEI（ケンベイ）運営",
   seoDescription:
-    "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営。建設会社の現場監督・施工管理者向け。公式アプリは app.kenbei.jp。",
+    "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営。14日間無料体験あり。建設会社の現場監督・施工管理者向け。公式アプリは app.kenbei.jp。",
   entityStatement:
     "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。",
   /** ブランド検索・構造化データ用の別名 */
@@ -118,6 +118,11 @@ export const homeFaq = [
     question: "KENBEI（ケンベイ）とは何ですか？",
     answer:
       "KENBEIはStark Labが自社開発・運営する現場管理Webサービスです。建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理します。顧客への導入事例ではなく自社プロダクトで、公式アプリは https://app.kenbei.jp です。",
+  },
+  {
+    question: "KENBEIの料金はいくらですか？",
+    answer:
+      "14日間の無料体験があります（恒久無料プランはありません）。有料は会社単位で、STANDARDが月額39,800円（50名まで）、BUSINESSが月額65,000円（人数上限なし）です。詳細は https://www.starklab.jp/works/kenbei および https://app.kenbei.jp をご確認ください。",
   },
   {
     question: "対応エリアはどこですか？",

@@ -1,8 +1,7 @@
 # Stark Lab (スタークラボ / すたーくらぼ)
 # https://www.starklab.jp
 
-> Stark Lab（スタークラボ／すたーくらぼ）は、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。
-> 建設・製造・中小企業・不動産・店舗・サービス業向けに、実装まで伴走します。拠点は滋賀県。全国オンライン対応。
+> Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。拠点は滋賀県。全国オンライン対応。
 
 ## Brand names
 - Stark Lab
@@ -13,34 +12,19 @@
 ## Official site
 - Home: https://www.starklab.jp/
 - About: https://www.starklab.jp/about
-- Services: https://www.starklab.jp/services
-- Industries: https://www.starklab.jp/industries
-- Works: https://www.starklab.jp/works
-- Knowledge (Media): https://www.starklab.jp/media
+- Services (KENBEI): https://www.starklab.jp/services
+- Works / KENBEI: https://www.starklab.jp/works/kenbei
 - Contact: https://www.starklab.jp/#contact
 
-## Core services
-- Web Development: https://www.starklab.jp/services/web-development
-- System Development: https://www.starklab.jp/services/system-development
-- AI Automation: https://www.starklab.jp/services/ai-automation
-- AI Agent: https://www.starklab.jp/services/ai-agent
-- RAG / Knowledge AI: https://www.starklab.jp/services/rag
-- Data / Dashboard: https://www.starklab.jp/services/data-dashboard
-- SEO / AI Search Growth: https://www.starklab.jp/services/seo-ai-search
-- DX Consulting: https://www.starklab.jp/services/dx-consulting
-
-## Industry solutions
-- Construction: https://www.starklab.jp/industries/construction
-- Manufacturing: https://www.starklab.jp/industries/manufacturing
-- Small Business: https://www.starklab.jp/industries/small-business
-- Real Estate: https://www.starklab.jp/industries/real-estate
-- Service Business: https://www.starklab.jp/industries/service-business
-
-## Products / case studies
-- KENBEI (現場管理): https://www.starklab.jp/works/kenbei
-- DrawStock (図面管理): https://www.starklab.jp/works/drawstock
-- KENBEI app: https://app.kenbei.jp
-- KENBEI signup: https://app.kenbei.jp/signup
+## Product: KENBEI
+- Intro: https://www.starklab.jp/works/kenbei
+- App: https://app.kenbei.jp
+- Signup (14-day free trial): https://app.kenbei.jp/signup
+- Pricing:
+  - 14-day free trial (no permanent free plan)
+  - STANDARD: 39,800 JPY / month, up to 50 members
+  - BUSINESS: 65,000 JPY / month, unlimited members
+- Note: KENBEI is Stark Lab's own product, not a customer case study. Former name KenSapo redirects to /works/kenbei.
 
 ## Contact
 - Email: contact@starklab.jp

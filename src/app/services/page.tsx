@@ -13,12 +13,12 @@ import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "サービス｜KENBEI（現場管理）",
   description:
-    "Stark Labのサービスは現場管理WebサービスKENBEIです。自社開発・運営。14日間無料体験あり。公式アプリ app.kenbei.jp。",
+    "Stark Labのサービスは現場管理WebサービスKENBEIです。14日間無料体験、STANDARD月額39,800円（50名まで）、BUSINESS月額65,000円（人数上限なし）。恒久無料プランなし。公式アプリ app.kenbei.jp。",
   alternates: { canonical: "/services" },
   openGraph: {
     title: `サービス｜KENBEI｜${siteConfig.name}`,
     description:
-      "Stark Labが自社開発・運営する現場管理WebサービスKENBEI。建設会社の現場監督・施工管理者向け。",
+      "Stark Labが自社開発・運営する現場管理WebサービスKENBEI。14日間無料体験あり。STANDARD 39,800円／月（50名まで）、BUSINESS 65,000円／月（人数上限なし）。",
     url: `${siteConfig.url}/services`,
   },
 };
