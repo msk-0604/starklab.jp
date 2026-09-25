@@ -5,17 +5,16 @@
 export const siteConfig = {
   name: "Stark Lab",
   nameJa: "スタークラボ",
-  concept:
-    "Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナー",
-  tagline: "Web × AI × System × Data — 企業の業務と集客を、実装まで伴走",
+  concept: "現場管理Webサービス KENBEI を自社開発・運営",
+  tagline: "現場管理サービス KENBEI を、自社で開発・運営しています",
   description:
-    "Stark Lab（スタークラボ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務改善と集客を実装まで支援するDX/AI開発パートナーです。日本全国オンライン対応。",
+    "Stark Lab（スタークラボ）は、建設現場向け現場管理Webサービス「KENBEI（ケンベイ）」を自社開発・運営しています。拠点は滋賀県。打合せはオンライン完結です。",
   seoTitle:
-    "スタークラボ（Stark Lab）｜DX/AI開発パートナー｜Web・システム・AI・データ（全国対応）",
+    "スタークラボ（Stark Lab）｜KENBEI（ケンベイ）運営",
   seoDescription:
-    "スタークラボ（Stark Lab／すたーくらぼ）は滋賀拠点のDX/AI開発パートナー。Web制作・業務システム・AI自動化・AIエージェント・RAG・データ可視化・SEOを、全国オンラインで実装まで伴走します。",
+    "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営。建設会社の現場監督・施工管理者向け。公式アプリは app.kenbei.jp。",
   entityStatement:
-    "Stark Lab（スタークラボ／すたーくらぼ）は、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。",
+    "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。",
   /** ブランド検索・構造化データ用の別名 */
   brandAliases: [
     "スタークラボ",
@@ -108,7 +107,7 @@ export const homeFaq = [
   {
     question: "スタークラボ（Stark Lab）とはどのような会社ですか？",
     answer:
-      "スタークラボ（Stark Lab／すたーくらぼ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。公式サイトは https://www.starklab.jp です。",
+      "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。公式サイトは https://www.starklab.jp です。",
   },
   {
     question: "Stark Labとスタークラボは同じですか？読み方は？",
@@ -123,27 +122,7 @@ export const homeFaq = [
   {
     question: "対応エリアはどこですか？",
     answer:
-      "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県大津市にあります。",
-  },
-  {
-    question: "どんな相談ができますか？",
-    answer:
-      "Web制作、システム開発、AI活用、データ可視化、SEO/AI検索、DXコンサルまでご相談いただけます。建設・製造・中小企業など幅広い業種に対応します。",
-  },
-  {
-    question: "システム開発だけの依頼も可能ですか？",
-    answer:
-      "可能です。管理画面、社内ツール、API連携など、必要な範囲から始められます。",
-  },
-  {
-    question: "Web制作だけ依頼できますか？",
-    answer:
-      "可能です。SEO・計測・CV導線を含めたサイト制作のみのご依頼も承ります。",
-  },
-  {
-    question: "料金の目安を教えてください。",
-    answer:
-      "規模と範囲によって異なります。まずは無料相談で課題を整理し、必要な範囲だけお見積りします。",
+      "日本全国どこでも対応します。打合せはオンライン完結です。拠点は滋賀県大津市にあります。",
   },
 ] as const;
 
@@ -168,12 +147,9 @@ export const contactTopics = [
 ] as const;
 
 export const navLinks = [
-  { href: "/services", label: "サービス" },
-  { href: "/industries", label: "業種別" },
-  { href: "/works", label: "実績" },
-  { href: "/media", label: "Knowledge" },
-  { href: "/about", label: "会社概要" },
-  { href: "/#contact", label: "お問い合わせ" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export function formatYen(amount: number): string {

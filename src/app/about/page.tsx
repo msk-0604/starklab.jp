@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   title: {
     absolute: `スタークラボ（Stark Lab）とは｜会社概要｜${siteConfig.name}`,
   },
-  description: `${siteConfig.name}（${siteConfig.nameJa}／すたーくらぼ）の会社概要。Web・AI・業務システム・データ活用を統合するDX/AI開発パートナー。運営者・対応エリア・公式サイト情報。`,
+  description: `${siteConfig.name}（${siteConfig.nameJa}／すたーくらぼ）の会社概要。現場管理WebサービスKENBEIを自社開発・運営。運営者・対応エリア・公式サイト情報。`,
   keywords: [
     "スタークラボ",
     "Stark Lab",
     "すたーくらぼ",
     "StarkLab",
     "会社概要",
-    "DX",
+    "KENBEI",
     "滋賀",
   ],
   alternates: { canonical: "/about" },

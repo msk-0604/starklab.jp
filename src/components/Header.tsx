@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navLinks, siteConfig } from "@/lib/site";
-import { Button } from "./Button";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,11 +27,11 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-border bg-white/80 backdrop-blur-xl"
+          ? "border-b border-border bg-white/90 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
+      <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
         <Link
           href="/"
           className="flex items-center"
@@ -53,22 +52,12 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               {link.label}
-              <span
-                className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full"
-                aria-hidden="true"
-              />
             </Link>
           ))}
         </nav>
-
-        <div className="hidden md:block">
-          <Button href="/#contact" className="!px-5 !py-2.5 text-sm">
-            相談する
-          </Button>
-        </div>
 
         <button
           type="button"
@@ -116,15 +105,6 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <div className="pt-2">
-            <Link
-              href="/#contact"
-              className="inline-flex w-full items-center justify-center rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-white shadow-[var(--shadow-cta)]"
-              onClick={() => setOpen(false)}
-            >
-              相談する
-            </Link>
-          </div>
         </nav>
       </div>
     </header>
