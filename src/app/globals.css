@@ -126,7 +126,7 @@ body {
 
 /* ---------- Hero ---------- */
 .hero-stage {
-  opacity: calc(1 - (var(--hero-progress) * 0.35));
+  opacity: calc(1 - (var(--hero-progress) * 0.28));
 }
 
 .hero-grid {
@@ -136,6 +136,88 @@ body {
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, black 20%, transparent 75%);
   animation: grid-drift 22s linear infinite;
+}
+
+.siig-hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, black 15%, transparent 78%);
+  animation: grid-drift 26s linear infinite;
+}
+
+.siig-hero-grid-light {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.09) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 70% at 55% 35%, black 18%, transparent 78%);
+  animation: grid-drift 28s linear infinite;
+}
+
+.siig-project-grid {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 30%, black 10%, transparent 72%);
+}
+
+.siig-orb-a {
+  animation: orb-drift-a 14s ease-in-out infinite alternate;
+}
+
+.siig-orb-b {
+  animation: orb-drift-b 18s ease-in-out infinite alternate;
+}
+
+.siig-slash {
+  animation: slash-pulse 5s ease-in-out infinite;
+}
+
+.siig-logo-float {
+  animation: logo-float 5.5s ease-in-out infinite;
+}
+
+@keyframes orb-drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(36px, 24px, 0) scale(1.08);
+  }
+}
+
+@keyframes orb-drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-40px, -20px, 0) scale(1.12);
+  }
+}
+
+@keyframes slash-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: rotate(12deg) translateY(0);
+  }
+  50% {
+    opacity: 0.85;
+    transform: rotate(12deg) translateY(10px);
+  }
+}
+
+@keyframes logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .hero-scan {
@@ -173,8 +255,8 @@ body {
 @keyframes hero-line-in {
   from {
     opacity: 0;
-    transform: translateY(28px);
-    filter: blur(10px);
+    transform: translateY(32px);
+    filter: blur(12px);
   }
   to {
     opacity: 1;
@@ -184,23 +266,41 @@ body {
 }
 
 .hero-line {
-  animation: hero-line-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-line-in 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-line-1 {
-  animation-delay: 0.05s;
+  animation-delay: 0.08s;
 }
 .hero-line-2 {
-  animation-delay: 0.18s;
+  animation-delay: 0.22s;
 }
 .hero-line-3 {
-  animation-delay: 0.32s;
+  animation-delay: 0.38s;
 }
 .hero-line-4 {
-  animation-delay: 0.46s;
+  animation-delay: 0.52s;
 }
 .hero-line-5 {
-  animation-delay: 0.58s;
+  animation-delay: 0.68s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .siig-hero-grid,
+  .siig-hero-grid-light,
+  .siig-orb-a,
+  .siig-orb-b,
+  .siig-slash,
+  .siig-logo-float,
+  .hero-line {
+    animation: none !important;
+  }
+
+  .hero-line {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
 }
 
 /* ---------- Marquee ---------- */
