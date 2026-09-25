@@ -78,6 +78,8 @@ export function ProjectDetail({
                 <ProjectBrandPanel
                   title={project.title}
                   category={project.category}
+                  logoSrc={project.brandLogo}
+                  size="hero"
                   className="min-h-[14rem] sm:min-h-[18rem]"
                 />
               )}

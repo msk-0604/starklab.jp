@@ -29,6 +29,8 @@ export type Project = {
   secondaryCta?: ProjectCta;
   /** カバー画像（public 配下）。未設定時はブランドパネルを表示 */
   coverImage?: string | null;
+  /** 正式ブランドロゴ（改変せず表示） */
+  brandLogo?: string | null;
   /** デスクトップ画面キャプチャ（正式素材がある場合のみ） */
   desktopImages?: string[];
   /** スマホ画面キャプチャ（正式素材がある場合のみ） */
@@ -84,6 +86,7 @@ export const projects: Project[] = [
       href: "https://app.kenbei.jp/signup",
     },
     coverImage: null,
+    brandLogo: "/works/kenbei/logo.png",
     desktopImages: [],
     mobileImages: [],
     features: [

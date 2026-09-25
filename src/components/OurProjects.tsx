@@ -52,6 +52,7 @@ export function OurProjects() {
                     <ProjectBrandPanel
                       title={project.title}
                       category={project.category}
+                      logoSrc={project.brandLogo}
                       className="absolute inset-0 min-h-0"
                     />
                   )}
