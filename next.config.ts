@@ -5,23 +5,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/works",
-        destination: "/works/kenbei",
-        permanent: true,
-      },
-      {
         source: "/works/kensapo",
         destination: "/works/kenbei",
-        permanent: true,
-      },
-      {
-        source: "/works/drawstock",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/works/stark-lab",
-        destination: "/",
         permanent: true,
       },
     ];

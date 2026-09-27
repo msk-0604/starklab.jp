@@ -5,16 +5,17 @@
 export const siteConfig = {
   name: "Stark Lab",
   nameJa: "スタークラボ",
-  concept: "現場管理Webサービス KENBEI を自社開発・運営",
-  tagline: "現場管理サービス KENBEI を、自社で開発・運営しています",
+  concept:
+    "Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナー",
+  tagline: "Web × AI × System × Data — 企業の業務と集客を、実装まで伴走",
   description:
-    "Stark Lab（スタークラボ）は、建設現場向け現場管理Webサービス「KENBEI（ケンベイ）」を自社開発・運営しています。",
+    "Stark Lab（スタークラボ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務改善と集客を実装まで支援するDX/AI開発パートナーです。日本全国オンライン対応。",
   seoTitle:
-    "スタークラボ（Stark Lab）｜KENBEI（ケンベイ）運営",
+    "スタークラボ（Stark Lab）｜DX/AI開発パートナー｜Web・システム・AI・データ（全国対応）",
   seoDescription:
-    "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営。14日間無料体験あり。建設会社の現場監督・施工管理者向け。公式アプリは app.kenbei.jp。",
+    "スタークラボ（Stark Lab／すたーくらぼ）は滋賀拠点のDX/AI開発パートナー。Web制作・業務システム・AI自動化・AIエージェント・RAG・データ可視化・SEOを、全国オンラインで実装まで伴走します。",
   entityStatement:
-    "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。",
+    "Stark Lab（スタークラボ／すたーくらぼ）は、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。",
   /** ブランド検索・構造化データ用の別名 */
   brandAliases: [
     "スタークラボ",
@@ -24,10 +25,9 @@ export const siteConfig = {
     "STARK LAB",
     "スターク ラボ",
   ] as const,
-  /** 互換用。公開コピーでは使わない */
-  coverage: "",
-  coverageNote: "",
-  /** 特商法ページのみ表示 */
+  coverage: "全国対応",
+  coverageNote:
+    "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県ですが、エリアによる制限はありません。",
   location: "滋賀県",
   responseNote: "2営業日以内を目安にご返信します",
   /** 本番正規URL（www）。sitemap / canonical / JSON-LD で使用 */
@@ -108,7 +108,7 @@ export const homeFaq = [
   {
     question: "スタークラボ（Stark Lab）とはどのような会社ですか？",
     answer:
-      "Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。公式サイトは https://www.starklab.jp です。",
+      "スタークラボ（Stark Lab／すたーくらぼ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。公式サイトは https://www.starklab.jp です。",
   },
   {
     question: "Stark Labとスタークラボは同じですか？読み方は？",
@@ -118,27 +118,62 @@ export const homeFaq = [
   {
     question: "KENBEI（ケンベイ）とは何ですか？",
     answer:
-      "KENBEIはStark Labが自社開発・運営する現場管理Webサービスです。建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理し、残業につながる事務作業を減らします。顧客への導入事例ではなく自社プロダクトで、公式アプリは https://app.kenbei.jp です。",
+      "KENBEIはStark Labが自社開発・運営する現場管理Webサービスです。建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理します。顧客への導入事例ではなく自社プロダクトで、公式アプリは https://app.kenbei.jp です。",
   },
   {
-    question: "KENBEIの料金はいくらですか？",
+    question: "対応エリアはどこですか？",
     answer:
-      "14日間の無料体験があります（恒久無料プランはありません）。有料は会社単位で、STANDARDが月額39,800円（50名まで）、BUSINESSが月額65,000円（人数上限なし）です。詳細は https://app.kenbei.jp をご確認ください。",
+      "日本全国どこでも対応します。打合せ・納品はオンライン完結です。拠点は滋賀県大津市にあります。",
+  },
+  {
+    question: "どんな相談ができますか？",
+    answer:
+      "Web制作、システム開発、AI活用、データ可視化、SEO/AI検索、DXコンサルまでご相談いただけます。建設・製造・中小企業など幅広い業種に対応します。",
+  },
+  {
+    question: "システム開発だけの依頼も可能ですか？",
+    answer:
+      "可能です。管理画面、社内ツール、API連携など、必要な範囲から始められます。",
+  },
+  {
+    question: "Web制作だけ依頼できますか？",
+    answer:
+      "可能です。SEO・計測・CV導線を含めたサイト制作のみのご依頼も承ります。",
+  },
+  {
+    question: "料金の目安を教えてください。",
+    answer:
+      "規模と範囲によって異なります。まずは無料相談で課題を整理し、必要な範囲だけお見積りします。",
   },
 ] as const;
 
 /** 問い合わせの相談種別 */
 export const contactTopics = [
+  { value: "web-development", label: "Web制作について" },
+  { value: "system-development", label: "業務システム・開発について" },
+  { value: "ai-automation", label: "AI自動化について" },
+  { value: "ai-agent", label: "AIエージェント導入について" },
+  { value: "rag", label: "RAG・ナレッジAIについて" },
+  { value: "data-dashboard", label: "データ・Dashboardについて" },
+  { value: "seo-ai-search", label: "検索・AI流入・SEOについて" },
+  { value: "dx-consulting", label: "DXコンサルについて" },
+  { value: "industry-construction", label: "建設業DXについて" },
+  { value: "industry-manufacturing", label: "製造業DXについて" },
+  { value: "industry-small-business", label: "中小企業DXについて" },
+  { value: "industry-real-estate", label: "不動産業DXについて" },
+  { value: "industry-service-business", label: "店舗・サービス業DXについて" },
   { value: "kenbei", label: "KENBEI（現場管理）について" },
-  { value: "trial", label: "14日間無料体験について" },
-  { value: "pricing", label: "料金・プランについて" },
-  { value: "other", label: "その他" },
+  { value: "drawstock", label: "DrawStock（図面管理）について" },
+  { value: "other", label: "その他・まとめて相談" },
 ] as const;
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/services", label: "サービス" },
+  { href: "/industries", label: "業種別" },
+  { href: "/works", label: "実績" },
+  { href: "/media", label: "Knowledge" },
+  { href: "/about", label: "会社概要" },
+  { href: "/#contact", label: "お問い合わせ" },
 ] as const;
 
 export function formatYen(amount: number): string {

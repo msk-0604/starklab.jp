@@ -124,6 +124,7 @@ export function organizationJsonLd() {
       "すたーくらぼ",
       "Stark Lab",
       "KENBEI",
+      "DrawStock",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -166,9 +167,9 @@ export function worksListJsonLd(projects: Project[]) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "KENBEI",
-    description: "残業を減らす現場管理WebサービスKENBEI。Stark Labが自社開発・運営。",
-    url: `${siteConfig.url}/works/kenbei`,
+    name: "Works",
+    description: "Stark Labの自社開発サービスと制作実績。Web、業務システム、AI活用の事例です。",
+    url: `${siteConfig.url}/works`,
     isPartOf: {
       "@type": "WebSite",
       name: siteConfig.name,

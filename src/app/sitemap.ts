@@ -79,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...industryEntries,
     {
-      url: `${base}/works/kenbei`,
+      url: `${base}/works`,
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.9,

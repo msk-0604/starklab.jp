@@ -10,14 +10,15 @@ export const metadata: Metadata = {
   title: {
     absolute: `スタークラボ（Stark Lab）とは｜会社概要｜${siteConfig.name}`,
   },
-  description: `${siteConfig.name}（${siteConfig.nameJa}／すたーくらぼ）の会社概要。現場管理WebサービスKENBEIを自社開発・運営。運営者・対応エリア・公式サイト情報。`,
+  description: `${siteConfig.name}（${siteConfig.nameJa}／すたーくらぼ）の会社概要。Web・AI・業務システム・データ活用を統合するDX/AI開発パートナー。運営者・対応エリア・公式サイト情報。`,
   keywords: [
     "スタークラボ",
     "Stark Lab",
     "すたーくらぼ",
     "StarkLab",
     "会社概要",
-    "KENBEI",
+    "DX",
+    "滋賀",
   ],
   alternates: { canonical: "/about" },
   openGraph: {
@@ -88,6 +89,8 @@ export default function AboutPage() {
             <a href={`mailto:${siteConfig.email}`} className="text-accent hover:underline">
               {siteConfig.email}
             </a>
+            <br />
+            拠点：{siteConfig.location}（打合せ・納品はオンライン完結）
           </p>
           <p className="mt-3 text-sm text-muted">
             特定商取引法に基づく表記は
@@ -101,32 +104,40 @@ export default function AboutPage() {
           <p className="mt-4 max-w-3xl text-muted leading-relaxed">
             Stark Labは現場管理Webサービス
             <strong className="text-foreground">KENBEI（ケンベイ）</strong>
-            を自社開発・運営しています。写真・残作業・進捗・日報を一本化し、残業につながる事務作業を減らすためのサービスです。顧客への導入事例ではなく、自社サービスです。
+            を自社開発・運営しています。建設会社の現場監督・施工管理者向けに、現場写真・タスク・進捗・日報PDFを一元管理するサービスです。顧客への導入事例ではなく、自社サービスです。
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button href="https://app.kenbei.jp/signup" className="w-full sm:w-auto">
-              14日間無料で試す
+            <Button href="/works/kenbei" variant="secondary" className="w-full sm:w-auto">
+              KENBEIの紹介を見る
             </Button>
             <Button
               href="https://app.kenbei.jp"
               variant="secondary"
               className="w-full sm:w-auto"
             >
-              KENBEI公式サイト
+              KENBEIの詳細を見る
             </Button>
-            <Button href="/works/kenbei" variant="secondary" className="w-full sm:w-auto">
-              詳しく見る
+            <Button href="https://app.kenbei.jp/signup" className="w-full sm:w-auto">
+              14日間無料で試す
             </Button>
           </div>
 
+          <h2 className="mt-12 font-display text-2xl font-bold">対応エリア</h2>
+          <p className="mt-4 text-muted">{siteConfig.coverageNote}</p>
+          <Link href="/areas" className="mt-2 inline-block text-sm text-accent hover:underline">
+            対応エリアの詳細
+          </Link>
+
           <h2 className="mt-12 font-display text-2xl font-bold">関連ページ</h2>
           <ul className="mt-4 flex flex-wrap gap-3">
-            <li><Link href="/services" className="text-accent hover:underline">KENBEI</Link></li>
-            <li><Link href="/#contact" className="text-accent hover:underline">お問い合わせ</Link></li>
+            <li><Link href="/services" className="text-accent hover:underline">サービス</Link></li>
+            <li><Link href="/industries" className="text-accent hover:underline">業種別</Link></li>
+            <li><Link href="/works" className="text-accent hover:underline">実績</Link></li>
+            <li><Link href="/media" className="text-accent hover:underline">Knowledge</Link></li>
           </ul>
 
           <div className="mt-12">
-            <Button href="/#contact">お問い合わせ</Button>
+            <Button href="/#contact">相談する</Button>
           </div>
         </section>
       </main>

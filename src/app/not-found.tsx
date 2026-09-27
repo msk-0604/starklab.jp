@@ -19,11 +19,15 @@ export default function NotFound() {
       </div>
       <p className="mt-8 text-sm text-muted">
         <Link href="/services" className="hover:text-foreground">
-          KENBEI
+          サービス
         </Link>
         {" · "}
-        <Link href="/#contact" className="hover:text-foreground">
-          お問い合わせ
+        <Link href="/works" className="hover:text-foreground">
+          実績
+        </Link>
+        {" · "}
+        <Link href="/media" className="hover:text-foreground">
+          Media
         </Link>
       </p>
     </main>
