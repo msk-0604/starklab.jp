@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     "KENBEI",
     "ケンベイ",
     "現場管理",
-    "滋賀",
   ],
   alternates: { canonical: "/" },
   openGraph: {

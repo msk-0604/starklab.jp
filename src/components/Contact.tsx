@@ -61,7 +61,6 @@ export function Contact() {
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
               KENBEIやStark Labについてのご相談を受け付けています。
-              日本全国どこでもオンラインで対応します。
             </p>
 
             <dl className="mt-10 space-y-5 text-sm">

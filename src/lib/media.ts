@@ -83,8 +83,7 @@ function normalizeUrl(url: string): string {
       ];
       if (known.includes(pathSlug)) return `/services/${pathSlug}${hash}`;
     }
-    if (/kensapo|kenbei/i.test(u)) return "/works/kenbei";
-    if (/drawstock/i.test(u)) return "/works/drawstock";
+    if (/kensapo|kenbei|drawstock/i.test(u)) return "/works/kenbei";
     if (/web|homepage|hp/i.test(u)) return "/services/web-development";
     if (/system/i.test(u)) return "/services/system-development";
     if (/ai-agent|agent/i.test(u)) return "/services/ai-agent";

@@ -16,9 +16,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 72px",
-          background:
-            "linear-gradient(145deg, #ffffff 0%, #f5f5f7 45%, #e8f1fc 100%)",
-          fontFamily: "sans-serif",
+          background: "#f7f5f0",
+          fontFamily: "serif",
         }}
       >
         <div
@@ -31,8 +30,8 @@ export default function OpenGraphImage() {
           <div
             style={{
               fontSize: 36,
-              fontWeight: 700,
-              color: "#1d1d1f",
+              fontWeight: 400,
+              color: "#1a1917",
               letterSpacing: "-0.02em",
             }}
           >
@@ -41,14 +40,10 @@ export default function OpenGraphImage() {
           <div
             style={{
               fontSize: 18,
-              fontWeight: 700,
-              color: "#2563eb",
-              padding: "8px 16px",
-              borderRadius: 999,
-              background: "rgba(37,99,235,0.08)",
+              color: "#5c5852",
             }}
           >
-            {siteConfig.coverage}
+            {siteConfig.nameJa}
           </div>
         </div>
 
@@ -56,8 +51,8 @@ export default function OpenGraphImage() {
           <div
             style={{
               fontSize: 48,
-              fontWeight: 700,
-              color: "#1d1d1f",
+              fontWeight: 400,
+              color: "#1a1917",
               lineHeight: 1.25,
               letterSpacing: "-0.03em",
               maxWidth: 980,
@@ -68,24 +63,23 @@ export default function OpenGraphImage() {
           <div
             style={{
               fontSize: 24,
-              color: "#86868b",
+              color: "#5c5852",
               lineHeight: 1.5,
               maxWidth: 900,
             }}
           >
-          ホームページ制作 / システム開発 / AI / SEO
-        </div>
+            KENBEI — app.kenbei.jp
+          </div>
         </div>
 
         <div
           style={{
             display: "flex",
-            color: "#2563eb",
-            fontSize: 22,
-            fontWeight: 600,
+            color: "#5c5852",
+            fontSize: 20,
           }}
         >
-          日本全国どこでも ／ オンライン完結
+          {siteConfig.owner}
         </div>
       </div>
     ),

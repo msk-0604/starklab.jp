@@ -5,7 +5,7 @@ import { ProjectBrandPanel } from "./works/ProjectBrandPanel";
 import { ProjectImage } from "./works/ProjectImage";
 
 /** トップで主に見せる自社プロダクト */
-const FEATURED_SLUGS = ["kenbei", "drawstock"] as const;
+const FEATURED_SLUGS = ["kenbei"] as const;
 
 export function OurProjects() {
   const all = getAllProjects();
@@ -21,10 +21,10 @@ export function OurProjects() {
             Our project
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            実績・自社サービス
+            KENBEI
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Stark Labが自社開発・運営するプロダクトと、Web制作などのプロジェクトです。顧客への導入事例と混同しないよう、自社サービスはカテゴリで明示しています。
+            残業につながる事務を減らす、Stark Labの自社現場管理サービスです。
           </p>
         </ScrollReveal>
 
@@ -90,10 +90,10 @@ export function OurProjects() {
 
         <ScrollReveal className="mt-12">
           <Link
-            href="/works"
+            href="https://app.kenbei.jp/signup"
             className="text-sm font-semibold text-muted transition-colors hover:text-accent"
           >
-            すべてのプロジェクトを見る
+            14日間無料で試す
           </Link>
         </ScrollReveal>
       </div>

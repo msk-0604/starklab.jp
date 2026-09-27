@@ -26,7 +26,7 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "制作実績が見つかりません",
+      title: "ページが見つかりません",
     };
   }
 
@@ -75,8 +75,7 @@ export default async function ProjectPage({ params }: PageProps) {
   const related = getRelatedProjects(project);
   const breadcrumbs = [
     { name: "ホーム", path: "/" },
-    { name: "制作実績", path: "/works" },
-    { name: project.title, path: `/works/${project.slug}` },
+    { name: "KENBEI", path: "/works/kenbei" },
   ];
 
   return (
@@ -101,8 +100,7 @@ export default async function ProjectPage({ params }: PageProps) {
           related={related}
           breadcrumbs={[
             { label: "ホーム", href: "/" },
-            { label: "制作実績", href: "/works" },
-            { label: project.title },
+            { label: "KENBEI" },
           ]}
         />
       </main>

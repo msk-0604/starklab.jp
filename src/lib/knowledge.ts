@@ -113,7 +113,7 @@ export const topicClusters: TopicCluster[] = [
       { label: "AI Automation", href: "/services/ai-automation" },
       { label: "RAG / Knowledge AI", href: "/services/rag" },
       { label: "System Development", href: "/services/system-development" },
-      { label: "制作実績", href: "/works" },
+      { label: "KENBEI", href: "/works/kenbei" },
       { label: "AI Agent 記事", href: "/media/category/ai-agent" },
     ],
   },
@@ -125,7 +125,6 @@ export const topicClusters: TopicCluster[] = [
     links: [
       { label: "製造業DX", href: "/industries/manufacturing" },
       { label: "RAG / Knowledge AI", href: "/services/rag" },
-      { label: "図面管理実績 DrawStock", href: "/works/drawstock" },
       { label: "Data / Dashboard", href: "/services/data-dashboard" },
       { label: "AI Agent", href: "/services/ai-agent" },
       { label: "製造業 記事", href: "/media/category/manufacturing" },
@@ -139,7 +138,6 @@ export const topicClusters: TopicCluster[] = [
     links: [
       { label: "建設業DX", href: "/industries/construction" },
       { label: "KENBEI", href: "/works/kenbei" },
-      { label: "DrawStock", href: "/works/drawstock" },
       { label: "System Development", href: "/services/system-development" },
       { label: "AI Automation", href: "/services/ai-automation" },
       { label: "RAG", href: "/services/rag" },

@@ -31,12 +31,10 @@ const legacyAnchors = [
   { id: "meo", label: "MEO対策" },
   { id: "maintenance", label: "保守・運用" },
   { id: "kenbei", label: "KENBEI" },
-  { id: "drawstock", label: "DrawStock" },
 ] as const;
 
 function legacyHref(id: string): string {
-  if (id === "kenbei" || id === "kensapo") return "/works/kenbei";
-  if (id === "drawstock") return "/works/drawstock";
+  if (id === "kenbei" || id === "kensapo" || id === "drawstock") return "/works/kenbei";
   if (id === "meo" || id === "maintenance") return "/services";
   const svc = getServiceByLegacyAnchor(id);
   return svc ? `/services/${svc.slug}` : "/services";
@@ -81,11 +79,10 @@ export default function ServicesPage() {
               Service
             </p>
             <h1 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-5xl">
-              KENBEI
+              残業を減らす、現場管理。
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-muted">
-              Stark Labが提供するサービスは、自社開発・運営の現場管理Webサービス
-              KENBEIです。
+              写真・残作業・日報を一本化する現場管理Webサービス KENBEI。Stark Labが自社開発・運営しています。
             </p>
           </div>
         </section>
@@ -145,18 +142,18 @@ export default function ServicesPage() {
           ) : null}
 
           <ScrollReveal delay={2} className="mt-12 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Button href="https://app.kenbei.jp" className="w-full sm:w-auto">
-              KENBEIの詳細を見る
+            <Button href="https://app.kenbei.jp/signup" className="w-full sm:w-auto">
+              14日間無料で試す
             </Button>
             <Button
-              href="https://app.kenbei.jp/signup"
+              href="https://app.kenbei.jp"
               variant="secondary"
               className="w-full sm:w-auto"
             >
-              14日間無料で試す
+              KENBEI公式サイト
             </Button>
             <Button href="/works/kenbei" variant="secondary" className="w-full sm:w-auto">
-              紹介ページ
+              詳しく見る
             </Button>
           </ScrollReveal>
 

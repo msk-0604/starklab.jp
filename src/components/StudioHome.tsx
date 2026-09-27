@@ -114,8 +114,7 @@ export function StudioHome() {
           <p className="mt-6 max-w-lg text-[15px] leading-[1.95] text-muted">
             {siteConfig.entityStatement}
             <br />
-            読みは「すたーくらぼ」。運営：{siteConfig.owner} ／ 拠点：{siteConfig.location}
-            （オンライン完結）
+            読みは「すたーくらぼ」。運営：{siteConfig.owner}
           </p>
           <p className="mt-8">
             <Link

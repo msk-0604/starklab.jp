@@ -24,17 +24,10 @@ function blob(input: Input): string {
 export function resolveMediaCta(input: Input): MediaCta {
   const t = blob(input);
 
-  if (/図面|DrawStock|PDF管理/i.test(t)) {
-    return {
-      href: "/works/drawstock",
-      label: "DrawStock（図面管理）の実績を見る",
-      track: "media-drawstock",
-    };
-  }
-  if (/KENBEI|KenBei|KenSapo|現場管理|施工管理|建設DX|工事現場/i.test(t) || input.serviceSlug?.includes("site-management") || input.serviceSlug?.includes("construction")) {
+  if (/図面|DrawStock|PDF管理|KENBEI|KenBei|KenSapo|現場管理|施工管理|建設DX|工事現場/i.test(t) || input.serviceSlug?.includes("site-management") || input.serviceSlug?.includes("construction")) {
     return {
       href: "/works/kenbei",
-      label: "KENBEI（現場管理）の実績を見る",
+      label: "KENBEI（現場管理）を見る",
       track: "media-kenbei",
     };
   }

@@ -1,7 +1,7 @@
 # Stark Lab (スタークラボ / すたーくらぼ)
 # https://www.starklab.jp
 
-> Stark Lab（スタークラボ／すたーくらぼ）は、現場管理WebサービスKENBEIを自社開発・運営しています。拠点は滋賀県。全国オンライン対応。
+> Stark Lab（スタークラボ／すたーくらぼ）は、残業を減らす現場管理WebサービスKENBEIを自社開発・運営しています。
 
 ## Brand names
 - Stark Lab
@@ -13,10 +13,11 @@
 - Home: https://www.starklab.jp/
 - About: https://www.starklab.jp/about
 - Services (KENBEI): https://www.starklab.jp/services
-- Works / KENBEI: https://www.starklab.jp/works/kenbei
+- KENBEI intro: https://www.starklab.jp/works/kenbei
 - Contact: https://www.starklab.jp/#contact
 
 ## Product: KENBEI
+- Value: 写真・残作業・進捗・日報を一本化し、残業につながる事務作業を減らす
 - Intro: https://www.starklab.jp/works/kenbei
 - App: https://app.kenbei.jp
 - Signup (14-day free trial): https://app.kenbei.jp/signup
@@ -24,7 +25,7 @@
   - 14-day free trial (no permanent free plan)
   - STANDARD: 39,800 JPY / month, up to 50 members
   - BUSINESS: 65,000 JPY / month, unlimited members
-- Note: KENBEI is Stark Lab's own product, not a customer case study. Former name KenSapo redirects to /works/kenbei.
+- Note: KENBEI is Stark Lab's own product, not a customer case study. Former name KenSapo redirects to /works/kenbei. /works list and DrawStock pages redirect away.
 
 ## Contact
 - Email: contact@starklab.jp

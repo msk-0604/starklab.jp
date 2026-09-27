@@ -23,8 +23,6 @@ export function Footer() {
         <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
           {siteConfig.concept}
           <br />
-          拠点：{siteConfig.location}（打合せはオンライン完結）
-          <br />
           運営：{siteConfig.owner}
         </p>
 
