@@ -42,7 +42,7 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 18,
               fontWeight: 700,
-              color: "#2563eb",
+              color: "#0b6b62",
               padding: "8px 16px",
               borderRadius: 999,
               background: "rgba(37,99,235,0.08)",
@@ -80,7 +80,7 @@ export default function OpenGraphImage() {
         <div
           style={{
             display: "flex",
-            color: "#2563eb",
+            color: "#0b6b62",
             fontSize: 22,
             fontWeight: 600,
           }}

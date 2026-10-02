@@ -1,22 +1,12 @@
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
-import { AreasPreview } from "@/components/AreasPreview";
 import { Contact } from "@/components/Contact";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Hero } from "@/components/Hero";
-import { HomeIntroVideo } from "@/components/HomeIntroVideo";
 import { HomeFaq } from "@/components/HomeFaq";
-import {
-  HomeAbout,
-  HomeChallenges,
-  HomeIntegrated,
-  HomeServicesGrid,
-  HomeIndustriesGrid,
-  HomeProcess,
-  HomeWhyUs,
-  HomeKnowledge,
-} from "@/components/HomeSections";
+import { HomeFeatures, HomeOutline, HomeServiceIntro } from "@/components/HomeCorporate";
 import { InquiryBand } from "@/components/InquiryBand";
 import { OurProjects } from "@/components/OurProjects";
+import { PageTop } from "@/components/PageTop";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import type { Metadata } from "next";
@@ -50,24 +40,18 @@ export default function HomePage() {
         }}
       />
       <PageViewTracker pageType="other" dedupeKey="home" />
-      <HomeIntroVideo />
       <main className="flex-1 pb-20 md:pb-0">
         <Hero />
-        <HomeAbout />
-        <HomeChallenges />
-        <HomeServicesGrid />
-        <HomeIndustriesGrid />
-        <HomeIntegrated />
+        <HomeServiceIntro />
+        <HomeFeatures />
         <OurProjects />
-        <HomeProcess />
-        <HomeWhyUs />
-        <HomeKnowledge />
-        <AreasPreview />
+        <HomeOutline />
         <InquiryBand />
         <HomeFaq />
         <Contact />
       </main>
       <FloatingContact />
+      <PageTop />
     </>
   );
 }

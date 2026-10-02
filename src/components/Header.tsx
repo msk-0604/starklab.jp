@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navLinks, siteConfig } from "@/lib/site";
-import { Button } from "./Button";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,11 +27,11 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-border bg-white/80 backdrop-blur-xl"
-          : "bg-transparent"
+          ? "bg-white/95 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-xl"
+          : "bg-white"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
         <Link
           href="/"
           className="flex items-center"
@@ -48,12 +47,12 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="メインナビ">
+        <nav className="hidden items-center gap-9 md:flex" aria-label="メインナビ">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="group relative text-[15px] font-medium text-foreground transition-colors hover:text-accent"
             >
               {link.label}
               <span
@@ -63,12 +62,6 @@ export function Header() {
             </Link>
           ))}
         </nav>
-
-        <div className="hidden md:block">
-          <Button href="/#contact" className="!px-5 !py-2.5 text-sm">
-            相談する
-          </Button>
-        </div>
 
         <button
           type="button"
