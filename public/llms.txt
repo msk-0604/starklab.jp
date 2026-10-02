@@ -16,7 +16,6 @@
 - Services: https://www.starklab.jp/services
 - Industries: https://www.starklab.jp/industries
 - Works: https://www.starklab.jp/works
-- Knowledge (Media): https://www.starklab.jp/media
 - Contact: https://www.starklab.jp/#contact
 
 ## Core services

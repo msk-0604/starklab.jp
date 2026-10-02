@@ -133,7 +133,6 @@ export default function AboutPage() {
             <li><Link href="/services" className="text-accent hover:underline">サービス</Link></li>
             <li><Link href="/industries" className="text-accent hover:underline">業種別</Link></li>
             <li><Link href="/works" className="text-accent hover:underline">実績</Link></li>
-            <li><Link href="/media" className="text-accent hover:underline">Knowledge</Link></li>
           </ul>
 
           <div className="mt-12">
