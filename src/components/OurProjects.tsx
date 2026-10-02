@@ -17,11 +17,13 @@ export function OurProjects() {
     <section id="projects" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <ScrollReveal>
-          <p className="text-sm font-semibold tracking-wide text-accent">
-            Our project
-          </p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            実績・自社サービス
+          <h2>
+            <span className="block font-heading text-[2rem] font-semibold uppercase leading-none tracking-[0.01em] text-accent sm:text-[2.4rem]">
+              Our Project
+            </span>
+            <span className="mt-3 block text-lg font-bold tracking-wide text-foreground/85">
+              実績・自社サービス
+            </span>
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Stark Labが自社開発・運営するプロダクトと、Web制作などのプロジェクトです。顧客への導入事例と混同しないよう、自社サービスはカテゴリで明示しています。
@@ -37,7 +39,7 @@ export function OurProjects() {
             >
               <Link
                 href={`/works/${project.slug}`}
-                className="group grid overflow-hidden rounded-[var(--radius-card)] border border-border bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] lg:grid-cols-[1.1fr_0.9fr]"
+                className="group grid overflow-hidden border border-border bg-tint transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] lg:grid-cols-[1.1fr_0.9fr]"
               >
                 <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px]">
                   {project.coverImage ? (

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP, Plus_Jakarta_Sans } from "next/font/google";
+import { Noto_Sans_JP, Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -11,6 +11,13 @@ import "./globals.css";
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+  weight: ["500", "600"],
   display: "swap",
 });
 
@@ -94,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${plusJakarta.variable} ${notoSansJp.variable} h-full scroll-smooth antialiased`}
+      className={`${plusJakarta.variable} ${oswald.variable} ${notoSansJp.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Ga4Script />
