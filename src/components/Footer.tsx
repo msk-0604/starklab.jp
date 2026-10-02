@@ -5,7 +5,6 @@ const footerLinks = [
   { href: "/services", label: "サービス" },
   { href: "/industries", label: "業種別" },
   { href: "/works", label: "実績" },
-  { href: "/media", label: "Knowledge" },
   { href: "/about", label: "会社概要" },
   { href: "/areas", label: "対応エリア" },
   { href: "/#contact", label: "お問い合わせ" },

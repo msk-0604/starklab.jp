@@ -25,10 +25,6 @@ export default function NotFound() {
         <Link href="/works" className="hover:text-foreground">
           実績
         </Link>
-        {" · "}
-        <Link href="/media" className="hover:text-foreground">
-          Media
-        </Link>
       </p>
     </main>
   );

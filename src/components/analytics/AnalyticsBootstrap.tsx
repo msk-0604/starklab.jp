@@ -15,9 +15,6 @@ export function AnalyticsBootstrap() {
       const a = t.closest("a,button") as HTMLElement | null;
       if (!a) return;
 
-      // Media pages already track via MediaTracker — avoid double fire
-      if (window.location.pathname.startsWith("/media/")) return;
-
       const href = a.getAttribute("href") || "";
       const isCta =
         a.hasAttribute("data-track-cta") ||
