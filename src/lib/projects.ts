@@ -21,6 +21,8 @@ export type Project = {
   slug: string;
   title: string;
   category: string;
+  /** 公開準備中（Coming Soon バッジを表示） */
+  comingSoon?: boolean;
   /** カード用の短い説明 */
   description: string;
   tags: string[];
@@ -156,6 +158,7 @@ export const projects: Project[] = [
     slug: "drawstock",
     title: "DrawStock",
     category: "図面管理システム",
+    comingSoon: true,
     description:
       "建設業向けクラウド図面管理システム。図面共有・PDF管理・検索・権限管理をクラウドで実現。",
     tags: ["クラウド", "図面管理", "権限管理"],
