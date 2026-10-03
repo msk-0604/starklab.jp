@@ -72,8 +72,8 @@ const features: Feature[] = [
       "集客の入口となるWebサイトから、案件・工程・顧客を管理する業務システムまで、貴社の業務フローに合わせて設計・開発します。検索やAI検索からの流入、問い合わせまでを一つの導線として捉え、成果につながる仕組みをつくります。",
     serviceSlugs: ["web-development", "system-development", "seo-ai-search"],
     image: {
-      src: "/images/hero-workdesk.jpg",
-      alt: "ノートPCに表示された企業Webサイトと建築図面",
+      src: "/images/web-alphakanko-laptop.jpg",
+      alt: "アルファ管工のWebサイトを表示したノートPC",
       position: "object-center",
     },
     imageSide: "right",
