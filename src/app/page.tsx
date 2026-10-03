@@ -4,7 +4,6 @@ import { FloatingContact } from "@/components/FloatingContact";
 import { Hero } from "@/components/Hero";
 import { HomeFaq } from "@/components/HomeFaq";
 import { HomeFeatures, HomeOutline, HomeServiceIntro } from "@/components/HomeCorporate";
-import { InquiryBand } from "@/components/InquiryBand";
 import { OurProjects } from "@/components/OurProjects";
 import { PageTop } from "@/components/PageTop";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -46,7 +45,6 @@ export default function HomePage() {
         <HomeFeatures />
         <OurProjects />
         <HomeOutline />
-        <InquiryBand />
         <HomeFaq />
         <Contact />
       </main>
