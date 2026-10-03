@@ -28,7 +28,7 @@ export const industryDefinitions: IndustryDefinition[] = [
     seo: {
       title: "建設業DX・現場管理",
       description:
-        "建設業向けDX。現場管理、日報、写真、図面、工程、見積、安全書類、RAG、AI報告書、Dashboard。KENBEI・DrawStockの実績を活用。",
+        "建設業向けDX。現場管理、日報、写真、図面、工程、見積、安全書類、AI報告書、Dashboard。KENBEI・DrawStockの実績を活用。",
     },
     summary:
       "建設現場の情報をクラウドでつなぎ、現場管理・図面・日報・報告を一気通貫で改善する建設業DXを支援します。",
@@ -44,13 +44,11 @@ export const industryDefinitions: IndustryDefinition[] = [
       "クラウド現場管理（現場・写真・工程・日報・通知）",
       "図面・PDFの共有・検索・権限管理",
       "日報・報告書の入力効率化とAIたたき台",
-      "社内ナレッジ（安全資料・過去案件）の検索",
       "案件・工程のDashboard可視化",
     ],
     serviceSlugs: [
       "system-development",
       "ai-automation",
-      "rag",
       "data-dashboard",
       "web-development",
       "seo-ai-search",
@@ -58,7 +56,7 @@ export const industryDefinitions: IndustryDefinition[] = [
     implementationNotes: [
       "【実装済み】KENBEI（現場管理Web）— 写真・残作業・進捗・日報をひとつの流れで管理",
       "【実装済み】DrawStock（図面管理）— 図面・PDFの版管理と検索",
-      "【対応可能】日報・報告書のAI支援、RAGによる安全資料検索",
+      "【対応可能】日報・報告書のAI支援",
       "【対応可能】工程・案件のDashboard、Web集客とメディア連携",
     ],
     workSlugs: ["kenbei", "drawstock"],
@@ -82,12 +80,12 @@ export const industryDefinitions: IndustryDefinition[] = [
     slug: "manufacturing",
     name: "製造業",
     seo: {
-      title: "製造業DX・ナレッジAI",
+      title: "製造業DX・データ活用",
       description:
-        "製造業向けDX。技術資料RAG、マニュアル検索、図面情報、品質・設備情報、Dashboard、AI Agent。対応可能領域と実績を区別してご案内。",
+        "製造業向けDX。図面情報、品質・設備情報のDashboard、AI自動化、業務システム。対応可能領域と実績を区別してご案内。",
     },
     summary:
-      "製造業の技術資料・マニュアル・図面・品質情報を整理し、RAG・Dashboard・AI Agentで現場と管理部門の生産性を高めます。",
+      "製造業の図面・品質・生産情報を整理し、Dashboard・AI自動化・業務システムで現場と管理部門の生産性を高めます。",
     whatIs:
       "Manufacturing DXは、製造業に蓄積された技術資料・作業手順・品質情報を、検索・可視化・自動化できる形に整える取り組みです。",
     challenges: [
@@ -97,15 +95,11 @@ export const industryDefinitions: IndustryDefinition[] = [
       "AI導入の優先順位が分からない",
     ],
     useCases: [
-      "技術資料・マニュアルのRAG検索",
-      "図面・PDFライブラリと連携するナレッジ検索",
+      "図面・PDFの共有・検索・権限管理",
       "品質・設備・生産情報のDashboard",
       "問い合わせ・報告業務のAI自動化",
-      "AI Agentによる定型フローの半自動化",
     ],
     serviceSlugs: [
-      "rag",
-      "ai-agent",
       "data-dashboard",
       "system-development",
       "ai-automation",
@@ -113,17 +107,16 @@ export const industryDefinitions: IndustryDefinition[] = [
     ],
     implementationNotes: [
       "【実装済み】DrawStock — 図面・PDFのクラウド管理・検索（建設・製造の図面管理に応用可能）",
-      "【対応可能】技術資料RAG、マニュアル検索、作業手順のナレッジ化",
       "【対応可能】生産・品質・設備データのDashboard設計",
       "【構想・要件次第】BOM連携、マルチモーダルAI — 要件ヒアリング後に実現性を評価します",
     ],
     workSlugs: ["drawstock"],
-    mediaKeywords: ["製造", "工場", "図面", "マニュアル", "RAG"],
+    mediaKeywords: ["製造", "工場", "図面", "マニュアル"],
     faqs: [
       {
         question: "製造業でもAIを導入できますか？",
         answer:
-          "可能です。まずは資料の整理とRAG、Dashboardなど、効果が見えやすい領域から段階導入を推奨します。",
+          "可能です。まずは定型業務のAI自動化やDashboardなど、効果が見えやすい領域から段階導入を推奨します。",
       },
       {
         question: "未実装の技術を実績として謳っていますか？",
@@ -156,7 +149,7 @@ export const industryDefinitions: IndustryDefinition[] = [
     useCases: [
       "顧客・見積・営業管理のシステム化",
       "定型メール・報告のAI自動化",
-      "社内FAQ・ナレッジの整備",
+      "社内FAQの整備",
       "Webサイトと問い合わせ導線の改善",
       "小さなDashboardで経営指標を可視化",
     ],

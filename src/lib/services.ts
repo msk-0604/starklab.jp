@@ -1,5 +1,5 @@
 /**
- * Stark Lab 8本柱サービス定義
+ * Stark Lab サービス定義
  * 個別LP / SEO / Entity / 内部リンクの単一ソース
  */
 
@@ -202,7 +202,7 @@ export const serviceDefinitions: ServiceDefinition[] = [
       "社内FAQの整備と回答支援",
     ],
     howWeHelp:
-      "業務を分解し、AIが担える部分と人が確認すべき部分を明確にして実装します。System Development・RAGと組み合わせた設計も行います。",
+      "業務を分解し、AIが担える部分と人が確認すべき部分を明確にして実装します。System Developmentと組み合わせた設計も行います。",
     process: [
       { step: "01", title: "業務分解", body: "自動化候補とリスクを整理します。" },
       { step: "02", title: "PoC", body: "小さく試し、現場フィードバックを得ます。" },
@@ -223,132 +223,8 @@ export const serviceDefinitions: ServiceDefinition[] = [
     ],
     ctaLabel: "AI自動化について相談",
     contactTopic: "ai-automation",
-    relatedServiceSlugs: ["ai-agent", "rag", "dx-consulting"],
+    relatedServiceSlugs: ["system-development", "data-dashboard", "dx-consulting"],
     relatedIndustrySlugs: ["small-business", "service-business", "construction"],
-  },
-  {
-    slug: "ai-agent",
-    title: "AI Agent Development",
-    shortTitle: "AIエージェント",
-    summary:
-      "認識→検索→判断→実行→記録まで行う業務AIエージェントを、LLM・API・DB・ワークフローで実装します。",
-    seo: {
-      title: "AIエージェント開発",
-      description:
-        "業務AIエージェントの設計・開発。LLM + API + Database + Workflow。単なるChatGPT導入ではなく、業務に組み込む実装。",
-    },
-    whatIs:
-      "AI Agent Developmentは、AIが業務の一連のステップ（認識・検索・判断・実行・記録）を担えるよう、LLM・API・データベース・業務ワークフローを統合して実装するサービスです。",
-    problems: [
-      "AIが回答するだけで、業務が進まない",
-      "社内データやAPIとつながっていない",
-      "誰が何をしたか記録・監査ができない",
-      "単発のプロンプト運用で属人化している",
-    ],
-    whoFor: [
-      "業務プロセス全体をAIで支援したい企業",
-      "API・DBと連携したAI活用を検討している企業",
-      "RAGや自動化と組み合わせたい企業",
-    ],
-    capabilities: [
-      "業務ステップの分解とエージェント設計",
-      "LLM + API + DB 連携",
-      "ワークフロー・権限・ログ設計",
-      "人の確認を挟む安全な自動化",
-      "既存システムとの統合",
-    ],
-    examples: [
-      "問い合わせ受付から担当振り分けまでのエージェント",
-      "社内ナレッジ検索後に定型処理を実行するフロー",
-      "報告書生成から承認フローまでの半自動化",
-    ],
-    howWeHelp:
-      "「何を自動化し、何を人が判断するか」を明確にし、実装可能な範囲から段階的に構築します。未検証の技術を実績として謳いません。",
-    process: [
-      { step: "01", title: "業務マッピング", body: "エージェントが担うステップを定義します。" },
-      { step: "02", title: "設計", body: "API・データ・権限・ログを設計します。" },
-      { step: "03", title: "PoC・開発", body: "小さく動く形を作り、拡張します。" },
-      { step: "04", title: "運用設計", body: "監査・改善・エラー時の手順を整えます。" },
-    ],
-    pricingNote: "業務範囲・連携数により異なります。PoCからの段階導入を推奨します。",
-    faqs: [
-      {
-        question: "ChatGPT導入支援との違いは何ですか？",
-        answer:
-          "業務ワークフローとシステム連携まで含め、エージェントとして動く仕組みを開発します。",
-      },
-      {
-        question: "既存のRAGやシステムと組み合わせられますか？",
-        answer: "可能です。RAG・System Developmentと一体で設計することが多いです。",
-      },
-    ],
-    ctaLabel: "AIエージェント導入について相談",
-    contactTopic: "ai-agent",
-    relatedServiceSlugs: ["rag", "ai-automation", "system-development"],
-    relatedIndustrySlugs: ["manufacturing", "construction", "small-business"],
-  },
-  {
-    slug: "rag",
-    title: "RAG / Knowledge AI",
-    shortTitle: "RAG・ナレッジAI",
-    summary:
-      "PDF・マニュアル・図面・社内規定・技術資料などを、AIが検索・回答できるナレッジ基盤として実装します。",
-    seo: {
-      title: "RAG・ナレッジAI",
-      description:
-        "社内PDF、マニュアル、図面、技術資料、FAQをAIで検索・回答。RAG / Knowledge AIの設計・開発。",
-    },
-    whatIs:
-      "RAG / Knowledge AIは、企業内の文書・資料・過去案件の知見をAIが参照し、検索・回答できるようにする仕組みです。",
-    problems: [
-      "必要な資料がどこにあるか分からない",
-      "マニュアルが更新されず現場と乖離している",
-      "ベテランの知識が属人化している",
-      "図面・技術資料の検索に時間がかかる",
-    ],
-    whoFor: [
-      "社内ナレッジをAI活用したい企業",
-      "製造業・建設業など資料が多い企業",
-      "FAQ・サポート業務を効率化したい企業",
-    ],
-    capabilities: [
-      "PDF・マニュアル・規定の取り込み",
-      "図面・技術資料の検索基盤",
-      "FAQ・営業資料のナレッジ化",
-      "権限付きアクセス設計",
-      "既存システムとの連携",
-    ],
-    examples: [
-      "図面・PDFライブラリと連携する検索（DrawStock連携想定）",
-      "製造業の技術資料・作業手順の検索支援",
-      "社内規定・安全資料のナレッジベース",
-    ],
-    howWeHelp:
-      "データの所在・更新ルール・権限を整理し、検索精度と運用性を両立する設計で実装します。",
-    process: [
-      { step: "01", title: "資料整理", body: "対象データと更新ルールを定義します。" },
-      { step: "02", title: "設計", body: "インデックス・権限・UIを設計します。" },
-      { step: "03", title: "実装", body: "RAGパイプラインと検索UIを構築します。" },
-      { step: "04", title: "改善", body: "精度・運用フィードバックで改善します。" },
-    ],
-    pricingNote: "データ量・連携・権限要件により異なります。",
-    faqs: [
-      {
-        question: "社内PDFをAIに検索させられますか？",
-        answer:
-          "可能です。権限設計と更新ルールを含めて、検索・回答できる形に整えます。",
-      },
-      {
-        question: "図面や技術資料にも対応できますか？",
-        answer:
-          "対応可能領域です。ファイル形式・検索要件をヒアリングのうえ設計します。",
-      },
-    ],
-    ctaLabel: "ナレッジAIについて相談",
-    contactTopic: "rag",
-    relatedServiceSlugs: ["ai-agent", "system-development", "data-dashboard"],
-    relatedIndustrySlugs: ["manufacturing", "construction"],
-    relatedWorkSlugs: ["drawstock"],
   },
   {
     slug: "data-dashboard",
@@ -446,7 +322,7 @@ export const serviceDefinitions: ServiceDefinition[] = [
     ],
     examples: [
       "建設業向けメディアとサービスページのクラスター設計",
-      "製造業の技術訴求とナレッジ記事の連携",
+      "製造業の技術訴求と記事コンテンツの連携",
       "stark-seo-engine連携による計測・改善ループ",
     ],
     howWeHelp:
@@ -510,7 +386,7 @@ export const serviceDefinitions: ServiceDefinition[] = [
     ],
     examples: [
       "建設業の現場DXと図面管理の優先順位整理",
-      "製造業のナレッジAIとDashboardの段階導入計画",
+      "製造業のAI自動化とDashboardの段階導入計画",
       "中小企業のExcel業務からシステム化へのロードマップ",
     ],
     howWeHelp:

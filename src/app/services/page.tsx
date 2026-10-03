@@ -12,7 +12,7 @@ import { getAllProjects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "サービス｜Web・AI・System・Data",
   description:
-    "Web Development、System Development、AI Automation、AI Agent、RAG、Data/Dashboard、SEO/AI Search、DX Consulting。8本柱のサービス一覧。",
+    "Web Development、System Development、AI Automation、Data/Dashboard、SEO/AI Search、DX Consulting。6つのサービス一覧。",
   alternates: { canonical: "/services" },
   openGraph: {
     title: `サービス｜${siteConfig.name}`,
@@ -78,7 +78,7 @@ export default function ServicesPage() {
             />
             <p className="mt-6 text-sm font-semibold tracking-wide text-accent">Services</p>
             <h1 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-5xl">
-              8つの専門サービス
+              6つの専門サービス
             </h1>
             <p className="mt-4 max-w-3xl text-muted">
               {siteConfig.entityStatement}

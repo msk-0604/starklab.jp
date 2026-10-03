@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
         destination: "/works/kenbei",
         permanent: true,
       },
+      { source: "/services/ai-agent", destination: "/services", permanent: true },
+      { source: "/services/rag", destination: "/services", permanent: true },
       { source: "/media", destination: "/", permanent: true },
       { source: "/media/:path*", destination: "/", permanent: true },
     ];

@@ -22,8 +22,6 @@
 - Web Development: https://www.starklab.jp/services/web-development
 - System Development: https://www.starklab.jp/services/system-development
 - AI Automation: https://www.starklab.jp/services/ai-automation
-- AI Agent: https://www.starklab.jp/services/ai-agent
-- RAG / Knowledge AI: https://www.starklab.jp/services/rag
 - Data / Dashboard: https://www.starklab.jp/services/data-dashboard
 - SEO / AI Search Growth: https://www.starklab.jp/services/seo-ai-search
 - DX Consulting: https://www.starklab.jp/services/dx-consulting
