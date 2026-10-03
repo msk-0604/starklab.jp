@@ -278,27 +278,6 @@ body {
   box-shadow: none;
 }
 
-/* ---------- Inquiry band ambient ---------- */
-@keyframes glow-drift {
-  0%,
-  100% {
-    transform: translate(-10%, -50%) scale(1);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translate(8%, -45%) scale(1.12);
-    opacity: 0.9;
-  }
-}
-
-.inquiry-glow {
-  animation: glow-drift 10s ease-in-out infinite;
-}
-
-.inquiry-glow-delayed {
-  animation: glow-drift 14s ease-in-out infinite reverse;
-}
-
 /* ---------- Floating CTA ---------- */
 @keyframes float-up {
   from {
