@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import { Button } from "../Button";
 import { ScrollReveal } from "../ScrollReveal";
+import { ComingSoonBadge } from "./ComingSoonBadge";
 import { ProjectBrandPanel } from "./ProjectBrandPanel";
 import { ProjectImage } from "./ProjectImage";
 
@@ -58,6 +59,7 @@ export function ProjectCard({
         >
           <p className="text-xs font-semibold tracking-wide text-accent sm:text-sm">
             {project.category}
+            {project.comingSoon ? <ComingSoonBadge className="ml-2" /> : null}
           </p>
 
           <h3

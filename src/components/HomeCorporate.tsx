@@ -72,8 +72,8 @@ const features: Feature[] = [
       "集客の入口となるWebサイトから、案件・工程・顧客を管理する業務システムまで、貴社の業務フローに合わせて設計・開発します。検索やAI検索からの流入、問い合わせまでを一つの導線として捉え、成果につながる仕組みをつくります。",
     serviceSlugs: ["web-development", "system-development", "seo-ai-search"],
     image: {
-      src: "/images/web-alphakanko-laptop.jpg",
-      alt: "アルファ管工のWebサイトを表示したノートPC",
+      src: "/images/web-starklab-laptop.jpg",
+      alt: "Stark LabのWebサイトを表示したノートPC",
       position: "object-center",
     },
     imageSide: "right",
@@ -84,8 +84,8 @@ const features: Feature[] = [
     en: "AI & Data",
     ja: "AI・データ活用",
     lead:
-      "問い合わせ対応や文書作成などの定型業務をAIで自動化し、社内資料やデータを意思決定に使える形に整えます。PoCから段階的に、現場で定着するAI活用を実装します。",
-    serviceSlugs: ["ai-automation", "ai-agent", "rag", "data-dashboard"],
+      "問い合わせ対応や文書作成などの定型業務をAIで自動化し、売上・案件などのデータを可視化して意思決定に使える形に整えます。PoCから段階的に、現場で定着するAI活用を実装します。",
+    serviceSlugs: ["ai-automation", "data-dashboard"],
     image: {
       src: "/images/hero-system.jpg",
       alt: "グラフや地図を表示した業務ダッシュボード",
@@ -183,7 +183,7 @@ const outlineRows = [
   {
     label: "事業内容",
     value:
-      "Web制作／業務システム開発／AI自動化・AIエージェント／RAG・ナレッジAI／データ可視化／SEO・AI検索／DXコンサルティング",
+      "Web制作／業務システム開発／AI自動化・AIエージェント／データ可視化／SEO・AI検索／DXコンサルティング",
   },
   { label: "自社サービス", value: "KENBEI（現場管理Webサービス）" },
   { label: "お問い合わせ", value: siteConfig.email },

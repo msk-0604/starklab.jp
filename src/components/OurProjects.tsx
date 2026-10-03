@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllProjects, type Project } from "@/lib/projects";
 import { ScrollReveal } from "./ScrollReveal";
 import { ProjectBrandPanel } from "./works/ProjectBrandPanel";
+import { ComingSoonBadge } from "./works/ComingSoonBadge";
 import { ProjectImage } from "./works/ProjectImage";
 
 /** トップで主に見せる自社プロダクト */
@@ -62,6 +63,7 @@ export function OurProjects() {
                 <div className="flex flex-col justify-center p-7 sm:p-10">
                   <p className="text-sm font-semibold tracking-wide text-accent">
                     {project.category}
+                    {project.comingSoon ? <ComingSoonBadge className="ml-3" /> : null}
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                     {project.title}

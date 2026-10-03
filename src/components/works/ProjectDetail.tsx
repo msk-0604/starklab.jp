@@ -3,6 +3,7 @@ import type { Project } from "@/lib/projects";
 import { Button } from "../Button";
 import { ScrollReveal } from "../ScrollReveal";
 import { Breadcrumb, type BreadcrumbItem } from "./Breadcrumb";
+import { ComingSoonBadge } from "./ComingSoonBadge";
 import { ProjectBrandPanel } from "./ProjectBrandPanel";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectImage } from "./ProjectImage";
@@ -31,6 +32,7 @@ export function ProjectDetail({
           <ScrollReveal>
             <p className="text-sm font-semibold tracking-wide text-accent">
               {project.category}
+              {project.comingSoon ? <ComingSoonBadge className="ml-3" /> : null}
             </p>
             <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
               {project.title}
