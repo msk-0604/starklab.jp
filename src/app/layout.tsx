@@ -48,8 +48,6 @@ export const metadata: Metadata = {
     "ホームページ制作",
     "システム開発",
     "AI活用",
-    "AIエージェント",
-    "RAG",
     "SEO対策",
     "業務システム",
     "全国対応",

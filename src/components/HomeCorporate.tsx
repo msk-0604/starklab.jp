@@ -183,7 +183,7 @@ const outlineRows = [
   {
     label: "事業内容",
     value:
-      "Web制作／業務システム開発／AI自動化・AIエージェント／データ可視化／SEO・AI検索／DXコンサルティング",
+      "Web制作／業務システム開発／AI自動化／データ可視化／SEO・AI検索／DXコンサルティング",
   },
   { label: "自社サービス", value: "KENBEI（現場管理Webサービス）" },
   { label: "お問い合わせ", value: siteConfig.email },

@@ -82,8 +82,6 @@ export function organizationJsonLd() {
     "Web Development",
     "System Development",
     "AI Automation",
-    "AI Agent Development",
-    "RAG / Knowledge AI",
     "Data / Dashboard",
     "SEO / AI Search Growth",
     "DX Consulting",

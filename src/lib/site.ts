@@ -9,11 +9,11 @@ export const siteConfig = {
     "Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナー",
   tagline: "Web × AI × System × Data — 企業の業務と集客を、実装まで伴走",
   description:
-    "Stark Lab（スタークラボ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務改善と集客を実装まで支援するDX/AI開発パートナーです。日本全国オンライン対応。",
+    "Stark Lab（スタークラボ）は、Web制作、業務システム、AI自動化、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務改善と集客を実装まで支援するDX/AI開発パートナーです。日本全国オンライン対応。",
   seoTitle:
     "スタークラボ（Stark Lab）｜DX/AI開発パートナー｜Web・システム・AI・データ（全国対応）",
   seoDescription:
-    "スタークラボ（Stark Lab／すたーくらぼ）は滋賀拠点のDX/AI開発パートナー。Web制作・業務システム・AI自動化・AIエージェント・RAG・データ可視化・SEOを、全国オンラインで実装まで伴走します。",
+    "スタークラボ（Stark Lab／すたーくらぼ）は滋賀拠点のDX/AI開発パートナー。Web制作・業務システム・AI自動化・データ可視化・SEOを、全国オンラインで実装まで伴走します。",
   entityStatement:
     "Stark Lab（スタークラボ／すたーくらぼ）は、Web・AI・業務システム・自動化・データ活用を統合するDX/AI開発パートナーです。",
   /** ブランド検索・構造化データ用の別名 */
@@ -48,7 +48,7 @@ export const siteConfig = {
   paymentMethod: "クレジットカード（Stripe）",
 } as const;
 
-/** 旧コンポーネント互換 — 8本柱へのマッピング表示用 */
+/** 旧コンポーネント互換 — サービス柱へのマッピング表示用 */
 export const offerings = [
   {
     id: "web",
@@ -64,16 +64,6 @@ export const offerings = [
     id: "ai-auto",
     title: "AI Automation",
     description: "問い合わせ・文書・定型業務のAI自動化",
-  },
-  {
-    id: "ai-agent",
-    title: "AI Agent",
-    description: "LLM + API + DB + Workflow の業務AIエージェント",
-  },
-  {
-    id: "rag",
-    title: "RAG / Knowledge AI",
-    description: "社内資料・図面・マニュアルのナレッジ検索",
   },
   {
     id: "data",
@@ -108,7 +98,7 @@ export const homeFaq = [
   {
     question: "スタークラボ（Stark Lab）とはどのような会社ですか？",
     answer:
-      "スタークラボ（Stark Lab／すたーくらぼ）は、Web制作、業務システム、AI自動化、AIエージェント、RAG、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。公式サイトは https://www.starklab.jp です。",
+      "スタークラボ（Stark Lab／すたーくらぼ）は、Web制作、業務システム、AI自動化、データ可視化、SEO/AI検索、DXコンサルを統合し、企業の業務と集客を実装まで支援するDX/AI開発パートナーです。公式サイトは https://www.starklab.jp です。",
   },
   {
     question: "Stark Labとスタークラボは同じですか？読み方は？",
@@ -142,8 +132,6 @@ export const contactTopics = [
   { value: "web-development", label: "Web制作について" },
   { value: "system-development", label: "業務システム・開発について" },
   { value: "ai-automation", label: "AI自動化について" },
-  { value: "ai-agent", label: "AIエージェント導入について" },
-  { value: "rag", label: "RAG・ナレッジAIについて" },
   { value: "data-dashboard", label: "データ・Dashboardについて" },
   { value: "seo-ai-search", label: "検索・AI流入・SEOについて" },
   { value: "dx-consulting", label: "DXコンサルについて" },
