@@ -3,6 +3,7 @@ import { Noto_Sans_JP, Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { Splash } from "@/components/Splash";
 import { AnalyticsBootstrap } from "@/components/analytics/AnalyticsBootstrap";
 import { Ga4Script } from "@/components/analytics/Ga4Script";
 import { siteConfig } from "@/lib/site";
@@ -101,9 +102,11 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
+      suppressHydrationWarning
       className={`${plusJakarta.variable} ${oswald.variable} ${notoSansJp.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        <Splash />
         <Ga4Script />
         <AnalyticsBootstrap />
         <ScrollProgress />
